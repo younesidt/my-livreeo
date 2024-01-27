@@ -1,0 +1,22 @@
+<template>
+    <div class="w-full mt-[24px] ">
+        <div class="flex md:flex-row flex-col-reverse justify-evenly items-center mx-auto w-full flex-wrap container mt-[24px] ">
+            <div class="md:w-1/2 w-full">
+                <p class="my-[24px] font-Poppins font-bold text-[50px] text-dark-blue"> La rentrée nouvelle génération</p>
+                <p class="font-Poppins my-[24px] text-dark-blue font-normal text-[21px] w-5/6"> Votre liste scolaire officielle livrée sans file d'attente. Toutes vos fournitures dans un seul colis, sans aucun souci</p>
+                <button class="bg-soft-dark-blue text-white-color font-Poppins font-semibold text-[22px] mt-[40px] px-[48px] py-[12px] rounded-full">Créez votre pack</button>
+            </div>
+            <div class="md:w-1/2 w-full">
+                <img src="../../assets/hero.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="w-full my-[67px] m-auto flex justify-center items-center" >
+            <div class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center">
+                <img src="../../assets/arraw.svg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+</template>
+<script setup>
+
+</script>
