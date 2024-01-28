@@ -1,13 +1,16 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import HomeView from './views/HomeView.vue';
-</script>
-
 <template>
-  <div  id="app" class="">
-      <router-view />
+  <div class="">
+    <CoponComponent/>
+    <NavBarComponent/>
+    <router-view />
   </div>
 </template>
+
+<script setup>
+import { RouterView } from 'vue-router';
+import NavBarComponent from './components/NavBarComponent.vue';
+import CoponComponent from './components/home/CoponComponent.vue';
+</script>
 
 <style scoped>
 

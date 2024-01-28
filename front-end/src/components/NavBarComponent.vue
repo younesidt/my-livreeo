@@ -1,17 +1,30 @@
 <template>
-    <div class="w-full md:h-[115px] shadow-lg shadow-black/50 sticky z-40 top-0 bg-white-color opacity-70 ">
-        <div class="md:h-[115px]  w-full container flex flex-row flex-wrap m-auto md:justify-between items-end pb-[24px]">
-            <div class="w-1/5">
-                <img src="../assets/navLogo.svg" alt="Logo">
+    <div class="w-full py-4 shadow-lg shadow-black/50 sticky z-40 top-0 bg-white-color">
+        <div class="w-full container flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="../assets/logo-liv.svg" class="w-[194px] h-[64px]" alt="Logo">
             </div>
-            <div class="w-3/5 hidden md:flex justify-between flex-wrap">
-                <ul class="w-full flex flex-row flex-wrap justify-between items-center pb-[12px] ">
-                    <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[16px] text-dark-blue  hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
+            <div class="hidden md:flex items-center mt-2">
+                <ul class="w-full flex items-center space-x-12">
+                    <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[16px] font-normal text-dark-blue hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
                 </ul>
             </div>
-            <div class="w-1/5 flex flex-row md:justify-between items-center sm:pb[24px] ">
-                <img src="../assets/sack.svg" alt="" srcset="" class="md:ml-[100px] m-0">
-                <img src="../assets/birgrbar.svg" alt="" srcset="">
+            <div class="flex items-center space-x-10">
+                <img src="../assets/sack.svg" class="cursor-pointer" alt="" srcset="">
+                <div class="bg-[#004079] hover:bg-[#005082] w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <g clip-path="url(#clip0_2353_3481)">
+                            <path d="M10.5 7.5L24.75 7.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 15H25" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.25 22.5H15" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2353_3481">
+                            <rect width="30" height="30" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
