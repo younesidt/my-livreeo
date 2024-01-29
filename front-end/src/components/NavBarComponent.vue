@@ -34,11 +34,35 @@
     <CartHomePage v-if="ShowCart" @closeC="hideCart" />
 </template>
 <script setup>
+import { ref } from 'vue';
+import ApropoCard from './home/ApropoCard.vue';
+import CartHomePage from './home/CartHomePage.vue';
+
+const ShowCard = ref(false);
+const ShowCart = ref(false);
+
+const showApropoCard = () => {
+    ShowCard.value = true;
+};
+
+const hideApropoCard = (obj) => {
+    ShowCard.value = false;
+}
+
+
+const showCart = () => {
+    ShowCart.value = true;
+};
+
+const hideCart = (obj) => {
+    ShowCart.value = false;
+}
+
 const navlinks = [
     {
         id : 1,
         title: 'Pack',
-        path: '/packs'
+        path: ''
     },
     {
         id : 2,
