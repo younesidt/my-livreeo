@@ -30,11 +30,12 @@
     </div>
 </template>
 <script setup>
+import { RouterView } from 'vue-router';
 const navlinks = [
     {
         id : 1,
         title: 'Pack',
-        path: ''
+        path: '/packs'
     },
     {
         id : 2,
