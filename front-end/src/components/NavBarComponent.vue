@@ -1,17 +1,17 @@
 <template>
-    <div class="w-full py-4 shadow-lg shadow-black/50 sticky z-40 top-0 bg-white-color">
+    <div class="w-full py-4 shadow-lg shadow-black/50 sticky z-40 top-0 bg-white-color backdrop-blur-xl">
         <div class="w-full container flex items-center justify-between">
             <div class="flex items-center">
                 <img src="../assets/logo-liv.svg" class="w-[194px] h-[64px]" alt="Logo">
             </div>
-            <div class="hidden md:flex items-center mt-2">
+            <div class="hidden xl:flex items-center mt-2">
                 <ul class="w-full flex items-center space-x-12">
-                    <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[16px] font-normal text-dark-blue hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
+                    <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[12px] xl:text-[13px] 2xl:text-[16px] font-normal text-dark-blue hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
                 </ul>
             </div>
             <div class="flex items-center space-x-10">
-                <img src="../assets/sack.svg" class="cursor-pointer" alt="" srcset="">
-                <div class="bg-[#004079] hover:bg-[#005082] w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
+                <img @click="showCart" src="../assets/sack.svg" class="cursor-pointer" alt="" srcset="">
+                <div @click="showApropoCard" class="bg-[#004079] hover:bg-[#005082] w-[40px] h-[40px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                         <g clip-path="url(#clip0_2353_3481)">
                             <path d="M10.5 7.5L24.75 7.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -28,8 +28,36 @@
             </div>
         </div>
     </div>
+
+    <ApropoCard v-if="ShowCard" @closeM="hideApropoCard" />
+
+    <CartHomePage v-if="ShowCart" @closeC="hideCart" />
 </template>
 <script setup>
+import { ref } from 'vue';
+import ApropoCard from './home/ApropoCard.vue';
+import CartHomePage from './home/CartHomePage.vue';
+
+const ShowCard = ref(false);
+const ShowCart = ref(false);
+
+const showApropoCard = () => {
+    ShowCard.value = true;
+};
+
+const hideApropoCard = (obj) => {
+    ShowCard.value = false;
+}
+
+
+const showCart = () => {
+    ShowCart.value = true;
+};
+
+const hideCart = (obj) => {
+    ShowCart.value = false;
+}
+
 const navlinks = [
     {
         id : 1,
@@ -59,3 +87,7 @@ const navlinks = [
 ]
 
 </script>
+
+<style scoped>
+
+</style>
