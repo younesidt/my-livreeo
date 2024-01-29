@@ -1,14 +1,31 @@
+// stores/counter.js
 import { defineStore } from 'pinia';
-export const useCityStor = defineStore('city', {
-    state : () => ({
-        count: 0,
+import axios from "axios";
 
-    }),
-    getters: {
-        // automatically infers the return type as a number
-        doubleCount(state) {
-          return state.count * 2
-        },
-        // the return type **must** be explicitly set
-      },
-  })
+export const useCurentCity = defineStore('curentcity', {
+  state: () => ({
+    citys:[],
+    selectedCity:[],
+    selectedCityId:0,
+
+  }),
+  //
+  getters:{
+    getCitss(state){
+      return state.citys
+    }
+  },
+  //
+  actions: {
+    async fetchCitys() {
+      try {
+        const data = await axios.get('http://livreeo.ma/API/public/api/shopping')
+          this.citys = data.data
+        }
+        catch (error) {
+          alert(error)
+          console.log(error)
+      }
+    }
+  },
+})
