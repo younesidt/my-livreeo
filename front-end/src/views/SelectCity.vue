@@ -24,6 +24,6 @@ const citys = computed(() => {
 onMounted(() => {
   store.fetchCitys();
 });
-const ville = 'ville';
-const event = store.selectCity()
+//const ville = 'ville';
+//const event = store.selectCity()
 </script>

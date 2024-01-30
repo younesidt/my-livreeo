@@ -10,6 +10,7 @@
     </div>
 
 </template>
+
 <script setup>
 import HeroSectionComponent from '../components/home/HeroSectionComponent.vue';
 import HowWorksComponent from '../components/home/HowWorksComponent.vue';

@@ -1,28 +1,33 @@
 <template>
     <div class="relative w-full py-44 flex items-center bg-gradient-to-l from-[#5680A6] to-dark-blue text-white-color overflow-hidden">
         <img src="../../src/assets/bg.svg" class="absolute inset-0 w-full h-full object-cover" alt="">
-        <div class="container flex-row md:flex w-full items-start justify-between">
-            <div class="pt-12">
-                <h2 class="text-[23.18px] font-medium mb-10">À PROPOS DE LIVRÉEO</h2>
-                <div class="flex flex-col space-y-3">
-                    <a href="/" class="text-white text-xl font-light">Qui sommes nous ?</a>
-                    <a href="/" class="text-white text-xl font-light">Livréeo créche</a>
-                    <a href="/" class="text-white text-xl font-light">Livréeo recrute</a>
-                </div>
+        <div class="container flex flex-col">
+            <div class="flex"> 
+                <img src="../assets/logofoot.svg" class="h-24" alt="logo">
             </div>
-            <div class="pt-12">
-                <h2 class="text-[23.18px] font-medium mb-10">SERVICE CLIENT</h2>
-                <div class="flex flex-col space-y-3">
-                    <a href="/" class="text-white text-xl font-light">Contactez-nous</a>
-                    <a href="/" class="text-white text-xl font-light">Modalité de livraison </a>
-                    <a href="/" class="text-white text-xl font-light">Politique de retour</a>
+            <div class="flex-row xl:flex items-start justify-between px-16">
+                <div class="pt-12">
+                    <h2 class="text-[23.18px] font-medium mb-10">À PROPOS DE LIVRÉEO</h2>
+                    <div class="flex flex-col space-y-3">
+                        <a href="/" class="text-white text-xl font-light">Qui sommes nous ?</a>
+                        <a href="/" class="text-white text-xl font-light">Livréeo créche</a>
+                        <a href="/" class="text-white text-xl font-light">Livréeo recrute</a>
+                    </div>
                 </div>
-            </div>
-            <div class="pt-12">
-                <h2 class="text-[23.18px] font-medium mb-10">INFORMATIONS</h2>
-                <div class="flex flex-col space-y-3">
-                    <a href="/" class="text-white text-xl font-light w-4/5">Conditions générales de ventes </a>
-                    
+                <div class="pt-12">
+                    <h2 class="text-[23.18px] font-medium mb-10">SERVICE CLIENT</h2>
+                    <div class="flex flex-col space-y-3">
+                        <a href="/" class="text-white text-xl font-light">Contactez-nous</a>
+                        <a href="/" class="text-white text-xl font-light">Modalité de livraison </a>
+                        <a href="/" class="text-white text-xl font-light">Politique de retour</a>
+                    </div>
+                </div>
+                <div class="pt-12">
+                    <h2 class="text-[23.18px] font-medium mb-10">INFORMATIONS</h2>
+                    <div class="flex flex-col space-y-3">
+                        <a href="/" class="text-white text-xl font-light w-4/5">Conditions générales de ventes </a>
+                        
+                    </div>
                 </div>
             </div>
         </div>

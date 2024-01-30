@@ -3,7 +3,7 @@
         <div>
             <p class="text-[#004079] md:mx-0 font-bold text-2xl md:text-4xl">FAQ</p>
         </div>
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-16 pb-4 w-full border-b-2 items-center border-dark-blue">
             <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
             <div class="w-3/4 md:w-full">
                 <p class="text-[13px] md:text-2xl text-normal pb-4 md:pb-8 text-[#004079]">Par quelle moyen obtenons nous les listes scolaires ?</p>
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
         <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
         <div class="w-3/4 md:w-full">
             <p class="text-[13px] md:text-2xl text-normal pb-4 md:pb-8 text-[#004079]">Qu'elle est le délais de livraison ? </p>
@@ -68,7 +68,7 @@
         </div>
         </div>
 
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
         <!-- <div class="relative flex justify-between pb-4"> -->
         <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
         <div class="w-3/4 md:w-full">
@@ -89,7 +89,7 @@
         </div>
         </div>
 
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
         <!-- <div class="relative flex justify-between pb-4"> -->
         <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
         <div class="w-3/4 md:w-full">
@@ -108,7 +108,7 @@
             </div>
         </div>
         </div>
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
             <!-- <div class="relative flex justify-between pb-4"> -->
             <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
             <div class="w-3/4 md:w-full">
@@ -127,7 +127,7 @@
             </div>
             </div>
         </div>
-        <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+        <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
             <!-- <div class="relative flex justify-between pb-4"> -->
             <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
             <div class="w-3/4 md:w-full">
@@ -147,7 +147,7 @@
             </div>
             </div>
 
-            <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+            <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
                 <!-- <div class="relative flex justify-between pb-4"> -->
                 <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
                 <div class="w-3/4 md:w-full">
@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="relative mt-6 md:mt-12 w-full border-b-2 items-center border-dark-blue">
+            <div class="relative mt-6 md:mt-12 pb-4 w-full border-b-2 items-center border-dark-blue">
                 <!-- <div class="relative flex justify-between pb-4"> -->
                 <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
                 <div class="w-3/4 md:w-full">
