@@ -1,9 +1,11 @@
 <template>
-    <div class="w-full py-4 shadow-lg shadow-black/50 sticky z-40 top-0 bg-white-color backdrop-blur-xl">
+    <div :class="{ 'shadow-scroll': isScrolled }" class="w-full py-4 sticky z-40 top-0 bg-white-color backdrop-blur-xl">
         <div class="w-full container flex items-center justify-between">
-            <div class="flex items-center">
-                <img src="../assets/logo-liv.svg" class="w-[194px] h-[64px]" alt="Logo">
-            </div>
+            <router-link to="/">
+                <div class="flex items-center">
+                    <img src="../assets/logo-liv.svg" class="w-[194px] h-[64px]" alt="Logo">
+                </div>
+            </router-link>
             <div class="hidden xl:flex items-center mt-2">
                 <ul class="w-full flex items-center space-x-12">
                     <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[12px] xl:text-[13px] 2xl:text-[16px] font-normal text-dark-blue hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
@@ -34,7 +36,7 @@
     <CartHomePage v-if="ShowCart" @closeC="hideCart" />
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import ApropoCard from './home/ApropoCard.vue';
 import CartHomePage from './home/CartHomePage.vue';
 
@@ -86,8 +88,29 @@ const navlinks = [
     }
 ]
 
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+    isScrolled.value = window.scrollY > 0;
+};
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
+
 </script>
 
 <style scoped>
+
+
+.shadow-scroll {
+    box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(7px);
+}
+
 
 </style>

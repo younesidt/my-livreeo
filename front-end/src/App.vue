@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="font-Poppins">
     <CoponComponent/>
     <NavBarComponent/>
     <router-view />
@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+
 import { RouterView } from 'vue-router';
 import NavBarComponent from './components/NavBarComponent.vue';
 import CoponComponent from './components/home/CoponComponent.vue';

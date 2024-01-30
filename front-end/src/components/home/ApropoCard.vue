@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[536px] h-screen bg-[#E1EEF8] fixed top-0 right-0 z-40 overflow-y-scroll no-scrollbar">
+    <div class="w-[536px] h-screen bg-[#E1EEF8] fixed top-0 right-0 z-40 overflow-y-scroll no-scrollbar ">
         <div class="w-full px-10 py-16 flex flex-col items-end space-y-[52px]">
             <div @click.prevent="callClose" class="w-[42px] h-[42px] flex items-center justify-center rounded-full border-4 border-dark-blue cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none">
@@ -19,26 +19,26 @@
                 <div class="flex flex-col space-y-4">
                     <h1 class="text-[19px] font-bold">À PROPOS DE LIVRÉEO</h1>
                     <div class="space-y-3">
-                        <p class="text-[19px] font-light">Livréeo recructe </p>
-                        <p class="text-[19px] font-light">Résponsabilité des entreprises </p>
-                        <p class="text-[19px] font-light">Parrainer-un-ami</p>
+                        <p class="text-[19px] font-light"><router-link to="/">Livréeo recructe </router-link></p>
+                        <p class="text-[19px] font-light"><router-link to="/">Résponsabilité des entreprises </router-link></p>
+                        <p class="text-[19px] font-light"><router-link to="/">Parrainer-un-ami</router-link></p>
                     </div>
                 </div>
 
                 <div class="flex flex-col space-y-4">
                     <h1 class="text-[19px] font-bold">Service Client</h1>
                     <div class="space-y-3">
-                        <p class="text-[19px] font-light">Contactez-nous</p>
-                        <p class="text-[19px] font-light">Modalité de livraison  </p>
-                        <p class="text-[19px] font-light">Politique de retour</p>
+                        <p class="text-[19px] font-light"><router-link to="/">Contactez-nous</router-link></p>
+                        <p class="text-[19px] font-light"><router-link to="/">Modalité de livraison  </router-link></p>
+                        <p class="text-[19px] font-light"><router-link to="/">Politique de retour</router-link></p>
                     </div>
                 </div>
 
                 <div class="flex flex-col space-y-4">
                         <h1 class="text-[19px] font-bold">Informations</h1>
                         <div class="space-y-5">
-                            <p class="text-[19px] font-light">Conditions générales de ventes </p>
-                            <p class="text-[19px] font-light">confidentialité et les Cookies</p>
+                            <p class="text-[19px] font-light"><router-link to="/">Conditions générales de ventes</router-link> </p>
+                            <p class="text-[19px] font-light"><router-link to="/">confidentialité et les Cookies</router-link></p>
                         </div>
                     </div>
                 
