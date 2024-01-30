@@ -3,10 +3,11 @@
         <TaglineComponent/>
         <div class="space-y-8">
             <StepComponentVue text="1. Dans quelle ville habitez vous ?"/>
-            <DropDownComponent/>
+            <DropDownComponent />
         </div>
-        <NextMoveComponent StepNum="1" AllSteps="4" NextStep="/" PrivusStep="/packs"/>
+        <NextMoveComponent StepNum="1" AllSteps="4" NextStep="/shoole" PrivusStep="/packs"/>
     </div>
+
 </template>
 <script setup>
 import TaglineComponent from '../components/shopping/TaglineComponent.vue';

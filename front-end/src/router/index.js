@@ -2,7 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue';
 import Pack from '../views/PacksView.vue';
-import City from '../views/SelectCity.vue'
+import City from '../views/SelectCity.vue';
+import Shoole from '../views/SelectShooleView.vue'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -20,6 +21,11 @@ const router = createRouter({
             path: '/city',
             name: 'city',
             component: City
+          },
+          {
+            path: '/shoole',
+            name: 'shoole',
+            component: Shoole
           },
     ]
   })
