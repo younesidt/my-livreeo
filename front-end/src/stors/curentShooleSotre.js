@@ -2,26 +2,26 @@
 import { defineStore } from 'pinia';
 import axios from "axios";
 import { useCurentCity } from '../stors/curntCityStor';
-const store = useCurentCity();
 export const useCurentShoole = defineStore('curentshoole', {
   state: () => ({
-    shoolse:[],
-    selectedShoole:[],
+    shooles:[],
+    selectedShoole:'shoole',
     selectedShooleId:0,
 
   }),
   //
   getters:{
     getCitss(state){
-      return [state.shoolse, state.selectedShoole, state.selectedShooleId ]
+      return [state.shooles, state.selectedShoole, state.selectedShooleId ]
     }
   },
   //
   actions: {
     async fetchCitys() {
+      const city = useCurentShoole();
       try {
-        const data = await axios.get('http://livreeo.ma/API/public/api/shopping'+store.selectedCityId)
-          this.shoole = data.data
+        const data = await axios.get('http://livreeo.ma/API/public/api/shopping/1')
+          this.shooles = data.data
         }
         catch (error) {
           alert(error)

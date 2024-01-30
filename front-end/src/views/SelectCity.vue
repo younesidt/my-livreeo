@@ -3,7 +3,7 @@
         <TaglineComponent/>
         <div class="space-y-8">
             <StepComponentVue text="1. Dans quelle ville habitez vous ?"/>
-            <DropDownComponent />
+            <DropDownComponent :Data="store.citys" :keyword="ville" :eventHundler="event"  />
         </div>
         <NextMoveComponent StepNum="1" AllSteps="4" NextStep="/shoole" PrivusStep="/packs"/>
     </div>
@@ -18,12 +18,14 @@ import { useCurentCity } from '../stors/curntCityStor';
 import { onMounted, computed } from "vue";
 
 const store = useCurentCity();
-const citys = computed(() => {
-  return store.citys;
+const shooles = computed(() => {
+  return store.shooles;
 });
 onMounted(() => {
   store.fetchCitys();
 });
 const ville = 'ville';
-const event = store.selectCity()
+const event = (item, index)=>{
+  store.selectCity(item, index)
+}
 </script>
