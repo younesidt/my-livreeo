@@ -11,8 +11,8 @@
             </div>
         </div>
         <div class="w-full my-[67px] m-auto flex justify-center items-center" >
-            <div class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center">
-                <img src="../../assets/arraw.svg" alt="" srcset="">
+            <div class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center cursor-pointer">
+                <img src="../../assets/arraw.svg" class="animate-bounce" alt="" srcset="">
             </div>
         </div>
     </div>

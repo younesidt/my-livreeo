@@ -22,8 +22,35 @@
             <div class="bg-white-color h-[417px] text-dark-blue w-full rounded-3xl py-6 px-8">
                 <h1 class="text-dark-blue text-xl font-bold leading-relaxed">Panier</h1>
             </div>
-            <div class="w-full h-[306px] bg-gradient-to-b from-white-color to-[#E5EBFF00] rounded-3xl py-6 px-8">
-                <h1 class="text-dark-blue text-xl font-bold leading-relaxed">Récapitulatif</h1>
+            <div class="w-full text-dark-blue bg-gradient-to-b from-white-color to-[#E5EBFF00] rounded-3xl py-6 px-4">
+                <h1 class="text-xl font-bold leading-relaxed">Récapitulatif</h1>
+                <div class="space-y-2 px-2">
+                    <div class="flex items-center justify-between pt-4">
+                        <p class="text-[16px] font-light leading-relaxed">Sous-total</p>
+                        <p class="text-center text-sky-900 text-[15px] font-bold leading-relaxed">3027,00 MAD</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-[16px] font-light leading-relaxed">Livraison</p>
+                        <p class="text-center text-sky-900 text-[15px] font-semibold leading-relaxed">Calculé à l'étape suivante</p>
+                    </div>
+                    <div class="px-1 pt-3">
+                        <hr>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-col items-start">
+                            <h1 class="text-[23px] font-bold leading-relaxed">Total</h1>
+                            <p class="text-[12px] leading-[13px] font-light">TVA incluse</p>
+                        </div>
+                        <div>
+                            <h3 class="text-center text-[18px] font-extrabold leading-relaxed">3027,00 MAD</h3>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-center justify-center pt-5">
+                        <button class="bg-dark-blue rounded-full text-white-color leading-normal py-1 px-16 text-[16px] font-light">Choisir un autre pack</button>
+                        <h3 class="text-base font-bold leading-relaxed">où</h3>
+                        <button class="bg-dark-blue rounded-full text-white-color leading-normal py-1 px-24 text-[20px] font-semibold">Valider mon panier</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

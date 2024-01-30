@@ -1,27 +1,22 @@
 <template>
-    <div claas="w-full h-auto ">
-        <div class="container mx-auto flex flex-row justify-between items-center h-1/2 absolute b-0">
-            <div class="w-1/4 flex justify-center  items-center">
-                <!-- <button><router-link :to="PrivusStep" >Retour</router-link></button> -->
-                <button class="md:py-[15px] md:px-[78px] py-[7px] px-[36px] text-center flex justify-center items-center border border-dark-blue rounded-full font-Poppins font-semibold text-[20px] text-dark-blue">
-                    <router-link :to="PrivusStep">Retour</router-link>
-                </button>
-            </div>
-            <div class="md:w-1/4 flex flex-row justify-between items-center">
-                <div class="w-full flex flex-row justify-between items-center">
-                    <div v-for="n in StepNum" class="md:w-[43px] w-[23px] md:h-[9px] h-[6px] bg-gradient-to-r from-[#6FC2FF] to-[#D9F4F3] rounded-full "></div>
-                    <div v-for="n in (AllSteps - StepNum)" class="md:w-[43px] w-[23px] md:h-[9px] h-[6px] bg-gradient-to-r from-[#f0f0f0] to-[#fff] rounded-full "></div>
-                </div>
-                <div class="font-Poppins font-medium text-dark-blue text-[20px]">{{ StepNum + "/" + AllSteps }}</div>
-            </div>
-            <div class="w-1/4 flex justify-center items-center">
-                <!-- <button><router-link :to="NextStep" >next</router-link></button> -->
-                <button class="md:py-[15px] md:px-[78px] py-[7px] px-[36px] text-center flex justify-center items-center bg-dark-blue rounded-full font-Poppins font-semibold text-[20px] text-white-color ">
-                    <router-link :to="NextStep" >next</router-link>
-                </button>
+    <div class="w-full flex items-center justify-evenly pt-20 pb-10 xl:pb-0">
+        <div>
+            <button class="border border-dark-blue rounded-full px-15 py-4 text-xl font-semibold leading-normal text-dark-blue"><router-link :to="PrivusStep" >Retour</router-link></button>
+        </div>
+        <div>
+            <div class="flex items-center space-x-3">
+                <div v-for="n in StepNum" class="bg-[#6FC2FF] w-[43px] h-2 rounded-full"></div>
+                <div v-for="n in (AllSteps - StepNum)" class="bg-[#D9F4F3] w-[43px] h-2 rounded-full"></div>
+                <p class="text-[21px] font-medium text-dark-blue">{{ StepNum + "/" + AllSteps }}</p>
             </div>
         </div>
+        <div>
+            <button class="bg-dark-blue rounded-full px-15 py-4 text-xl font-semibold leading-normal text-white-color"><router-link :to="NextStep">Suivant</router-link></button>
+        </div>
     </div>
+
+
+
 </template>
 <script setup>
 

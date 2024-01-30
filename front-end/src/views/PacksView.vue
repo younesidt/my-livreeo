@@ -1,21 +1,28 @@
 <template>
-    <div class="w-full h-fit flex flex-col justify-center items-center bg-[#F0F0F0]">
-        <div class="contianer flex-col h-full justify-center items-center pb-[40px]">
-            <div class="my-[70px] flex justify-center items-center">
-                <p class="font-Poppins font-bold text-dark-blue text-[41px]">Choisir son pack</p>
-            </div>
-            <div class="w-full flex md:flex-row flex-col  justify-between items-center">
-                <div v-for="pack in packs" :key="pack.id" class="w-full md:w-1/4 flex justify-center items-center flex-col">
-                    <img src="../assets/Boxe.svg" alt="" srcset="">
-                    <RouterLink to="/city">
-                        <button class="bg-dark-blue text-[17px] font-medium text-white-color h-[73px] py-3 rounded-full mt-7 flex flex-col justify-center items-center w-[260px]" @click="selectPack(pack, pack.id)">
-                            {{ pack.title }} <span class="font-Poppins font-light text-[14px]">{{ pack.description }}</span>
-                        </button>
-                    </RouterLink>
+    <div class="w-full bg-[#F0F0F0] min-h-screen">
+        <div class="container">
+            <div class="w-full flex flex-col items-center justify-center space-y-12">
+                <div class="flex justify-center items-center pt-16">
+                    <p class="font-bold text-dark-blue text-[30px] md:text-[41px]">Choisir son pack</p>
+                </div>
+                <div class="w-full flex flex-col md:flex-row items-start justify-center space-y-10 md:space-y-0 xl:space-x-16">
+                    <div v-for="pack in packs" :key="pack.id" class="w-full space-y-6 flex justify-center items-center flex-col">
+                        <img src="../assets/Boxe.webp" class="" alt="">
+                        <div class="w-full px-10">
+                            <RouterLink to="/city">
+                                <button :class="`bg-dark-blue text-[16px] xl:text-[26px] font-medium text-white-color w-full  rounded-full flex flex-col justify-center items-center ${pack.description == '' ? 'py-[22px]' :'py-3' }`" @click="selectPack(pack, pack.id)">
+                                    {{ pack.title }} 
+                                    <span class="font-light text-sm leading-normal">{{ pack.description }}</span>
+                                </button>
+                            </RouterLink>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 </template>
 <script setup>
 
