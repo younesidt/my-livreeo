@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,vue}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,vue}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   theme: {
     container: {
       center: true,
@@ -39,5 +43,6 @@ export default {
 
       addUtilities(newUtilities);
     },
+    require("flowbite/plugin"),
   ],
 };
