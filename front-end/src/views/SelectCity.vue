@@ -1,7 +1,7 @@
 <template>
     <TaglineComponent/>
     <StepComponentVue text="1. Dans quelle ville habitez vous ?"/>
-    <DropDownComponent :Data="citys" :keyword="ville"/>
+    <DropDownComponent :Data="citys" :keyword="ville" :eventHundler="event"/>
     <NextMoveComponent StepNum="1" AllSteps="4" NextStep="/" PrivusStep="/packs"/>
 </template>
 <script setup>
@@ -20,4 +20,5 @@ onMounted(() => {
   store.fetchCitys();
 });
 const ville = 'ville';
+const event = store.selectCity()
 </script>

@@ -26,6 +26,12 @@ export const useCurentCity = defineStore('curentcity', {
           alert(error)
           console.log(error)
       }
+    },
+    selectCity(cityselect, index){
+      this.selectedCity = cityselect;
+      this.selectedCityId = index;
+      console.log(index)
+      return{cityselect, index }
     }
   },
 })
