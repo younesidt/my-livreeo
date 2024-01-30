@@ -1,8 +1,10 @@
 <template>
+<div>
     <TaglineComponent/>
-    <StepComponentVue text="1. Dans quelle ville habitez vous ?"/>
+    <StepComponentVue text="2. Dans quelle école votre enfant est scolarisé ?"/>
     <DropDownComponent :Data="citys" :keyword="ville" :eventHundler="event"/>
-    <NextMoveComponent StepNum="1" AllSteps="4" NextStep="/shoole" PrivusStep="/packs"/>
+    <NextMoveComponent StepNum="2" AllSteps="4" NextStep="/" PrivusStep="/packs"/>
+</div>
 </template>
 <script setup>
 import TaglineComponent from '../components/shopping/TaglineComponent.vue';
@@ -11,14 +13,4 @@ import NextMoveComponent from '../components/shopping/NextMoveComponent.vue';
 import DropDownComponent from '../components/shopping/DropDownComponent.vue';
 import { useCurentCity } from '../stors/curntCityStor';
 import { onMounted, computed } from "vue";
-
-const store = useCurentCity();
-const citys = computed(() => {
-  return store.citys;
-});
-onMounted(() => {
-  store.fetchCitys();
-});
-const ville = 'ville';
-const event = store.selectCity()
 </script>
