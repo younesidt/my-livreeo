@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'shadow-scroll': isScrolled }" class="w-full py-4 sticky z-40 top-0 bg-white-color backdrop-blur-xl">
+    <div :class="{ 'shadow-scroll': isScrolled }" class="w-full py-4 sticky right-0 left-0 z-40 top-0 tw-backdrop-blur-md">
         <div class="w-full container flex items-center justify-between">
             <router-link to="/">
                 <div class="flex items-center">
@@ -106,7 +106,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
 
-
+.tw-backdrop-blur-md {
+    --tw-backdrop-blur: blur(12px);
+}
 .shadow-scroll {
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.16);
     backdrop-filter: blur(7px);
