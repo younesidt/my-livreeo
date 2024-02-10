@@ -4,9 +4,10 @@ import axios from "axios";
 
 export const useCurentCity = defineStore("curentcity", {
   state: () => ({
-    citys: [],
-    selectedCity: [],
-    selectedCityId: 0,
+    citys:[],
+    selectedCity:'vville',
+    selectedCityId:0,
+
   }),
   //
   getters: {

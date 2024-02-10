@@ -22,10 +22,11 @@
             <input type="text" id="input-group-search" class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Trouver une Ville">
           </div>
         </div>
-        <!-- <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSearchButton">
-          <li>
+        <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSearchButton">
+          <li  v-for="item in Data" :key="item.id">
             <div class="flex items-center ps-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-              <label for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">Casablanca</label>
+              <label v-if="keyword == 'ville'" for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">{{ item.ville }}</label>
+              <label v-if="keyword == 'shoole'" for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">{{ item.ecole }}</label>
             </div>
           </li>
           <li>

@@ -76,7 +76,7 @@ const navlinks = [
     {
         id : 3,
         title: 'Listes Scolaires',
-        path: ''
+        path: '/list'
     },
     {
         id : 4,
