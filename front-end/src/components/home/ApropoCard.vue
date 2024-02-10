@@ -28,7 +28,7 @@
                 <div class="flex flex-col space-y-4">
                     <h1 class="text-[19px] font-bold">Service Client</h1>
                     <div class="space-y-3">
-                        <p class="text-[19px] font-light"><router-link to="/">Contactez-nous</router-link></p>
+                        <p class="text-[19px] font-light"><router-link to="/contactez-nous">Contactez-nous</router-link></p>
                         <p class="text-[19px] font-light"><router-link to="/">Modalité de livraison  </router-link></p>
                         <p class="text-[19px] font-light"><router-link to="/">Politique de retour</router-link></p>
                     </div>
