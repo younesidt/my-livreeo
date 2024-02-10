@@ -6,10 +6,6 @@ import City from '../views/SelectCity.vue';
 import Shoole from '../views/SelectShooleView.vue';
 import List from '../views/SchooleListView.vue';
 import ListView from '../views/ListView.vue'
-import Home from '../views/HomeView.vue'
-import Pack from '../views/PacksView.vue'
-import City from '../views/SelectCity.vue'
-import Shoole from '../views/SelectShooleView.vue'
 import Contact from '../views/ContatcView.vue'
 
 const router = createRouter({
