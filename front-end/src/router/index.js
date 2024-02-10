@@ -45,30 +45,11 @@ const router = createRouter({
             name: 'list-view',
             component: ListView
           },
-          path: '/',
-          name: 'home',
-          component: Home
-        },
-        {
-          path: '/packs',
-          name: 'packs',
-          component: Pack
-        },
-        {
-          path: '/city',
-          name: 'city',
-          component: City
-        },
-        {
-          path: '/shoole',
-          name: 'shoole',
-          component: Shoole
-        },
-        {
-          path: '/contactez-nous',
-          name: 'contact',
-          component: Contact
-        },
+          {
+            path: '/contactez-nous',
+            name: 'contact',
+            component: Contact
+          },
     ]
   })
   
