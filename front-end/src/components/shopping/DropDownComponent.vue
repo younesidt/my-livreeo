@@ -23,9 +23,9 @@
           </div> -->
         </div>
         <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSearchButton">
-          <li  v-for="item in Data" :key="item.id" @click="eventHundler(item, item.id)">
+          <li  v-for="item in Data" :key="item.id">
             <div class="flex items-center ps-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-              <label v-if="keyword == 'ville'" for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">{{ item.ville }}</label>
+              <label v-if="keyword == 'ville'" for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded" @click="eventHundler(item.ville, item.id)">{{ item.ville }}</label>
               <label v-if="keyword == 'shoole'" for="checkbox-item-11" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">{{ item.ecole }}</label>
             </div>
           </li>
