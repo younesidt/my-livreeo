@@ -9,7 +9,9 @@
                 </router-link>
                 <div class="hidden xl:flex items-center mt-2">
                     <ul class="w-full flex items-center space-x-5 xl:space-x-8">
-                        <li v-for="link in navlinks" :key="link.id" class="font-poppins text-[13px] 2xl:text-[16px] font-normal text-dark-blue hover:border-b border-accent-color"><router-link :to="link.path">{{ link.title }}</router-link></li>
+                        <li v-for="link in navlinks" :key="link.id" :class="`text-[13px] 2xl:text-[16px] font-normal text-dark-blue transition duration-200 ease-in-out ${$route.name === link.title ? 'border-b-2 border-accent-color font-semibold' : 'hover:border-b-2 hover:border-accent-color'}`">
+                            <router-link :to="link.path">{{ link.title }}</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="flex items-center space-x-3 md:space-x-4 xl:space-x-6">
@@ -41,6 +43,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import ApropoCard from './home/ApropoCard.vue';
 import CartHomePage from './home/CartHomePage.vue';
+
 
 const ShowCard = ref(false);
 const ShowCart = ref(false);
@@ -86,9 +89,11 @@ const navlinks = [
     {
         id : 5,
         title: 'Suivre Ma Commande',
-        path: ''
-    }
+        path: '/suivre-commande'
+    },
 ]
+
+
 
 const isScrolled = ref(false);
 

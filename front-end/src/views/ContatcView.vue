@@ -1,10 +1,10 @@
 <template>
     <div class="container mx-auto max-w-7xl">
-        <div class="w-full flex flex-col xl:flex-row items-start justify-center px-4 md:px-8 xl:px-16 py-14 space-y-16 xl:space-y-0">
-            <div class="flex flex-col items-start w-full xl:w-1/2 text-dark-blue">
+        <div class="w-full flex flex-col xl:flex-row items-start justify-center px-6 md:px-8 xl:px-16 py-14 space-y-16 xl:space-y-0">
+            <div class="flex flex-col items-start w-full xl:w-1/2 text-dark-blue px-4 xl:px-0">
                 <div class="pb-14 md:pb-20 space-y-4">
                     <h2 class="text-xl md:text-3xl font-bold">Contactez-Nous</h2>
-                    <p class="text-xs md:text-sm font-normal md:w-3/4">
+                    <p class="text-xs md:text-sm font-normal w-3/4">
                         Si vous rencontrez des difficultés à passer votre commande
                         merci de nous <span class="font-bold">appeler sur le numéro</span> suivant:
                     </p>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="flex items-start justify-start space-x-1">
                         <img src="../assets/Location.svg" class="h-4 md:h-5" alt="Phone">
-                        <p class="text-sm md:text-base md:w-3/5">
+                        <p class="text-sm md:text-base xl:w-3/5">
                             Agroparc Km 5, Route d'Azemmour 
                             Dar Bouazza, Casablanca 20220. 
                         </p>
