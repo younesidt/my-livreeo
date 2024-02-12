@@ -19,7 +19,7 @@
                 <div class="flex flex-col space-y-5 lg:px-5">
                     <h1 class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</h1>
                     <div class="space-y-3">
-                        <p class="text-base 2xl:text-lg font-light"><router-link to="/">Livréeo recructe </router-link></p>
+                        <p class="text-base 2xl:text-lg font-light"><router-link to="/about/how-we-are">Livréeo recructe </router-link></p>
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/">Résponsabilité des entreprises </router-link></p>
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/">Parrainer-un-ami</router-link></p>
                     </div>
@@ -35,7 +35,7 @@
                 <div class="flex flex-col space-y-5 lg:px-5">
                     <h1 class="text-base 2xl:text-lg font-bold uppercase">Informations</h1>
                     <div class="space-y-5">
-                        <p class="text-base 2xl:text-lg font-light"><router-link to="/">Conditions générales de ventes</router-link> </p>
+                        <p class="text-base 2xl:text-lg font-light"><router-link to="/about/condition-general">Conditions générales de ventes</router-link> </p>
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/">confidentialité et les Cookies</router-link></p>
                     </div>
                 </div>

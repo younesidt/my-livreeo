@@ -12,7 +12,7 @@
     <!-- Dropdown menu -->
     <div id="dropdownSearch" class="z-10 hidden bg-[#DEEFF9] rounded-xl shadow w-[45%]">
         <div class="p-3">
-           <label for="input-group-search" class="sr-only">Trouver une ville</label>
+          <label for="input-group-search" class="sr-only">Trouver une ville</label>
           <div class="relative">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -33,8 +33,8 @@
             <div class="flex items-center ps-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
                 <label for="checkbox-item-12" class="w-full py-2 ms-2 text-sm font-medium text-dark-blue cursor-pointer rounded">Agadir</label>
             </div>
-          </li> 
-        </ul>
+          </li>
+          </ul>
         <ul class="h-48 px-3 pb-3 overflow-y-auto text-lg text-gray-700" aria-labelledby="dropdownSearchButton">
             <li v-for="ville in city.citys" :key="ville.id">
                 <div class="flex items-center ps-2  rounded hover:bg-gray-100 dark:hover:bg-gray-600">
