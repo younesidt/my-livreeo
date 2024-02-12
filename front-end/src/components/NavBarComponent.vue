@@ -121,5 +121,4 @@ onBeforeUnmount(() => {
     backdrop-filter: blur(7px);
 }
 
-
 </style>
