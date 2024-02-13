@@ -1,10 +1,10 @@
 <template>
-<div class="md:w-1/4 w-full my-[12px]">
-    <label for="countries" class="block mb-[30px] text-[22px] font-medium text-dark-blue font-Poppins dark:text-white">{{ labale }}</label>
-<select id="countries" class="bg-white-color/30 rounded-full border-2 border-black ring-2 ring-offset-0 ring-dark-blue text-[#6192BF]/30 text-[18px] font-Poppins font-medium block w-full p-4">
-<option selected>{{ text }}</option>
-<option value="US">United States</option>
-</select>
+<div class="flex flex-col space-y-4">
+    <label for="countries" class="text-base font-medium dark:text-white">{{ labale }}</label>
+    <select id="countries" class="rounded-full ring-2 ring-dark-blue focus:ring-4 focus:ring-dark-blue focus:outline-none text-[#6192BF] text-sm font-medium w-44 py-3">
+        <option selected>{{ text }}</option>
+        <option value="US">United States</option>
+    </select>
 </div>
 
 </template>
