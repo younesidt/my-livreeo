@@ -20,7 +20,7 @@
                     <h1 class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</h1>
                     <div class="space-y-3">
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/about/how-we-are">Livréeo recructe </router-link></p>
-                        <p class="text-base 2xl:text-lg font-light"><router-link to="/">Résponsabilité des entreprises </router-link></p>
+                        <p class="text-base 2xl:text-lg font-light"><router-link to="/about/livero-criche">Résponsabilité des entreprises </router-link></p>
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/">Parrainer-un-ami</router-link></p>
                     </div>
                 </div>
