@@ -1,9 +1,11 @@
 <template>
-<div>
+<div class="w-full container space-y-16">
     <TaglineComponent/>
+    <div class="space-y-8" >
     <StepComponentVue text="2. Dans quelle école votre enfant est scolarisé ?"/>
     <DropDownComponent :Data="shooles" :keyword="shoole" :eventHundler="event"/>
-    <NextMoveComponent StepNum="2" AllSteps="4" NextStep="/" PrivusStep="/packs"/>
+    </div>
+    <NextMoveComponent :StepNum="2" :AllSteps="4" NextStep="/" PrivusStep="/packs"/>
 </div>
 </template>
 <script setup>
