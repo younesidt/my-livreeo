@@ -84,7 +84,7 @@ const navlinks = [
     {
         id : 4,
         title: 'Partenariats Associatifs',
-        path: ''
+        path: '/about/partnerships'
     },
     {
         id : 5,
