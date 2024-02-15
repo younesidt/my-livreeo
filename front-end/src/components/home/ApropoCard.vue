@@ -29,7 +29,7 @@
                     <div class="space-y-3">
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/contactez-nous">Contactez-nous</router-link></p>
                         <p class="text-base 2xl:text-lg font-light"><router-link to="/">Modalité de livraison  </router-link></p>
-                        <p class="text-base 2xl:text-lg font-light"><router-link to="/">Politique de retour</router-link></p>
+                        <p class="text-base 2xl:text-lg font-light"><router-link to="/about/router-polic">Politique de retour</router-link></p>
                     </div>
                 </div>
                 <div class="flex flex-col space-y-5 lg:px-5">

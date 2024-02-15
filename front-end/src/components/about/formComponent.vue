@@ -4,10 +4,6 @@
         <div class="w-full md:w-1/2 text-dark-blue font-Poppins text-[26px] rounded-full md:px-0 px-[8px]">
             <Vueform 
             :presets="['semibold']"
-            :add-classes="{
-    TextElement: {
-      input: 'font-semibold'
-    }}"
 >
                 <TextElement class="rounded-full"
                 name="Nom de l’association "

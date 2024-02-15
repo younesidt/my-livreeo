@@ -12,6 +12,7 @@ import HowWeAre from '../views/about-views/HowWeAreView.vue'
 import SuivreCommande from '../views/SuivreCommande.vue'
 import Liveryocriche from '../views/about-views/LiveryocricheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
+import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -69,6 +70,11 @@ const router = createRouter({
           path: '/about/partnerships',
           name: 'partnerships',
           component: Partnerships
+        },
+        {
+          path: '/about/router-polic',
+          name: 'router-policy',
+          component: RouterPolicy
         },
         {
           path: '/suivre-commande',
