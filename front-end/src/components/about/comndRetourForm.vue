@@ -1,6 +1,6 @@
 <template>
     <div class="md:w-2/4 w-full">
-        <div class="w-full py-[28px] font-extrabold md:text-[23px] text-[12px]">Demande de retour ou d’échange</div>
+        <div class="w-full py-[28px] font-extrabold md:text-[23px] text-[12px]">Demande de retour ou d'échange</div>
         <div class="w-full text-dark-blue font-Poppins text-[26px] rounded-full md:px-0 px-[8px]">
             <Vueform>
                 <TextElement

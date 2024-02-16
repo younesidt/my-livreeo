@@ -5,7 +5,7 @@
             <div class="flex flex-1 flex-col items-start text-dark-blue px-6">
                 <h1 class="text-xl lg:text-3xl font-bold pb-6 lg:pb-10">Suivi Des Commandes</h1>
                 <h4 class="text-sm lg:text-base font-bold pb-6">Vous avez passé une commande auprès de Livréeo ? Merci !</h4>
-                <p class="text-xs  lg:text-sm font-medium">
+                <p class="text-xs lg:text-sm font-medium">
                     Vous trouverez ici toutes les informations importantes concernant votre commande.
                     Vous pouvez suivre l'état d'avancement de votre commande à tout moment, suivre facilement son statut.
                 </p>
