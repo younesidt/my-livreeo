@@ -13,6 +13,8 @@ import SuivreCommande from '../views/SuivreCommande.vue'
 import Liveryocriche from '../views/about-views/LiveryocricheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
 import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
+import Livreson from '../views/about-views/LivresonModalitiView.vue'
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -75,6 +77,11 @@ const router = createRouter({
           path: '/about/router-polic',
           name: 'router-policy',
           component: RouterPolicy
+        },
+        {
+          path: '/about/Livreson',
+          name: 'livreson',
+          component: Livreson
         },
         {
           path: '/suivre-commande',
