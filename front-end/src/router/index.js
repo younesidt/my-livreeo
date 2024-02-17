@@ -14,6 +14,7 @@ import Liveryocriche from '../views/about-views/LiveryocricheView.vue'
 import Partnerships from '../views/about-views/PartnershipsView.vue'
 import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
 import Livreson from '../views/about-views/LivresonModalitiView.vue'
+import StatutCommande from '../views/StatutCommande.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,6 +88,11 @@ const router = createRouter({
           path: '/suivre-commande',
           name: 'Suivre Ma Commande',
           component: SuivreCommande
+        },
+        {
+          path: '/statut-commande',
+          name: 'Statut Commande',
+          component: StatutCommande
         },
     ]
   })
