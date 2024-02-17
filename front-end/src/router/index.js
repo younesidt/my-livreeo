@@ -1,8 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue';
-import Pack from '../views/PacksView.vue';
-import City from '../views/SelectCity.vue';
 import Shoole from '../views/SelectShooleView.vue';
 import List from '../views/SchooleListView.vue';
 import ListView from '../views/ListView.vue'
@@ -23,21 +21,6 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: Home
-          },
-          {
-            path: '/packs',
-            name: 'Pack',
-            component: Pack
-          },
-          {
-            path: '/city',
-            name: 'city',
-            component: City
-          },
-          {
-            path: '/shoole',
-            name: 'shoole',
-            component: Shoole
           },
           {
             path: '/list',
