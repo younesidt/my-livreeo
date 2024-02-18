@@ -69,7 +69,7 @@ const navlinks = [
     {
         id : 1,
         title: 'Pack',
-        path: '/packs'
+        path: '/pack-selection'
     },
     {
         id : 2,

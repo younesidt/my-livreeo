@@ -1,9 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue';
-import Pack from '../views/PacksView.vue';
-import City from '../views/SelectCity.vue';
-import Shoole from '../views/SelectShooleView.vue';
+import PackSelection from '../views/packSelectionView.vue';
 import List from '../views/SchooleListView.vue';
 import ListView from '../views/ListView.vue'
 import Contact from '../views/ContatcView.vue'
@@ -24,20 +22,10 @@ const router = createRouter({
             name: 'home',
             component: Home
           },
-          {
-            path: '/packs',
-            name: 'Pack',
-            component: Pack
-          },
-          {
-            path: '/city',
-            name: 'city',
-            component: City
-          },
-          {
-            path: '/shoole',
-            name: 'shoole',
-            component: Shoole
+        {
+            path: '/pack-selection',
+            name: 'pack-selection',
+            component: PackSelection
           },
           {
             path: '/list',
