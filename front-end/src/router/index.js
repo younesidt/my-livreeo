@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue';
-import Shoole from '../views/SelectShooleView.vue';
+import PackSelection from '../views/packSelectionView.vue';
 import List from '../views/SchooleListView.vue';
 import ListView from '../views/ListView.vue'
 import Contact from '../views/ContatcView.vue'
@@ -21,6 +21,11 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: Home
+          },
+        {
+            path: '/pack-selection',
+            name: 'pack-selection',
+            component: PackSelection
           },
           {
             path: '/list',
