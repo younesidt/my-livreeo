@@ -1,21 +1,35 @@
 <template>
-    <div class="w-full">
-        <div class="mx-auto container flex flex-col justify-between items-center">
-            <div class="flex justify-center flex-col items-center font-Poppins">
-                <p class="font-semibold text-[41px] text-dark-blue uppercase">3 RAISONS</p>
-                <p class=" font-light text-[18px] text-light-blue">D'utiliser Livreeo.ma</p>
+    <div class="container mx-auto max-w-7xl">
+        <div class="w-full flex flex-col items-center justify-center pb-10 px-12">
+            <div class="flex flex-col items-center justify-center py-2 md:py-6">
+                <h1 class="text-soft-dark-blue text-xl md:text-3xl font-semibold">3 RAISONS</h1>
+                <p class="text-[10px] md:text-sm font-light leading-6 text-[#6192BF]">D'utiliser Livreeo.ma</p>
             </div>
-            <div class="w-full flex md:flex-row flex-col justify-between items-center my-[36px] font-Poppins">
-                <div class="md:w-1/4 h-auto w-3/4 flex flex-col justify-between items-center my-[36px] " v-for="item in content" :key="item.id">
-                    <img src="../../assets/simplicon.svg" alt="" srcset="" v-if="item.id == 1">
-                    <img src="../../assets/lamp.svg" alt="" srcset="" v-if="item.id == 2">
-                    <img src="../../assets/emojismiling.svg" alt="" srcset="" v-if="item.id == 3">
-                    <p class="font-medium text-[31px] text-dark-blue my-[31px]">{{ item.title }}</p>
-                    <p class="text-center w-full font-normal text-[18px] text-soft-dark-blue">{{ item.text }}</p>
+            <div class="w-full flex flex-col lg:flex-row items-center justify-between pt-6 lg:pt-12 gap-6 lg:gap-20">
+                <div class="w-full xl:w-1/3 flex flex-col items-center justify-center">
+                    <div class="flex flex-col items-center justify-center space-y-3 lg:space-y-6">
+                        <img src="../../assets/simplicon.svg" class="h-16 lg:h-24" alt="simple">
+                        <h3 class="text-lg md:text-xl text-dark-blue left-6 font-medium">Simple</h3>
+                        <p class="w-full sm:w-1/2 lg:w-full text-[#3273BA] text-center text-xs md:text-sm font-normal leading-4 md:leading-5 h-36 lg:h-44 pt-2 lg:pt-6">Avant pour préparer la rentrée, c'était un temps fou perdu dans les rayons et une attente interminable en caisse ! Avec Livréeo.ma, les courses pour la rentrée des classes de votre enfant se font en quelques clics.</p>
+                    </div>
+                </div>
+                <div class="w-full xl:w-1/3 flex flex-col items-center justify-center">
+                    <div class="flex flex-col items-center justify-center space-y-3 lg:space-y-6">
+                        <img src="../../assets/lamp.svg" class="h-16 lg:h-24" alt="lamp">
+                        <h3 class="text-lg md:text-xl text-dark-blue left-6 font-medium">Malin</h3>
+                        <p class="w-full sm:w-1/2 lg:w-full text-[#3273BA] text-center text-xs md:text-sm font-normal leading-4 md:leading-5 h-36 lg:h-44 pt-2 lg:pt-6">On a mis la main sur la liste des fournitures scolaires de votre enfant pour vous simplifier la vie à la rentrée. Dites-nous juste son école et sa classe, et on vous prépare le pack qui colle au plus près de sa liste. Vous nous remercierez plus tard !</p>   
+                    </div>
+                </div>
+                <div class="w-full xl:w-1/3 flex flex-col items-center justify-center">
+                    <div class="flex flex-col items-center justify-center space-y-3 lg:space-y-6">
+                        <img src="../../assets/emojismiling.svg" class="h-16 lg:h-24" alt="economique">
+                        <h3 class="text-lg md:text-xl text-dark-blue left-6 font-medium">Économique</h3>
+                        <p class="w-full sm:w-1/2 lg:w-full text-[#3273BA] text-center text-xs md:text-sm font-normal leading-4 md:leading-5 h-36 lg:h-44 pt-2 lg:pt-6">Nos packs ne sont pas uniquement pratiques, ils vous permettent aussi de faire des économies. Avec Livréeo.ma, vous bénéficierez toujours d'une sélection de produits et de marques référencées au meilleur rapport qualité-prix.</p>
+                    </div>
                 </div>
             </div>
-            <div class="my-[100px]">
-                <button class="bg-soft-dark-blue text-white-color font-Poppins font-semibold text-[22px] px-[48px] py-[12px] rounded-full">Je Commande</button>
+            <div class="w-full flex items-center justify-center pt-4">
+                <button class="text-[#FFFFFF] text-sm md:text-lg font-semibold bg-[#3273BA] hover:bg-[#3683d4dd] transition duration-200 ease-in-out px-6 py-3 rounded-full lg:mt-5">Je Commande</button>
             </div>
         </div>
     </div>
@@ -25,7 +39,7 @@ const content = [
     {
         id:1,
         title:'Simple ',
-        text:'Avant pour préparer la rentrée, c’était un temps fou perdu dans les rayons et une attente interminable en caisse ! Avec Livréeo.ma, les courses pour la rentrée des classes de votre enfant se font en quelques clics.',
+        text:'Avant pour préparer la rentrée, c était un temps fou perdu dans les rayons et une attente interminable en caisse ! Avec Livréeo.ma, les courses pour la rentrée des classes de votre enfant se font en quelques clics.',
     },
     {
         id:2,
@@ -35,7 +49,7 @@ const content = [
     {
         id:3,
         title:'Économique',
-        text:'Nos packs ne sont pas uniquement pratiques, ils vous permettent aussi de faire des économies. Avec Livréeo.ma, vous bénéficierez toujours d’une sélection de produits et de marques référencées au meilleur rapport qualité-prix.',
+        text:'Nos packs ne sont pas uniquement pratiques, ils vous permettent aussi de faire des économies. Avec Livréeo.ma, vous bénéficierez toujours d une sélection de produits et de marques référencées au meilleur rapport qualité-prix.',
     }
 ]
 </script>
