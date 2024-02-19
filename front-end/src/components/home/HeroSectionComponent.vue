@@ -1,18 +1,30 @@
 <template>
-    <div class="w-full">
-        <div class="container flex md:flex-row flex-col-reverse justify-evenly items-center mx-auto w-full flex-wrap mt-[24px] ">
-            <div class="px-10 md:px-0 md:w-1/2 w-full">
-                <p class="my-[24px] font-Poppins font-bold text-[30px] xl:text-[50px] text-dark-blue"> La rentrée nouvelle<br> génération</p>
-                <p class="font-Poppins my-[24px] text-dark-blue font-normal  text-[18px] xl:text-[21px] w-5/6"> Votre liste scolaire officielle livrée sans file d'attente. Toutes vos fournitures dans un seul colis, sans aucun souci</p>
-                <button class="bg-soft-dark-blue text-white-color font-Poppins font-semibold text-[18px] xl:text-[22px] mt-[20px] xl:mt-[40px] px-[30px] py-[8px] xl:px-[48px] xl:py-[12px] rounded-full">Créez votre pack</button>
+    <div class="container mx-auto max-w-7xl">
+        <div class="w-full flex flex-col md:flex-row items-center justify-center sm:px-6 xl:px-12">
+            <div class="w-full flex flex-col items-center md:items-start justify-center md:w-1/2 xl:w-2/5 space-y-6 md:space-y-8 pt-12 md:pt-0">
+                <h1 class="text-dark-blue text-[40px] leading-[45px] font-bold hidden md:block">
+                    La rentrée nouvelle génération
+                </h1>
+                <h1 class="text-dark-blue text-[30px] leading-[35px] font-bold text-center block md:hidden">
+                    La rentrée nouvelle génération
+                </h1>
+                <p class="text-dark-blue font-normal text-lg w-4/5 hidden md:block">
+                    Votre liste scolaire officielle livrée sans file d'attente. 
+                    Toutes vos fournitures dans un seul colis, sans aucun souci
+                </p>
+                <p class="text-dark-blue font-normal text-base text-center w-4/5 block md:hidden">
+                    Votre liste scolaire officielle livrée sans file d'attente. 
+                    Toutes vos fournitures dans un seul colis, sans aucun souci
+                </p>
+                <button class="bg-[#3273BA] text-white-color rounded-full py-3 px-6 xl:px-8 text-base xl:text-lg font-medium">Créez votre pack</button>
             </div>
-            <div class="px-8 md:px-0 md:w-1/2 w-full">
-                <img src="../../assets/hero.png" alt="" srcset="">
+            <div class="w-full md:w-1/2 xl:w-3/5 flex items-center justify-end py-6 md:py-0">
+                <img src="../../assets/Boxes.svg" class="h-[400px] xl:h-[500px]" alt="boxes">
             </div>
         </div>
-        <div class="w-full my-[67px] m-auto flex justify-center items-center" >
-            <div class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center cursor-pointer">
-                <img src="../../assets/arraw.svg" class="animate-bounce" alt="" srcset="">
+        <div class="w-full flex items-center justify-center">
+            <div class="flex items-center justify-center w-6 h-12 ring-1 ring-dark-blue rounded-full cursor-pointer hover:bg-[#eeeeee] transitio duration-200 ease-in-out">
+                <img src="../../assets/arraw.svg" class="h-5 w-5 animate-bounce" alt="arraw">
             </div>
         </div>
     </div>
@@ -20,3 +32,8 @@
 <script setup>
 
 </script>
+
+<style>
+
+
+</style>

@@ -1,11 +1,19 @@
 <template>
     <div class="font-Poppins">
-     <HeroSectionComponent/>
-     <HowWorksComponent/>
+        <div class="bg-[#F1F1F1]">
+            <HeroSectionComponent/>
+            <HowWorksComponent/>
+            <br>
+            <br>
+            <br>
+        </div>
+     
+     
+     <!-- <HowWorksComponent/>
      <CardsComponent/>
      <VedioComponent/>
      <WhayUsComponent/>
-     <FandAComponent/>
+     <FandAComponent/> -->
      <SiteMapComponent/> 
     </div>
 
