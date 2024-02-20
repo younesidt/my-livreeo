@@ -6,7 +6,7 @@
             <VedioComponent/>
         </div>
         <WhayUsComponent/>
-        <!-- <FandAComponent/> -->
+        <FandAComponent/>
      
         <br>
         <br>
