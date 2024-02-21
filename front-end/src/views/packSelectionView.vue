@@ -6,17 +6,17 @@
                     Pour génèrer les élément de <span class="underline text-soft-dark-blue font-semibold italic"> la liste scolaire officielle </span> de votre enfant, nous allons avoir besoin de quelques informations ! 
                 </p>
             </div>
-            <DropDownMenu/>
-            <DropDownMenu/>
-            <GridMenu/>
-            <GridMenu/>
+            <DropDownCity/>
+            <DropDownShoole/>
+            <GridMenuClass/>
             <NextMove/>
         </div>
     </div>
 </template>
 <script setup>
-import DropDownMenu from '../components/shopping/DropDownMenu.vue'
-import GridMenu from '../components/shopping/GridMenuComponent.vue'
+import DropDownCity from '../components/shopping/DropDownCity.vue'
+import DropDownShoole from '../components/shopping/DropDownShoole.vue'
+import GridMenuClass from '../components/shopping/GridMenuClass.vue'
 import NextMove from '../components/shopping/NextMoveComponent.vue'
 
 </script>
