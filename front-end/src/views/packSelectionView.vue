@@ -12,11 +12,12 @@
             <NextMove/>
         </div>
     </div>
+    <SiteMapComponentVue />
 </template>
 <script setup>
 import DropDownCity from '../components/shopping/DropDownCity.vue'
 import DropDownShoole from '../components/shopping/DropDownShoole.vue'
 import GridMenuClass from '../components/shopping/GridMenuClass.vue'
 import NextMove from '../components/shopping/NextMoveComponent.vue'
-
+import SiteMapComponentVue from '../components/SiteMapComponent.vue'
 </script>

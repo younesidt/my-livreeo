@@ -5,7 +5,7 @@
             <div class="flex"> 
                 <img src="../assets/logofoot.svg" class="h-[52px] md:h-[62px] 2xl:h-[74px]" alt="logo">
             </div>
-            <div class="w-full flex-row xl:flex items-start justify-between px-6 md:px-10">
+            <div class="w-full flex-row lg:flex items-start justify-between px-6 md:px-10">
                 <div class="pt-12">
                     <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">À PROPOS DE LIVRÉEO</h2>
                     <div class="flex flex-col space-y-3">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-[#BBD0E0] py-3 xl:py-6 2xl:py-8">
+    <div class="bg-[#BBD0E0] sm:py-3 xl:py-6 2xl:py-8">
         <div class="container max-w-7xl mx-auto flex items-center justify-center px-4">
             <div class="w-full flex items-center justify-between">
                 <div class="hidden md:flex items-center space-x-3">

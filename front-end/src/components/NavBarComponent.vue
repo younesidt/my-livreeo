@@ -4,7 +4,7 @@
             <div class="w-full flex items-center justify-between">
                 <router-link to="/">
                     <div class="flex items-center">
-                        <img src="../assets/logo-liv.svg" class="h-[42px] md:h-[52px] 2xl:h-[64px]" alt="Logo">
+                        <img src="../assets/logo-liv.svg" class="h-[32px] md:h-[52px] 2xl:h-[64px]" alt="Logo">
                     </div>
                 </router-link>
                 <div class="hidden xl:flex items-center mt-2">
@@ -15,9 +15,9 @@
                     </ul>
                 </div>
                 <div class="flex items-center space-x-3 md:space-x-4 xl:space-x-6">
-                    <img @click="showCart" src="../assets/sack-icon.svg" class="cursor-pointer w-8 2xl:w-10" alt="" srcset="">
-                    <div @click="showApropoCard" class="bg-[#004079] hover:bg-[#005082] w-[40px] h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[25px] h-[25px] 2xl:w-[30px] 2xl:h-[30px]" viewBox="0 0 30 30" fill="none">
+                    <img @click="showCart" src="../assets/sack-icon.svg" class="cursor-pointer w-6 md:w-8 2xl:w-10" alt="" srcset="">
+                    <div @click="showApropoCard" class="bg-[#004079] hover:bg-[#005082] w-[30px] h-[30px] md:w-[40px] md:h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] md:w-[25px] md:h-[25px] 2xl:w-[30px] 2xl:h-[30px]" viewBox="0 0 30 30" fill="none">
                             <g clip-path="url(#clip0_2353_3481)">
                                 <path d="M10.5 7.5L24.75 7.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M5 15H25" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>

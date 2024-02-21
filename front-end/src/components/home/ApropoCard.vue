@@ -2,18 +2,7 @@
     <div class="w-full xl:w-1/3 2xl:w-1/4 h-screen bg-[#E1EEF8] fixed top-0 right-0 z-40 overflow-y-scroll no-scrollbar px-4 py-6">
         <div class="w-full flex flex-col items-end lg:px-6 lg:py-4">
             <div @click.prevent="callClose" class="w-9 h-9 2xl:w-[42px] 2xl:h-[42px] mb-8 flex items-center justify-center rounded-full border-[3px] 2xl:border-4 border-dark-blue hover:bg-[#f4faffd0] transition duration-200 ease-in-out cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 2xl:h-8" viewBox="0 0 24 28" fill="none">
-                    <g clip-path="url(#clip0_2358_4948)">
-                    <path d="M5 14L19 14" stroke="#5A7BA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 9.33333L5 14" stroke="#5A7BA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 18.666L5 13.9993" stroke="#5A7BA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_2358_4948">
-                    <rect width="28" height="24" fill="white" transform="translate(0 28) rotate(-90)"/>
-                    </clipPath>
-                    </defs>
-                </svg>
+                <img src="../../assets/close.svg" alt="close">
             </div>
             <div class="bg-white-color text-dark-blue w-full rounded-3xl px-5 py-8 space-y-8">
                 <div class="flex flex-col space-y-5 lg:px-5">
