@@ -17,12 +17,12 @@ import StatutCommande from '../views/StatutCommande.vue'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        {
+          {
             path: '/',
             name: 'home',
             component: Home
           },
-        {
+          {
             path: '/pack-selection',
             name: 'pack-selection',
             component: PackSelection
