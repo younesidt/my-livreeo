@@ -2,10 +2,10 @@ import { defineStore } from 'pinia';
 import axios from "axios"
 import { useShooleStore } from "./cshooleStore"
 import {  useClassStore } from "./classStore"
-
+import { useLangeStore } from "./langeStore"
 export const useCityStore = defineStore('citys', {
 
-    state: () => ({ count: 0, citys:[], selectedCity:{}, idselected:1, shoole: useShooleStore(), class: useClassStore() }),
+    state: () => ({ count: 0, citys:[], selectedCity:{}, idselected:1, shoole: useShooleStore(), class: useClassStore(),lange: useLangeStore(), }),
 
     getters: {
         getCitys(state){
@@ -30,6 +30,7 @@ export const useCityStore = defineStore('citys', {
             this.idselected = value
             this.shoole.fetchsShoole();
             this.class.fetchClass();
+            this.lange.fetchLange();
             console.log(this.idselected)
             return ( this.idselected)
           }

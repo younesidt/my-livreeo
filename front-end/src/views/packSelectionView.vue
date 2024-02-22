@@ -9,6 +9,7 @@
             <DropDownCity/>
             <DropDownShoole/>
             <GridMenuClass/>
+            <GridMenuLang/>
             <NextMove/>
         </div>
     </div>
@@ -18,6 +19,7 @@
 import DropDownCity from '../components/shopping/DropDownCity.vue'
 import DropDownShoole from '../components/shopping/DropDownShoole.vue'
 import GridMenuClass from '../components/shopping/GridMenuClass.vue'
+import GridMenuLang from '../components/shopping/GridMenuLangs.vue'
 import NextMove from '../components/shopping/NextMoveComponent.vue'
 import SiteMapComponentVue from '../components/SiteMapComponent.vue'
 </script>
