@@ -16,7 +16,8 @@
                 </div>
                 <div class="flex items-center space-x-3 md:space-x-4 xl:space-x-6">
                     <img @click="showCart" src="../assets/sack-icon.svg" class="cursor-pointer w-6 md:w-8 2xl:w-10" alt="" srcset="">
-                    <div @click="showApropoCard" class="bg-[#004079] hover:bg-[#005082] w-[30px] h-[30px] md:w-[40px] md:h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
+                    
+                    <div @click="isOpen = true" class="bg-[#004079] hover:bg-[#005082] w-[30px] h-[30px] md:w-[40px] md:h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] md:w-[25px] md:h-[25px] 2xl:w-[30px] 2xl:h-[30px]" viewBox="0 0 30 30" fill="none">
                             <g clip-path="url(#clip0_2353_3481)">
                                 <path d="M10.5 7.5L24.75 7.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -35,35 +36,18 @@
         </div>
     </nav>
 
-    <ApropoCard v-if="ShowCard" @closeM="hideApropoCard" />
-
-    <CartHomePage v-if="ShowCart" @closeC="hideCart" />
+    <headlessui :is-open="isOpen" @toggle="(value) => isOpen = value"/>
+    <CartHomePage :is-open="isOpenCart" @toggle="(value) => isOpenCart = value"/>
 </template>
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import ApropoCard from './home/ApropoCard.vue';
-import CartHomePage from './home/CartHomePage.vue';
+import CartHomePage from '../components/home/CartHomePage.vue';
+import headlessui from './headlessui.vue';
 
+const isOpen = ref(false)
 
-const ShowCard = ref(false);
-const ShowCart = ref(false);
+const isOpenCart = ref(false);
 
-const showApropoCard = () => {
-    ShowCard.value = true;
-};
-
-const hideApropoCard = (obj) => {
-    ShowCard.value = false;
-}
-
-
-const showCart = () => {
-    ShowCart.value = true;
-};
-
-const hideCart = (obj) => {
-    ShowCart.value = false;
-}
 
 const navlinks = [
     {
