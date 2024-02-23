@@ -46,7 +46,6 @@ export default {
 
       addUtilities(newUtilities);
     },
-    require("flowbite/plugin"),
     require('@vueform/vueform/tailwind'),
   ],
 };
