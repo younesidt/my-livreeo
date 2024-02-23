@@ -15,9 +15,11 @@
                     </ul>
                 </div>
                 <div class="flex items-center space-x-3 md:space-x-4 xl:space-x-6">
-                    <img @click="showCart" src="../assets/sack-icon.svg" class="cursor-pointer w-6 md:w-8 2xl:w-10" alt="" srcset="">
+                    <div @click="setOpen('panier')" class="flex items-center justify-center">
+                        <img src="../assets/sack-icon.svg" class="cursor-pointer w-6 md:w-8 2xl:w-10" alt="" srcset="">
+                    </div>
                     
-                    <div @click="isOpen = true" class="bg-[#004079] hover:bg-[#005082] w-[30px] h-[30px] md:w-[40px] md:h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
+                    <div @click="setOpen('menu')" class="bg-[#004079] hover:bg-[#005082] w-[30px] h-[30px] md:w-[40px] md:h-[40px] 2xl:w-[60px] 2xl:h-[60px] rounded-full flex items-center justify-center cursor-pointer transition duration-200 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px] md:w-[25px] md:h-[25px] 2xl:w-[30px] 2xl:h-[30px]" viewBox="0 0 30 30" fill="none">
                             <g clip-path="url(#clip0_2353_3481)">
                                 <path d="M10.5 7.5L24.75 7.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,17 +38,22 @@
         </div>
     </nav>
 
-    <headlessui :is-open="isOpen" @toggle="(value) => isOpen = value"/>
-    <CartHomePage :is-open="isOpenCart" @toggle="(value) => isOpenCart = value"/>
+    <SeconMenu :is-open="isOpen" :typeMod="typeMod" @toggle="(value) => isOpen = value"/>
+
 </template>
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import CartHomePage from '../components/home/CartHomePage.vue';
-import headlessui from './headlessui.vue';
+import SeconMenu from './home/SecondMenu.vue';
 
 const isOpen = ref(false)
+const typeMod = ref('')
 
-const isOpenCart = ref(false);
+const setOpen = (type) => {
+  isOpen.value = true;
+  typeMod.value = type;
+}
+
+// const isOpenCart = ref(false)
 
 
 const navlinks = [

@@ -11,9 +11,9 @@
                 </p>
                 <div class="space-y-4 lg:space-y-6 pt-6 lg:pt-12">
                     <p class="text-base lg:text-xl font-medium">Numéro de commande</p>
-                    <input type="text" class="h-8 lg:h-12 ring-[3px] ring-dark-blue focus:ring-4 focus:ring-dark-blue focus:outline-none rounded-xl placeholder:text-[#EBEBEB] text-dark-blue" placeholder="N°">
+                    <input type="text" class="h-8 lg:h-12 ring-[3px] ring-dark-blue focus:ring-4 focus:ring-dark-blue focus:outline-none rounded-full placeholder:text-[#EBEBEB] text-dark-blue pl-4" placeholder="N°">
                     <div type="button" class="flex w-fit pt-2 lg:pt-5">
-                        <div class="flex items-center justify-between bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out font-light text-base md:text-lg text-white-color px-3 md:px-4 py-1.5 md:py-2 rounded-xl">
+                        <div class="flex items-center justify-between cursor-pointer bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out font-light text-base md:text-lg text-white-color px-3 md:px-4 py-1.5 md:py-2 rounded-full">
                             <span>Suivant</span>
                             <img src="../assets/right.svg" class="h-6 md:h-8" alt="">
                         </div>

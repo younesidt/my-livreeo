@@ -4,7 +4,7 @@
             <p class="text-soft-dark-blue text-xl md:text-3xl font-semibold">FAQ</p>
         </div>
         <div class="w-full flex items-center justify-center">
-            <div class="w-full md:w-3/4 flex flex-col items-center justify-center px-6">
+            <div class="w-full md:w-4/5 flex flex-col items-center justify-center px-6">
                 <div class="relative mt-6 md:mt-16 lg:pb-2 w-full border-b-[1px] items-center border-dark-blue">
                     <input type="checkbox" class="peer w-6 h-6 md:w-12 md:h-12 absolute right-0 opacity-0 z-10 cursor-pointer">
                     <div class="w-3/4 md:w-full">
