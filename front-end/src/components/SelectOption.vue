@@ -1,8 +1,12 @@
 <template>
     <Listbox @update:modelValue="value => emit('update:modelValue', value)" :model-value="props.modelValue">
-        <div class="relative w-3/4 mt-1">
-            <ListboxButton class="w-full cursor-pointer rounded-full text-sm md:text-base font-medium bg-[#E4F3FF] focus:outline-none py-5 pl-6 text-left border border-[#1E94FD] focus-visible:border-[#1E94FD] focus-visible:ring-2">
+        <div class="relative w-3/4">
+            <ListboxButton v-if="props.namechamp === 'ville'" class="w-full cursor-pointer rounded-full text-sm md:text-base font-medium bg-[#E4F3FF] focus:outline-none py-5 pl-6 text-left border border-[#1E94FD] focus-visible:border-[#1E94FD] focus-visible:ring-2">
                 <span v-if="label" class="block truncate">{{ label }}</span>
+                <span v-else>{{ props.placeholder }}</span>
+            </ListboxButton>
+            <ListboxButton v-if="props.namechamp === 'ecole'" :class="`${mystore.SelectedCity === null ? 'bg-[#F0F9FF] focus:outline-none border border-[#F0F9FF] focus-visible:border-[#F0F9FF] text-[#6192BF] cursor-default pointer-events-none':'bg-[#E4F3FF] focus:outline-none border border-[#1E94FD] focus-visible:border-[#1E94FD] cursor-pointer'} w-full rounded-full text-sm md:text-base font-medium py-5 pl-6 text-left focus-visible:ring-2`">
+                <span v-if="label_two" class="block truncate">{{ label_two }}</span>
                 <span v-else>{{ props.placeholder }}</span>
             </ListboxButton>
 
@@ -16,8 +20,8 @@
                 <ListboxOption 
                 v-slot="{ active, selected }"
                 v-for="option in props.options"
-                :key="option.label"
-                :value="option.value"
+                :key="props.namechamp === 'ville' ? option.ville : option.ecole"
+                :value="option.id"
                 as="template"
                 >
                 <li
@@ -31,7 +35,7 @@
                         selected ? 'font-bold' : 'font-normal',
                         'block truncate',
                     ]"
-                    >{{ option.label }}</span
+                    >{{ props.namechamp === 'ville' ? option.ville : option.ecole }}</span
                     >
                     <span
                     v-if="selected"
@@ -47,6 +51,7 @@
 </template>
 
 <script setup>
+import { useFirstStepStore } from '../stors/FirstStepStore';
 import { ref,computed } from 'vue'
 import {
   Listbox,
@@ -56,20 +61,26 @@ import {
   ListboxOption,
 } from '@headlessui/vue'
 
+const mystore = useFirstStepStore();
+
 const props = defineProps({
     options: Array,
+    namechamp: String,
     modelValue: [String, Number],
     placeholder: {
         type: String,
         default: "Select Option"
     },
-    city: Number,
 });
 
 const emit = defineEmits(['update:modelValue']);
 
 const label = computed(() => {
-    return props.options.find(option => option.value === props.modelValue)?.label; 
+    return props.options.find(option => option.id === props.modelValue)?.ville; 
+})
+
+const label_two = computed(() => {
+    return props.options.find(option => option.id === props.modelValue)?.ecole; 
 })
 
 </script>

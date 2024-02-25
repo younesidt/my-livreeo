@@ -14,7 +14,7 @@
         </TransitionChild>
 
         <div class="w-full h-screen fixed inset-0 top-0 overflow-y-scroll no-scrollbar font-Poppins backdrop-blur-sm"><!--bg-[rgb(188,188,188)]  bg-opacity-50-->
-            <div class="w-full absolute top-0 right-0 xl:w-1/3 2xl:w-1/4 bg-[rgb(225,238,248)] px-4 py-6">
+            <div class="w-full min-h-screen absolute top-0 right-0 xl:w-1/3 2xl:w-1/4 bg-[rgb(225,238,248)] px-4 py-6">
                 <TransitionChild
                   as="template"
                   enter="transition-opacity duration-300 ease-linear"
