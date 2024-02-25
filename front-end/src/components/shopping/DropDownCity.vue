@@ -1,5 +1,5 @@
 <template>
-    <div class="py-[17px] md:py-[40px]">
+    <!-- <div class="py-[17px] md:py-[40px]">
             <p class="font-bold text-dark-blue md:text-[23px] text-[13px]">
                 1. Dans quelle ville habitez vous ?
             </p>
@@ -8,7 +8,16 @@
                     <option v-for="city in citys" :value="city.id" class="bg-none" @click="">{{ city.ville }}</option>
                 </select>
             </div>
-        </div>
+        </div> -->
+        <!-- <div class="w-full flex flex-col items-start justify-start space-y-5 pt-10">
+                    <h3 class="text-sm md:text-lg font-bold pl-4">1. Dans quelle ville habitez vous ?</h3>
+                     DropDown (HeadlesUi) -->
+                    <!-- <SelectOption
+                    placeholder="Select Ville"
+                    v-model="city_id" 
+                    :options="store.citys"
+                    :label="ville"/> -->
+                <!-- </div> -->
 </template>
 
 <script setup>
