@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-white-color w-full md:w-2/4 h-screen rounded-3xl p-4 flex flex-col items-start">
+    <div class="bg-white-color w-full md:w-2/4 md:h-screen rounded-3xl p-4 flex flex-col items-start ">
         <div class="w-full text-dark-blue font-bold text-[25px] md:text-[55px] p-4">Panier </div>
-        <div class="h-[80%] overflow-auto overscroll-y-auto w-full">
+        <div class="md:h-[80%] overflow-auto overscroll-y-auto w-full">
             <div class="w-full flex flex-row justify-evenly items-center">
                 <img width="25%">
                 <div class="flex flex-col ">

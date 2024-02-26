@@ -22,9 +22,9 @@
                                 <p class=" font-semibold  text-[20px]">35.0000 MAD</p>
                             </div>
                             <div class="w-full flex flex-col justify-between items-center py-4">
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full text-[18px] font-semibold my-4">Valider mon panier</button>
+                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full text-[11px] md:text-[18px] font-semibold my-4">Valider mon panier</button>
                                 <p>où </p>
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-light text-[16px]">Choisir un autre packr</button>
+                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-light md:text-[16px] text-[10px]">Choisir un autre packr</button>
                             </div>
                         </div>
                     </div>
