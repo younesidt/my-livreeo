@@ -3,7 +3,7 @@
     --secondary:#6192BF;
   }
 @tailwind base;
-* {
+.scrole{
     scrollbar-width: thin;
     scrollbar-color: var(--secondary) var(--primary);
     scrollbar-gutter: stable both-edges;
