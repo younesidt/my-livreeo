@@ -1,75 +1,85 @@
 <template>
-    <RadioGroup v-model="selected">
+    <RadioGroup :model-value="props.modalClass">
         <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
-        <div class="flex space-y-2">
+        <div class="grid grid-cols-4 gap-x-10 gap-y-5">
           <RadioGroupOption
+            v-if="props.options.length == 0"
             as="template"
             v-for="classe in classes"
             :key="classe.nom"
             :value="classe.id"
-            v-slot="{ active, checked }"
           >
             <div
-              :class="[
-                active
-                  ? 'ring-2 ring-white/60 ring-offset-2 ring-offset-sky-300'
-                  : '',
-                checked ? 'bg-sky-900/75 text-white ' : 'bg-white ',
-              ]"
-              class="relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
+              class="relative flex cursor-default pointer-events-none blur-[2px] rounded-full min-w-48 pt-1.5 focus:outline-none border-[3px] border-[#E8E8E8] transition duration-200 ease-in-out"
             >
-              <div class="flex w-full items-center justify-between">
-                <div class="flex items-center">
-                  <div class="text-sm">
+                <div class="w-full flex items-center justify-center">
+                  <div class="text-center space-y-0">
                     <RadioGroupLabel
                       as="p"
-                      :class="checked ? 'text-white' : 'text-gray-900'"
-                      class="font-medium"
+                    class="text-[#6192BF] text-base font-medium transition duration-200 ease-in-out"
                     >
                       {{ getFirstLettersUppercase(classe.nom) }}
                     </RadioGroupLabel>
                     <RadioGroupDescription
                       as="span"
-                      :class="checked ? 'text-sky-100' : 'text-gray-500'"
-                      class="inline"
-                    >
-                      
+                      class="text-[#6192BF] text-xs font-medium inline-block align-text-top transition duration-200 ease-in-out">
                       <span>{{ classe.nom }}</span>
                     </RadioGroupDescription>
                   </div>
                 </div>
-                <div v-show="checked" class="shrink-0 text-white">
-                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="12"
-                      fill="#fff"
-                      fill-opacity="0.2"
-                    />
-                    <path
-                      d="M7 13l3 3 7-7"
-                      stroke="#fff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
+            </div>
+          </RadioGroupOption>
+
+          <RadioGroupOption
+            as="template"
+            v-for="classe in props.options"
+            :key="classe.id"
+            :value="classe.id"
+            v-slot="{ checked }"
+          >
+            <div
+              :class="[
+                checked ? 'bg-[#E4F3FF] border border-[#1E94FD]' : 'border-[3px] border-[#E8E8E8]',
+              ]"
+              class="relative flex cursor-pointer rounded-full min-w-48 pt-1.5 focus:outline-none transition duration-200 ease-in-out"
+            >
+                <div class="w-full flex items-center justify-center">
+                  <div class="text-center space-y-0">
+                    <RadioGroupLabel
+                      as="p"
+                      :class="checked ? 'text-dark-blue text-base font-semibold' : 'text-[#6192BF] text-base font-medium'"
+                      class="transition duration-200 ease-in-out"
+                    >
+                      {{ getFirstLettersUppercase(classe.nom) }}
+                    </RadioGroupLabel>
+                    <RadioGroupDescription
+                      as="span"
+                      :class="checked ? 'text-dark-blue text-xs font-semibold inline-block align-text-top ' : 'text-[#6192BF] text-xs font-medium inline-block align-text-top'"
+                      class="transition duration-200 ease-in-out"
+                    >
+                      <span>{{ classe.nom }}</span>
+                    </RadioGroupDescription>
+                  </div>
                 </div>
-              </div>
             </div>
           </RadioGroupOption>
         </div>
       </RadioGroup>
 </template>
 <script setup>
-import { ref } from 'vue'
 import {
   RadioGroup,
   RadioGroupLabel,
   RadioGroupDescription,
   RadioGroupOption,
 } from '@headlessui/vue'
+
+const props = defineProps({
+  options: Array,
+  modalClass: [String, Number]
+})
+
+
 
 const classes = [
   {
@@ -90,15 +100,21 @@ const classes = [
   },
   {
     id: 5,
-    nom: '5ème année primaire',
+    nom: '5ème Année primaire',
   },
   {
     id: 6,
     nom: '6ème année primaire',
   },
+  {
+    id: 7,
+    nom: '1ère année primaire',
+  },
+  {
+    id: 8,
+    nom: '2ème année primaire',
+  },
 ]
-
-const selected = ref(classes[0])
 
 function getFirstLettersUppercase(input) {
   const words = input.split(/\s+/);
