@@ -9,15 +9,17 @@
                     <SelectOption
                     placeholder="Select Ville"
                     v-model="city_id" 
-                    :options="citys"/>
+                    :options="mystore.getCitys"
+                    namechamp="ville"
+                    />
                 </div>
                 <div class="w-full flex flex-col items-start justify-start space-y-6 pt-12">
                     <h3 class="text-sm md:text-lg font-bold pl-4">2. Dans quelle école votre enfant est scolarisé ?</h3>
                     <SelectOption 
                     placeholder="Select école"
                     v-model="school_id"
-                    :city="city_id"
-                    :options="schools"/>
+                    :options="mystore.getSchools"
+                    namechamp="ecole"/>
                 </div>
                 <div class="w-full flex flex-col items-start justify-start space-y-8 pt-12">
                     <h3 class="text-sm md:text-lg font-bold pl-4">3. Quelle est la classe de votre enfant ?</h3>
@@ -31,68 +33,33 @@
                     <SelectLangues 
                     v-model="langues"
                     :options="mystore.getLangues"
-                    /><!--v-model="langues"-->
+                    />
                 </div>
             </div>
         </div>
     </div>
-    <!-- <DropDownCity/> -->
-    <!-- <div class="w-full md:my-[112px] my-[45px]">
-        <div class="container mx-auto max-w-7xl py-4 px-4 md:px-0">
-            <div class="w-3/4 flex items-center justify-center m-auto">
-                <p class="w-full text-center text-[15px] md:text-[25px] font-normal text-dark-blue">
-                    Pour génèrer les élément de <span class="underline text-soft-dark-blue font-semibold italic"> la liste scolaire officielle </span> de votre enfant, nous allons avoir besoin de quelques informations ! 
-                </p>
-            </div>
-            <DropDownCity/>
-            <DropDownShoole/>
-            <GridMenuClass/>
-            <GridMenuLang/>
-            <NextMove/>
-        </div>
-    </div> -->
     <br>
     <br>
     <br>
     <SiteMapComponentVue />
 </template>
 <script setup>
-// import DropDownCity from '../components/shopping/DropDownCity.vue'
-// import DropDownShoole from '../components/shopping/DropDownShoole.vue'
-// import GridMenuClass from '../components/shopping/GridMenuClass.vue'
-// import GridMenuLang from '../components/shopping/GridMenuLangs.vue'
-// import NextMove from '../components/shopping/NextMoveComponent.vue'
+import { ref,watch } from 'vue'
+import { useFirstStepStore } from '../stors/FirstStepStore'
 import SiteMapComponentVue from '../components/SiteMapComponent.vue'
 import SelectOption from '../components/SelectOption.vue'
 import SelectClass from '../components/SelectClass.vue'
 import SelectLangues from '../components/SelectLangues.vue'
 
 const mystore = useFirstStepStore();
-import { ref } from 'vue'
+
 
 const city_id = ref(null)
 const school_id = ref(null)
 const class_id = ref(null)
 const langues = ref([])
 
-
-// const citys = [
-//   { value: 1, label: 'Marrakech' },
-//   { value: 2, label: 'Agadir' },
-//   { value: 3, label: 'Tanger' },
-//   { value: 4, label: 'Fes' },
-//   { value: 5, label: 'Tetouane' },
-//   { value: 6, label: 'Casablanca' },
-// ]
-
-// const schools = [
-//   { value: 1, label: 'schoolMarrakech' },
-//   { value: 2, label: 'schoolAgadir' },
-//   { value: 3, label: 'schoolTanger' },
-//   { value: 4, label: 'schoolFes' },
-//   { value: 5, label: 'schoolTetouane' },
-//   { value: 6, label: 'schoolCasablanca' },
-// ]
+mystore.fetchCitys();
 
 watch(school_id, (newValue, oldValue) => {
   if (newValue !== null) {
