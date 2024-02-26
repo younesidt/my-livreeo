@@ -14,8 +14,10 @@
         </div>
     </div>
     </div>
+    <SiteMapComponentVue/>
 </template>
 <script setup>
 import rightColom from '../components/basket/rightColomComponent.vue'
 import leftColom from '../components/basket/leftColomComponent.vue'
+import SiteMapComponentVue from '../components/SiteMapComponent.vue'
 </script>
