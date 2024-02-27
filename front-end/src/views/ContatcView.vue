@@ -32,14 +32,14 @@
             <div class="w-full xl:w-1/2">
                 <form @submit.prevent="" class="space-y-5 text-dark-blue">
                     <div class="md:flex md:space-x-5 space-y-5 md:space-y-0">
-                        <input type="text" name="nom" placeholder="Nom Complet" class="border border-dark-blue border-opacity-35 focus:border-2 rounded-lg placeholder:text-[#bebebe] placeholder:font-light placeholder:text-sm text-sm md:text-base pl-4 h-12 md:h-16 w-full">
-                        <input type="number" name="telephone" placeholder="Numéro de Téléphone" class="border border-dark-blue border-opacity-35 focus:border-2 rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
+                        <input type="text" name="nom" placeholder="Nom Complet" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:font-light placeholder:text-sm text-sm md:text-base pl-4 h-12 md:h-16 w-full">
+                        <input type="number" name="telephone" placeholder="Numéro de Téléphone" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
                     </div>
                     <div class="flex">
-                        <input type="text" name="mail" placeholder="Adresse E-mail" class="border border-dark-blue border-opacity-35 focus:border-2 rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
+                        <input type="text" name="mail" placeholder="Adresse E-mail" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 placeholder:font-light h-12 md:h-16 w-full">
                     </div>
                     <div class="flex">
-                        <textarea name="message" rows="6" placeholder="Message" class="border border-dark-blue border-opacity-35 focus:border-2 rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 pt-4 placeholder:font-light w-full resize-none"></textarea>
+                        <textarea name="message" rows="6" placeholder="Message" class="border border-dark-blue border-opacity-35 focus:border-2 focus:border-dark-blue focus:outline-none rounded-lg placeholder:text-[#bebebe] placeholder:text-sm text-sm md:text-base pl-4 pt-4 placeholder:font-light w-full resize-none"></textarea>
                     </div>
                     <div type="button" class="flex w-fit pt-3">
                         <div class="flex items-center justify-between cursor-pointer bg-dark-blue hover:bg-[#004179e5] font-light text-base md:text-lg text-white-color px-3 md:px-4 py-1.5 md:py-2 rounded-full">

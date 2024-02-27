@@ -19,4 +19,22 @@ import HeroSection from '../components/prodacts/heroSectionComponent.vue'
 import etaps from '../components/prodacts/etaps.vue'
 import etapDescription from '../components/prodacts/etapADescriptin.vue'
 import cart from '../components/prodacts/CartComponent.vue'
+import { useSecondStepStore } from '../stors/SecondStepStore'
+import { useFirstStepStore } from '../stors/FirstStepStore'
+
+import { onMounted } from 'vue'
+
+
+const secstore = useSecondStepStore();
+const mystore = useFirstStepStore();
+
+console.log(mystore.getLivre);
+
+// onMounted(() => {
+//     console.log(secstore.getLivres);
+// })
+// secstore.fetchLivres();
+// console.log(secstore.getLivres);
+
+
 </script>

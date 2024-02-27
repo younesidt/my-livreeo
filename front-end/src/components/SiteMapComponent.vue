@@ -9,7 +9,7 @@
                 <div class="pt-12">
                     <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">À PROPOS DE LIVRÉEO</h2>
                     <div class="flex flex-col space-y-3">
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Qui sommes nous ?</a>
+                        <router-link to="/" class="text-white text-base 2xl:text-xl font-light">Qui sommes nous ?</router-link>
                         <a href="/" class="text-white text-base 2xl:text-xl font-light">Livréeo créche</a>
                         <a href="/" class="text-white text-base 2xl:text-xl font-light">Livréeo recrute</a>
                     </div>
@@ -17,7 +17,7 @@
                 <div class="pt-12">
                     <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">SERVICE CLIENT</h2>
                     <div class="flex flex-col space-y-3">
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Contactez-nous</a>
+                        <router-link  to="/contactez-nous" class="text-white text-base 2xl:text-xl font-light">Contactez-nous</router-link>
                         <a href="/" class="text-white text-base 2xl:text-xl font-light">Modalité de livraison </a>
                         <a href="/" class="text-white text-base 2xl:text-xl font-light">Politique de retour</a>
                     </div>
