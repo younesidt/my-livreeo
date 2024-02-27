@@ -5,7 +5,7 @@
             <div class="w-full p-4 flex flex-row justify-between items-start ">
                 <div class="w-3/4 h-full overflow-y-scroll">
                     <div class="w-full text-dark-blue font-semibold text-[12px] md:text-[20px] py-2"><p>Name of the book</p></div>
-                    <div class="w-full px-4 flex flex-row justify-between items-center">
+                    <div class="w-full px-4 flex flex-row justify-between items-center scrole">
                         <div class="w-1/3 flex flex-row justify-evenly items-center">
                             <img :src="item.path" height="75%">
                             <p class="font-medium text-dark-blue text-[8px] md:text-[16px]">{{ item.name }}</p>
