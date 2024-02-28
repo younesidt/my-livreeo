@@ -41,15 +41,15 @@
                     <router-link to="/"><img src="../assets/back-home.svg" class="h-10" alt="back"></router-link>
                   </div>
                   <div>
-                    <!-- <router-link to="/prodacts"> -->
+                    <router-link to="/Livres-Fourniture">
                     <button 
-                    @click="mystore.fetchLivres()" 
+                    @click="secstore.fetchLivres()" 
                     :class="langues.length === 0 ? 'cursor-default pointer-events-none opacity-50' : ''"
                     class="bg-dark-blue text-white-color hover:bg-[#004179e5] text-base font-semibold rounded-full min-w-36 py-2"
                     >
                     Suivant
                     </button>
-                    <!-- </router-link> -->
+                    </router-link>
                   </div>
                 </div>
               <!-- </form> -->
@@ -74,7 +74,6 @@ import SiteMapComponentVue from '../components/SiteMapComponent.vue'
 import SelectOption from '../components/SelectOption.vue'
 import SelectClass from '../components/SelectClass.vue'
 import SelectLangues from '../components/SelectLangues.vue'
-import { ConsoleLogEntry } from 'selenium-webdriver/bidi/logEntries'
 
 
 const mystore = useFirstStepStore();
@@ -112,14 +111,7 @@ watch(class_id, (newValue, oldValue) => {
 });
 watch(langues, (newValue, oldValue) => {
   if (newValue !== null) {
-    //const myLangues = langues.map(langues => langues.id).join(', ');
-    //console.log(langues.value.map(langue => langue.id));
     mystore.SelectedLangues = langues.value.map(langue => langue.id);
-    console.log(mystore.SelectedLangues);
-    //console.log(langues.value.map(langues => langues.id).join(', '));
-    //console.log(mystore.SelectedLangues.map(langues => langues.langue).join(', '));
-    //console.log(mystore.SelectedLangues.map(langues => langues.langue).join(', '));
-    //console.log(mystore.getLivre);
   }
 });
 

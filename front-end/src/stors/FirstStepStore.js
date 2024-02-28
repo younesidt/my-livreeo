@@ -7,11 +7,11 @@ export const useFirstStepStore = defineStore("firstStepStore", {
     Schools: [],
     Class: [],
     langues: [],
-    livres: [],
+    // livres: [],
     SelectedCity: null,
     SelectedSchool: null,
     SelectedClass: null,
-    SelectedLangues: [],
+    SelectedLangues: null,
   }),
   getters: {
     getCitys(state){
@@ -26,9 +26,9 @@ export const useFirstStepStore = defineStore("firstStepStore", {
     getLangues(state){
       return state.langues;
     },
-    getLivre(state){
-      return state.livres;
-    },
+    // getLivre(state){
+    //   return state.livres;
+    // },
     
   },
   actions: {
@@ -79,10 +79,9 @@ export const useFirstStepStore = defineStore("firstStepStore", {
             id_ville: this.SelectedCity,
             id_ecole: this.SelectedSchool,
             id_classe: this.SelectedClass,
-            langues: [JSON.stringify(this.SelectedLangues)]
+            langues: this.SelectedLangues
           };
-          console.log(requestBody);
-          // langues: [this.langues.map(langues => langues.id).join(', ')]
+          // console.log(requestBody);
           const response = await axios.post(
             "/choixdelivre",
             requestBody

@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue';
 import PackSelection from '../views/packSelectionView.vue';
-import Frontaire from '../views/FrontaireView.vue';
+import LivresFourniture from '../views/LivresFourniture.vue';
 import List from '../views/SchooleListView.vue';
 import ListView from '../views/ListView.vue'
 import Contact from '../views/ContatcView.vue'
@@ -41,9 +41,9 @@ const router = createRouter({
             component:  ModeLivreson
           },
           {
-            path: '/prodacts',
-            name: 'prodacts',
-            component: Frontaire
+            path: '/Livres-Fourniture',
+            name: 'Livres-Fourniture',
+            component: LivresFourniture
           },
           {
             path: '/list',
