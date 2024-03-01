@@ -46,7 +46,7 @@
                         </div>
                         <p class="w-1/5 text-center font-medium text-[10px] md:text-[18px]">{{ prodact.produit }}</p>
                         <div class="w-1/6">
-                            <div class="flex flex-row  px-3 bg-dark-blue text-white-color rounded-full justify-between items-center h-[15px] md:w-[125px] w-[55px] text-[10px] md:text-[18px] font-normal">
+                            <div class="flex flex-row  px-3 bg-dark-blue text-white-color rounded-full justify-between items-center md:h-[33px] h-[15px] md:w-[125px] w-[55px] text-[10px] md:text-[18px] font-normal">
                             <!-- incress  -->
                             <button @click="()=>{
                                 if (prodact.stock > 0){
