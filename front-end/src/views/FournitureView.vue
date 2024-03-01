@@ -33,7 +33,37 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="w-full border-2 rounded-3xl border-dark-blue">
+            <div v-for="prodact in store.prodacts">
+                <img :src="prodact.image">
+                <p>{{ prodact.produit }}</p>
+                <div>
+                    <button @click="()=>{return prodact.cont++, prodact.stock--}">+</button>
+                    <p>{{ prodact.cont }}</p>
+                    <p>{{ prodact.stock }}</p>
+                    <button @click="() => {
+                        if (prodact.cont > 0){
+                        prodact.cont--
+                        prodact.stock++
+                        }
+                        return prodact.cont, prodact.stock
+                    }">-</button>
+                </div>
+                <p>{{ prodact.prix }}</p>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
+import { onMounted } from 'vue';
+import {  useFuornitureStore } from '../stors/fournitureStepStore';
+
+const store = useFuornitureStore();
+store.fetchProdacts()
+// onMounted(() => {
+//     store.fetchProdacts()
+// }),
+
 </script>
