@@ -16,6 +16,7 @@ import Livreson from '../views/about-views/LivresonModalitiView.vue'
 import StatutCommande from '../views/StatutCommande.vue'
 import Bascket from '../views/BasketView.vue'
 import ModeLivreson from '../views/selectLevrisonView.vue'
+import Fourniture from '../views/FournitureView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
             path: '/Livres-Fourniture',
             name: 'Livres-Fourniture',
             component: LivresFourniture
+          },
+          {
+            path: '/Fourniture',
+            name: 'Fourniture',
+            component: Fourniture
           },
           {
             path: '/list',
