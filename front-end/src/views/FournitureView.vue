@@ -34,9 +34,54 @@
             </div>
         </div>
 
+        <div class="md:space-x-28 space-x-14 p-10">
+        <div class="w-full border-4 rounded-3xl border-dark-blue p-4 flex flex-row">
 
-        <div class="w-full border-2 rounded-3xl border-dark-blue">
-            <div v-for="prodact in store.prodacts">
+
+            <div class="w-3/4">
+                <div class="md:max-h-[400px] max-h-[300px] overflow-y-auto space-y-6 flex flex-col justify-between">
+                    <div v-for="prodact in store.prodacts" class="w-full flex flex-row justify-between items-center text-dark-blue" @click="selectedProdact = prodact">
+                        <div class="w-1/5">
+                            <img :src="prodact.image" height="50px" class="md:w-[100px] w-[50px]">
+                        </div>
+                        <p class="w-1/5 text-center font-medium text-[10px] md:text-[18px]">{{ prodact.produit }}</p>
+                        <div class="w-1/6">
+                            <div class="flex flex-row  px-3 bg-dark-blue text-white-color rounded-full justify-between items-center h-[15px] md:w-[125px] w-[55px] text-[10px] md:text-[18px] font-normal">
+                            <!-- incress  -->
+                            <button @click="()=>{
+                                if (prodact.stock > 0){
+                                        prodact.cont++
+                                        prodact.stock--
+                                    }
+                                    return prodact.cont, prodact.stock
+                            }">+</button>
+
+                            <p class="">{{ prodact.cont }}</p>
+                            <!-- decress -->
+                            <button @click="() => {
+                                        if (prodact.cont > 0){
+                                        prodact.cont--
+                                        prodact.stock++
+                                    }
+                                    return prodact.cont, prodact.stock
+                            }">-</button>
+                        </div>
+                        </div>
+                        <p class="w-1/5 text-center font-medium text-[10px] md:text-[18px] ">{{ prodact.prix * prodact.cont }} MAD</p>
+                        <div class="px-4 w-1/7">test</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 w-1/4 flex flex-col items-start text-[#5A7BA0]">
+                <img v-if="selectedProdact != null" :src="selectedProdact.image" class="w-full" alt="">
+                <p class="py-4 w-full font-medium md:text-[22px] ">{{ selectedProdact.produit }}</p>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    <!-- <div v-for="prodact in store.prodacts">
                 <img :src="prodact.image">
                 <p>{{ prodact.produit }}</p>
                 <div>
@@ -52,12 +97,12 @@
                     }">-</button>
                 </div>
                 <p>{{ prodact.prix }}</p>
-            </div>
-        </div>
-    </div>
+            </div> -->
 </template>
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+
+import { Disclosure, DisclosureButton, DisclosurePanel, Listbox, ListboxOptions, ListboxOption, } from '@headlessui/vue'
 import {  useFuornitureStore } from '../stors/fournitureStepStore';
 
 const store = useFuornitureStore();
@@ -66,4 +111,23 @@ store.fetchProdacts()
 //     store.fetchProdacts()
 // }),
 
+const selectedProdact = null
 </script>
+<style scoped>
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #F1F0F0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #6192BF;
+    border-radius: 5px;
+}
+ 
+</style>

@@ -91,7 +91,7 @@
                                         </ListboxOptions>
                                         </Listbox> 
                                         </div>
-                                    </div>  
+                                    </div> 
                         </div>
                         <div class="w-[30%] flex items-center justify-center mt-6">
                             <LivreInfo 
