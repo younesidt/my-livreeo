@@ -4,14 +4,54 @@ import { useFirstStepStore } from "./FirstStepStore";
 
 export const useSecondStepStore = defineStore("secondStepStore", {
     state: () => ({
-        livres: [],
-        lsLivres: localStorage.getItem('books') || [],
+        livres: [
+          {
+              id:1,
+              name:"Fleurs d'encre 5",
+              prix: 190,
+              image: "../../src/assets/livre.svg",
+              categorie: "Français"
+          },
+          {
+              id:2,
+              name: "Mon carnet de labo collection microméga",
+              prix: 1300,
+              image: "../../src/assets/latin.png",
+              categorie: "Français"
+          },
+          {
+              id:3,
+              name:"Livre 3",
+              prix: 200,
+              image: "../../src/assets/livre.svg",
+              categorie: "Sciences Physiques"
+          },
+          {
+              id:4,
+              name:"Livre 4",
+              prix: 100,
+              image: "../../src/assets/livre.svg",
+              categorie: "Sciences de La vie"
+      
+          },
+          {
+              id:5,
+              name:"Livre 5",
+              prix: 800,
+              image: "../../src/assets/livre.svg",
+              categorie: "Français"
+          },
+        ],
         plastification: [],
+        cartItems: []
     }),
     getters:{
-        getLivres(state){
-            return state.livres;
-        }
+      getLivres(state){
+        return state.livres;
+      },
+      countLivreInCart(state){
+        return state.cartItems.length;
+      }
     },
     actions:{
         async fetchLivres(){
@@ -44,6 +84,6 @@ export const useSecondStepStore = defineStore("secondStepStore", {
                 alert(error)
                 console.log(error)
             }
-        }
+        },
     }
 });

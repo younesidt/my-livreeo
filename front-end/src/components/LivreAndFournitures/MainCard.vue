@@ -4,7 +4,7 @@
             <!--Button-->
             <div class="w-full flex items-center justify-start rounded-[35px] bg-[#F0F9FF]">
                 <div class="w-[55%] flex flex-col py-6 pl-8 pr-4">
-                    <DisclosureButton class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
+                    <DisclosureButton id="btn-disc" class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
                         Étape 1
                         <img src="../../assets/top.svg" class="h-2" alt="top">
                     </DisclosureButton>
@@ -31,67 +31,63 @@
                     <div class="w-full flex"> 
                         <div class="w-[70%] mt-6">
                             <div class="w-full flex items-center justify-end pr-12">
-                                <button class="font-semibold text-dark-blue text-base bg-[#F0F9FF] py-1.5 px-8 rounded-full">Selectionez Tous</button>
+                                <button @click="selectAll()" class="font-semibold text-dark-blue text-base bg-[#F0F9FF] py-1.5 px-8 rounded-full">Selectionez Tous</button>
                             </div>   
-                                    <div class="max-h-[400px] overflow-y-auto space-y-6">
-                                        <div v-for="(livres, category) in livresByCategory" :key="category">
-                                            <Listbox :model-value="props.modalClass" multiple>
-                                            <ListboxOptions static>
-                                            <div class="w-full flex flex-col items-start">
-                                                <h3 class="text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
-                                                <!-- as="template"-->
-                                                <ListboxOption 
-                                                  v-for="livre in livres" 
-                                                  :key="livre.id" 
-                                                  :value="livre"
-                                                  v-slot="{ selected }"
-                                                  class="w-full flex items-center pt-2"
-                                                >
-                                                    <div class="w-1/2 flex items-center space-x-4 pl-10">
-                                                        <div @click="selectedLivre = livre" class="w-12 cursor-pointer">
-                                                            <img :src="livre.image" alt="livre">
-                                                        </div>
-                                                        <p class="text-dark-blue text-sm font-medium">{{ livre.name }}</p>
+                            <div class="max-h-[400px] overflow-y-auto space-y-6">
+                                <!-- <div>
+                                    <p class="text-dark-blue text-xl">{{ checkedLivre }}</p>
+                                </div> -->
+                                <div v-for="(livres, category) in livresByCategory" :key="category">
+                                    <div class="w-full flex flex-col items-start">
+                                        <h3 class="text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
+                                        <!-- as="template"-->
+                                        <div 
+                                            v-for="livre in livres" 
+                                            :key="livre.id" 
+                                            class="w-full flex items-center pt-2"
+                                        >
+                                            <div class="w-1/2 flex items-center space-x-3 pl-10">
+                                                <div @click="selectedLivre = livre" class="cursor-pointer">
+                                                    <div class="w-12">
+                                                        <img :src="livre.image" alt="livre">
                                                     </div>
-                                                    <div class="w-1/2 flex items-center justify-evenly">
-                                                        <div class="h-7 rounded-full text-[15px] font-normal flex items-center px-6 space-x-4 bg-dark-blue text-white-color">
-                                                            <div>
-                                                                -
-                                                            </div>
-                                                            <div>
-                                                                1
-                                                            </div>
-                                                            <div>
-                                                                +
-                                                            </div>
-                                                        </div>
-                                                        <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
-                                                        <div
-                                                        :class="{
-                                                            'bg-dark-blue': selected,
-                                                            '': !selected,
-                                                        }"
-                                                        >
-                                                            <input type="checkbox" :name="livre.name">
-                                                        </div>
-                                                        <!-- <svg width="24" height="23" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <g clip-path="url(#clip0_3098_3904)">
-                                                                <path d="M12.75 15.1251L31.5 8.25L42.8333 -2.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                                <path d="M28.3346 16.5V24.75C28.3346 25.4793 28.0361 26.1788 27.5048 26.6945C26.9734 27.2103 26.2527 27.5 25.5013 27.5H8.5013C7.74986 27.5 7.02919 27.2103 6.49783 26.6945C5.96648 26.1788 5.66797 25.4793 5.66797 24.75V8.25C5.66797 7.52065 5.96648 6.82118 6.49783 6.30546C7.02919 5.78973 7.74986 5.5 8.5013 5.5H21.2513" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                            </g>
-                                                            <defs>
-                                                                <clipPath id="clip0_3098_3904">
-                                                                    <rect width="34" height="33" fill="white"/>
-                                                                </clipPath>
-                                                            </defs>
-                                                        </svg> -->
-                                                    </div>
-                                                </ListboxOption>
+                                                </div>
+                                                <div>
+                                                    <p class="text-dark-blue text-sm font-medium">{{ livre.name }}</p>
+                                                </div>
                                             </div>
-                                        </ListboxOptions>
-                                        </Listbox> 
+                                            <div class="w-1/2 flex items-center justify-evenly">
+                                                <div class="h-7 rounded-full text-[15px] font-normal flex items-center px-6 space-x-4 bg-dark-blue text-white-color">
+                                                    <div>
+                                                        -
+                                                    </div>
+                                                    <div>
+                                                        1
+                                                    </div>
+                                                    <div>
+                                                        +
+                                                    </div>
+                                                </div>
+                                                <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
+                                                <div>                                                        
+                                                    <input type="checkbox" :id="livre.id" :value="livre" class="h-4 w-4" v-model="checkedLivre">
+                                                </div>
+                                                <!-- <svg width="24" height="23" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_3098_3904)">
+                                                        <path d="M12.75 15.1251L31.5 8.25L42.8333 -2.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M28.3346 16.5V24.75C28.3346 25.4793 28.0361 26.1788 27.5048 26.6945C26.9734 27.2103 26.2527 27.5 25.5013 27.5H8.5013C7.74986 27.5 7.02919 27.2103 6.49783 26.6945C5.96648 26.1788 5.66797 25.4793 5.66797 24.75V8.25C5.66797 7.52065 5.96648 6.82118 6.49783 6.30546C7.02919 5.78973 7.74986 5.5 8.5013 5.5H21.2513" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_3098_3904">
+                                                            <rect width="34" height="33" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg> -->
+                                            </div>
                                         </div>
-                                    </div>  
+                                    </div>
+                                </div>
+                            </div>  
                         </div>
                         <div class="w-[30%] flex items-center justify-center mt-6">
                             <LivreInfo 
@@ -104,7 +100,12 @@
                             <h3 class="text-base font-semibold text-dark-blue">TOTAL = 1 080.00 DHS</h3>
                         </div>
                         <div>
-                            <button class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">Ajouter au panier (4 articles)</button>
+                            <button 
+                            @click="addToCart()" 
+                            :class="checkedLivre.length === 0 ? 'cursor-default pointer-events-none opacity-50' : ''"
+                            class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">
+                                Ajouter au panier ({{ checkedLivre.length }} articles)
+                            </button>
                         </div>
                     </div> 
                 </DisclosurePanel> 
@@ -115,27 +116,48 @@
 
 <script setup>
 //vue import
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 //components
 import LivreInfo from './LivreInfo.vue'
 
 //HeadlessUI
-import { Disclosure, DisclosureButton, DisclosurePanel, Listbox, ListboxOptions, ListboxOption, } from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+import { useSecondStepStore } from '../../stors/SecondStepStore'
+
+const data = useSecondStepStore();
+
 
 const props = defineProps({
-    modalClass: [Number],
     livres: Array,
 })
 
-// watch(props.modalClass, (newValue, oldValue) => {
-//   if (newValue !== null) {
-//     console.log(props.modalClass);
-//   }
-// });
 
 
 const selectedLivre = ref(props.livres[0])
+const checkedLivre = ref([])
+
+//Button Add to cart
+function addToCart(){
+    data.cartItems = checkedLivre.value.map(item => ({...item, quantity: 1}));
+    document.getElementById("btn-disc").click();
+}
+
+//Button Select All
+function selectAll(){
+     // Clear the checkedLivre array first
+     checkedLivre.value = [];
+
+    // Iterate through each category
+    for (const category in livresByCategory) {
+        // Iterate through each book in the category
+        livresByCategory[category].forEach(book => {
+            // Push the book into the checkedLivre array
+            checkedLivre.value.push(book);
+        });
+    }
+}
+
 
 // Group books by category
 const livresByCategory = props.livres.reduce((acc, livre) => {
@@ -156,6 +178,7 @@ const livresByCategory = props.livres.reduce((acc, livre) => {
 /* Track */
 ::-webkit-scrollbar-track {
     background: #F1F0F0;
+    border-radius: 5px;
 }
  
 /* Handle */
