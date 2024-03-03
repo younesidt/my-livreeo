@@ -8,9 +8,9 @@
     <div class="container mx-auto max-w-7xl pt-12 pb-28">
         <!-- 3 Card -->
         <div class="w-full flex items-center justify-center space-x-28 pb-10">
-            <SmallCard :cartLivre="cartLivre" name="Manuels" image="../../src/assets/manuels.svg"/>
-            <SmallCard name="Fournitures" image="../../src/assets/fourniture.svg"/>
-            <SmallCard name="Plastification" image="../../src/assets/plastification.svg"/>
+            <SmallCard :cart="cartLivre" name="Manuels" image="../../src/assets/manuels.svg"/>
+            <SmallCard :cart="cartPlast" name="Fournitures" image="../../src/assets/fourniture.svg"/>
+            <SmallCard :cart="cartFourn" name="Plastification" image="../../src/assets/plastification.svg"/>
         </div>
         <div class="w-full flex items-center justify-center">
             <MainCard 
@@ -25,7 +25,9 @@
     <SiteMapComponent />
 </template>
 <script setup>
-import { ref } from 'vue'
+//import vue
+import { computed, ref } from 'vue'
+
 //import components
 import SiteMapComponent from '../components/SiteMapComponent.vue'
 import SmallCard from '../components/LivreAndFournitures/SmallCard.vue'
@@ -36,8 +38,17 @@ const data = useSecondStepStore();
 
 const livres = data.getLivres;
 
-const cartLivre = ref(data.countLivreInCart);
+const cartLivre = computed(() => {
+    return data.cartItems.length;
+});
 
+const cartPlast = computed(() => {
+    return data.plastification.length;
+});
+
+const cartFourn = computed(() => {
+    return data.cartFournt.length;
+});
 
 
 </script>

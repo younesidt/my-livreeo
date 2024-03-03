@@ -44,7 +44,7 @@
                                         <div 
                                             v-for="livre in livres" 
                                             :key="livre.id" 
-                                            class="w-full flex items-center pt-2"
+                                            class="w-full flex items-center pt-4"
                                         >
                                             <div class="w-1/2 flex items-center space-x-3 pl-10">
                                                 <div @click="selectedLivre = livre" class="cursor-pointer">
@@ -56,21 +56,27 @@
                                                     <p class="text-dark-blue text-sm font-medium">{{ livre.name }}</p>
                                                 </div>
                                             </div>
-                                            <div class="w-1/2 flex items-center justify-evenly">
-                                                <div class="h-7 rounded-full text-[15px] font-normal flex items-center px-6 space-x-4 bg-dark-blue text-white-color">
-                                                    <div>
-                                                        -
+                                            <div class="w-1/2 flex items-center justify-start">
+                                                <div class="w-full flex items-center justify-center">
+                                                    <div class="w-1/3 flex items-center justify-end">
+                                                        <div class="w-fit h-7 rounded-full text-[15px] font-normal flex items-center px-6 space-x-4 bg-dark-blue text-white-color">
+                                                        <div>
+                                                            -
+                                                        </div>
+                                                        <div>
+                                                            {{ livre.quantity }}
+                                                        </div>
+                                                        <div @click="data.increaseQuantity(livre)">
+                                                            +
+                                                        </div>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        1
+                                                    <div class="w-1/3 flex items-center justify-end">
+                                                        <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
                                                     </div>
-                                                    <div>
-                                                        +
+                                                    <div class="w-1/3 flex items-center justify-center">                                                        
+                                                        <input type="checkbox" :id="livre.id" :value="livre" class="h-4 w-4" v-model="checkedLivre">
                                                     </div>
-                                                </div>
-                                                <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
-                                                <div>                                                        
-                                                    <input type="checkbox" :id="livre.id" :value="livre" class="h-4 w-4" v-model="checkedLivre">
                                                 </div>
                                                 <!-- <svg width="24" height="23" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g clip-path="url(#clip0_3098_3904)">
@@ -97,7 +103,7 @@
                     </div>    
                     <div class="w-full flex items-center justify-between pt-8 pl-10 pr-52">
                         <div>
-                            <h3 class="text-base font-semibold text-dark-blue">TOTAL = 1 080.00 DHS</h3>
+                            <h3 class="text-base font-semibold text-dark-blue">TOTAL = {{ totalLivre }} DHS</h3>
                         </div>
                         <div>
                             <button 
@@ -116,7 +122,7 @@
 
 <script setup>
 //vue import
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 //components
 import LivreInfo from './LivreInfo.vue'
@@ -133,15 +139,25 @@ const props = defineProps({
 })
 
 
-
 const selectedLivre = ref(props.livres[0])
 const checkedLivre = ref([])
 
+
 //Button Add to cart
 function addToCart(){
-    data.cartItems = checkedLivre.value.map(item => ({...item, quantity: 1}));
+    data.cartItems = checkedLivre.value;
     document.getElementById("btn-disc").click();
 }
+
+//calcul total
+function calcTotal(){
+    const checkedLivreArray = checkedLivre.value;
+    let total = checkedLivreArray.reduce((total, item) => {
+        return total + item.prix;
+    }, 0);
+    return total;
+}
+
 
 //Button Select All
 function selectAll(){
@@ -165,6 +181,30 @@ const livresByCategory = props.livres.reduce((acc, livre) => {
     acc[livre.categorie].push(livre);
     return acc;
 }, {});
+
+//Calcul total livre
+const totalLivre = computed(() => {
+    return calcTotal();
+});
+
+// function decreaseQuantity (item){
+//     let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
+//     if(index !== -1){
+//         checkedLivre[index].quantity -= 1;
+//         if(checkedLivre[index].quantity === 0){
+//             checkedLivre = checkedLivre.filter(livre => livre.id !== item.id);
+//         }
+//     }
+// };
+// function increaseQuantity(item){
+//     let index = data.livres.findIndex(livre => livre.id === item.id);
+//     if(index !== -1){
+//         data.livres[index].quantity += 1;
+//     }
+// };
+
+
+
 
 </script>
 
