@@ -25,6 +25,7 @@
                 >{{ category }}</label
               >
             </div>
+            <button @click="store.sortByPrice(store.prodacts, 'asc')">click me </button>
           </div>
           <div>
             <p class="pb-2  mb-2 text-[22px] font-medium">Categories</p>
@@ -64,7 +65,6 @@
 </template>
 <script setup>
 import { useFuornitureStore } from "../../stors/fournitureStepStore";
-
 const store = useFuornitureStore();
 store.fetchProdacts();
 </script>

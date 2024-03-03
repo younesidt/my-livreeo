@@ -3,6 +3,7 @@ import axios from "../lib/axios";
 export const useFuornitureStore = defineStore("fourniture", {
   state: () => ({
     prodacts: [],
+    selectedcatigory:"",
     prodactsByCatigory: {},
     categorys:[]
   }),
@@ -24,6 +25,8 @@ export const useFuornitureStore = defineStore("fourniture", {
           this.prodacts.forEach((item) => {
             item.cont = 0;
           });
+
+          
           //soert prodacts by category
 
           this.prodacts.forEach((item) => {
@@ -42,5 +45,18 @@ export const useFuornitureStore = defineStore("fourniture", {
         console.log(error);
       }
     },
+
+    sortByPrice(data, order = 'asc') {
+      return data.sort((a, b) => {
+          const priceA = parseFloat(a.prix);
+          const priceB = parseFloat(b.prix);
+          if (order === 'asc') {
+
+              return priceA - priceB;
+          } else {
+              return priceB - priceA;
+          }
+      });
+  }
   },
 });

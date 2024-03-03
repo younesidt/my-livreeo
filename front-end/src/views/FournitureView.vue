@@ -119,11 +119,6 @@ store.fetchProdacts();
 //     store.fetchProdacts()
 // }),
 
-const selectedProdact = null;
-
-function filterByCategory(data, category) {
-  return data.filter((item) => item.categorie === category);
-}
 </script>
 <style scoped>
 /* width */
