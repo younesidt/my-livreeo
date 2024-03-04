@@ -5,7 +5,8 @@ export const useFuornitureStore = defineStore("fourniture", {
     prodacts: [],
     selectedcatigory:"",
     prodactsByCatigory: {},
-    categorys:[]
+    categorys:[],
+    sortedData:[]
   }),
   getters: {
     getProdacts(state) {
@@ -45,18 +46,8 @@ export const useFuornitureStore = defineStore("fourniture", {
         console.log(error);
       }
     },
-
-    sortByPrice(data, order = 'asc') {
-      return data.sort((a, b) => {
-          const priceA = parseFloat(a.prix);
-          const priceB = parseFloat(b.prix);
-          if (order === 'asc') {
-
-              return priceA - priceB;
-          } else {
-              return priceB - priceA;
-          }
-      });
-  }
+  filterByCategory(category) {
+    return this.prodacts = this.prodacts.filter(item => item.categorie === category);
+}
   },
 });

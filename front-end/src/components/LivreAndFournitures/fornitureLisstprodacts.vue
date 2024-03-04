@@ -6,7 +6,7 @@
           class="md:max-h-[400px] max-h-[300px] overflow-y-auto space-y-6 flex flex-col justify-between"
         >
           <div
-            v-for="prodact in store.prodacts"
+            v-for="prodact in store.sortedData"
             class="w-full flex flex-row justify-between items-center text-dark-blue"
             @click="selectedProdact = prodact"
           >
@@ -129,6 +129,7 @@ function addToCart(item) {
   prodactselected.push(item);
   return prodactselected;
 }
+// store.filterByCategory("Cartable");
 // let dataShows  = store.prodactsByCatigory.store.selectedcatigory
 </script>
 <style scoped>

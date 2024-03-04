@@ -8,9 +8,41 @@
           class="grid grid-cols-2 items-start md:grid-cols-4 gap-4 text-dark-blue w-full md:w-3/4"
         >
           <div>
-            <p class="pb-2  mb-2 text-[22px] font-medium">Categories</p>
+            <p class="pb-2  mb-2 text-[22px] font-medium">Meilleurs ventes </p>
             <div
-              class="flex items-center mb-4" v-for="category in store.categorys"
+              class="flex items-center mb-4" 
+              
+            >
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 text-dark-blue bg-none border-dark-blue rounded focus:ring-darke-blue focus:ring-2 dark:border-dark-blue"
+                v-model="sortByPriceAsc"
+              />
+              <label
+                for="default-checkbox"
+                class="ms-2 text-[17px] font-medium text-gray-900 dark:text-gray-300"
+                >Prix croissant </label>
+            </div>
+            <div
+              class="flex items-center mb-4" 
+              
+            >
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 text-dark-blue bg-none border-dark-blue rounded focus:ring-darke-blue focus:ring-2 dark:border-dark-blue"
+                v-model="sortByPriceDesc"
+              />
+              <label
+                for="default-checkbox"
+                class="ms-2 text-[17px] font-medium text-gray-900 dark:text-gray-300"
+                >Prix decroissant   </label>
+            </div>
+            <div
+              class="flex items-center mb-4" 
               
             >
               <input
@@ -22,10 +54,8 @@
               <label
                 for="default-checkbox"
                 class="ms-2 text-[17px] font-medium text-gray-900 dark:text-gray-300"
-                >{{ category }}</label
-              >
+                >Note des clients </label>
             </div>
-            <button @click="store.sortByPrice(store.prodacts, 'asc')">click me </button>
           </div>
           <div>
             <p class="pb-2  mb-2 text-[22px] font-medium">Categories</p>
@@ -65,6 +95,31 @@
 </template>
 <script setup>
 import { useFuornitureStore } from "../../stors/fournitureStepStore";
+import { ref, computed } from 'vue';
+
+const sortByPriceAsc = ref(false);
+const sortByPriceDesc = ref(false);
+
 const store = useFuornitureStore();
 store.fetchProdacts();
+
+store.sortedData = computed(() => {
+  let sortedArray = [...store.prodacts];
+  if (sortByPriceAsc.value) {
+    sortedArray = sortData(sortedArray, 'asc');
+  }
+  if (sortByPriceDesc.value) {
+    sortedArray = sortData(sortedArray, 'desc');
+  }
+  return sortedArray;
+});
+
+
+function sortData(data, order) {
+  return data.sort((a, b) => {
+    const priceA = parseFloat(a.prix);
+    const priceB = parseFloat(b.prix);
+    return order === 'asc' ? priceA - priceB : priceB - priceA;
+  });
+}
 </script>
