@@ -27,13 +27,13 @@
 
         <!--Go to the bottom-->
         <div class="w-full flex justify-center items-center">
-            <div class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center cursor-pointer">
+            <div @click="smoothScroll('#suiv-comm')" class="border-[1px] border-dark-blue rounded-full w-[30px] h-[49px] flex justify-center items-center cursor-pointer">
                 <img src="../assets/arraw.svg" class="animate-bounce" alt="" srcset="">
             </div>
         </div>
         
         <!--Last section-->
-        <div class="flex flex-col lg:flex-row items-start text-dark-blue xl:gap-16 2xl:gap-32 mt-4 lg:mt-6 mb-28">
+        <div id="suiv-comm" class="flex flex-col lg:flex-row items-start text-dark-blue xl:gap-16 2xl:gap-32 mt-4 lg:mt-6 mb-28">
             <div class="flex flex-1 flex-col items-center space-y-5">
                 <img src="../assets/suivi2.webp" class="h-[300px]" alt="find-order">
                 <div class="flex flex-col items-start px-10">
@@ -86,6 +86,11 @@
 </template>
 <script setup>
 import SiteMapComponent from '../components/SiteMapComponent.vue'
-
+function smoothScroll(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
 </script>

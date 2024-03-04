@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto max-w-7xl pt-12">
+    <div id="comm-cm" class="container mx-auto max-w-7xl pt-12">
         <div class="w-full flex items-center justify-center pb-12">
             <h1 class="text-xl md:text-3xl font-medium text-[#3273BA]">Comment ça marche ?</h1>
         </div>

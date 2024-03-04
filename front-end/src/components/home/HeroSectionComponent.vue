@@ -23,14 +23,19 @@
             </div>
         </div>
         <div class="w-full flex items-center justify-center">
-            <div class="flex items-center justify-center w-6 h-12 ring-1 ring-dark-blue rounded-full cursor-pointer hover:bg-[#eeeeee] transitio duration-200 ease-in-out">
+            <div @click="smoothScroll('#comm-cm')" class="flex items-center justify-center w-6 h-12 ring-1 ring-dark-blue rounded-full cursor-pointer hover:bg-[#eeeeee] transitio duration-200 ease-in-out">
                 <img src="../../assets/arraw.svg" class="h-5 w-5 animate-bounce" alt="arraw">
             </div>
         </div>
     </div>
 </template>
 <script setup>
-
+function smoothScroll(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 </script>
 
 <style>

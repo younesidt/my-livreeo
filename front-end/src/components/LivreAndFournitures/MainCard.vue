@@ -2,9 +2,11 @@
     <Disclosure as="div" v-slot="{ open }" class="w-full flex items-center justify-center">
         <div class="w-[90%] border-[3px] px-8 py-8 rounded-[60px] border-dark-blue border-opacity-40">
             <!--Button-->
-            <div class="w-full flex items-center justify-start rounded-[35px] bg-[#F0F9FF]">
-                <div class="w-[55%] flex flex-col py-6 pl-8 pr-4">
-                    <DisclosureButton id="btn-disc" class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
+            
+            <!--Etape 1-->
+            <div v-if="props.etape === 'first'" class="w-full flex items-start justify-start rounded-[35px] bg-[#F0F9FF]">
+                <div class="w-[55%] flex flex-col pt-6 pl-8 pr-4">
+                    <DisclosureButton id="firstbtn" class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
                         Étape 1
                         <img src="../../assets/top.svg" class="h-2" alt="top">
                     </DisclosureButton>
@@ -19,6 +21,27 @@
                     </div>
                 </div>
             </div>
+            <!--Etape 2-->
+            <div v-if="props.etape === 'last'" class="w-full flex items-start justify-start rounded-[35px] bg-[#F0F9FF]">
+                <div class="w-[55%] flex flex-col pl-8 pt-6 pr-4">
+                    <DisclosureButton id="lastbtn" class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
+                        Étape 3
+                        <img src="../../assets/top.svg" class="h-2" alt="top">
+                    </DisclosureButton>
+                    <h2 class="text-xl text-dark-blue font-semibold pt-3">Service de Plastification : Durabilité et Protection</h2>
+                    <p class="text-dark-blue text-sm font-normal">
+                        Chez Livréeo, nous comprenons que les manuels scolaires sont des investissements essentiels pour l'année à venir. C'est pourquoi nous proposons un service de plastification adhèsive haut de gamme qui préserve ces ressources précieuses.                    </p>
+                </div>
+                <div class="w-[45%] h-full">
+                    <div class="w-full h-64 bg-[url('../../src/assets/plastification2.svg')] bg-no-repeat bg-cover">
+
+                    </div>
+                    <!-- <div class="w-full h-full flex items-start">
+                        <img src="../../assets/plastification2.svg" class="w-full h-[250px]" alt="books">
+                    </div> -->
+                </div>
+            </div>
+
             <transition
                 enter-active-class="transition duration-200 ease-out"
                 enter-from-class="transform scale-95 opacity-0"
@@ -27,7 +50,7 @@
                 leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0"
             >
-                <DisclosurePanel class="flex flex-col">
+                <DisclosurePanel v-if="props.etape === 'first'" class="flex flex-col">
                     <div class="w-full flex"> 
                         <div class="w-[70%] mt-6">
                             <div class="w-full flex items-center justify-end pr-12">
@@ -96,9 +119,109 @@
                             </div>  
                         </div>
                         <div class="w-[30%] flex items-center justify-center mt-6">
-                            <LivreInfo 
+                            <!-- <LivreInfo 
                             :options="selectedLivre"
-                            />
+                            /> -->
+                        </div>
+                    </div>    
+                    <div class="w-full flex items-center justify-between pt-8 pl-10 pr-52">
+                        <div>
+                            <h3 class="text-base font-semibold text-dark-blue">TOTAL = {{ totalLivre }} DHS</h3>
+                        </div>
+                        <div>
+                            <button 
+                            @click="addToCart()" 
+                            :class="{
+                                'cursor-default pointer-events-none opacity-50': checkedLivre.length === 0 && data.cartItems.length === 0,
+                            }"
+                            class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">
+                                <span v-if="checkedLivre.length === 0 && data.cartItems.length >= 1">Annuler la commande</span>
+                                <span v-else>Ajouter au panier ({{ checkedLivre.length }} articles)</span>
+                            </button>
+                        </div>
+                    </div> 
+                </DisclosurePanel> 
+            </transition>    
+            <transition
+                enter-active-class="transition duration-200 ease-out"
+                enter-from-class="transform scale-95 opacity-0"
+                enter-to-class="transform scale-100 opacity-100"
+                leave-active-class="transition duration-75 ease-out"
+                leave-from-class="transform scale-100 opacity-100"
+                leave-to-class="transform scale-95 opacity-0"
+            >
+                <DisclosurePanel v-if="props.etape === 'last'" class="flex flex-col">
+                    <div class="w-full flex">
+                        <div class="w-[70%] mt-6">
+                            <div class="w-full flex items-center justify-end pr-12">
+                                <button @click="selectAllPlst()" class="font-semibold text-dark-blue text-base bg-[#F0F9FF] py-1.5 px-8 rounded-full">Selectionez Tous</button>
+                            </div>   
+                            <div class="max-h-[400px] overflow-y-auto space-y-6">
+                                <!-- <div>
+                                    <p class="text-dark-blue text-xl">{{ checkedLivre }}</p>
+                                </div> -->
+                                <div v-for="(livres, category) in livresByCategoryPlst" :key="category">
+                                    <div class="w-full flex flex-col items-start">
+                                        <h3 class="text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
+                                        <!-- as="template"-->
+                                        <div 
+                                            v-for="livre in livres" 
+                                            :key="livre.id" 
+                                            class="w-full flex items-center pt-4"
+                                        >
+                                            <div class="w-1/2 flex items-center space-x-3 pl-10">
+                                                <div @click="selectedLivre = livre" class="cursor-pointer">
+                                                    <div class="w-12">
+                                                        <img :src="livre.image" alt="livre">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="text-dark-blue text-sm font-medium">{{ livre.name }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="w-1/2 flex items-center justify-start">
+                                                <div class="w-full flex items-center justify-center">
+                                                    <div class="w-1/3 flex items-center justify-end">
+                                                        <div class="w-28 h-7 rounded-full text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                                            <div class="cursor-pointer">
+                                                                -
+                                                            </div>
+                                                            <div>
+                                                                {{ livre.quantity }}
+                                                            </div>
+                                                            <div class="cursor-pointer">
+                                                                +
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-1/3 flex items-center justify-end">
+                                                        <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
+                                                    </div>
+                                                    <div class="w-1/3 flex items-center justify-center">                                                        
+                                                        <input type="checkbox" :id="livre.id" :value="livre" class="h-4 w-4" v-model="checkedPlst">
+                                                    </div>
+                                                </div>
+                                                <!-- <svg width="24" height="23" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_3098_3904)">
+                                                        <path d="M12.75 15.1251L31.5 8.25L42.8333 -2.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M28.3346 16.5V24.75C28.3346 25.4793 28.0361 26.1788 27.5048 26.6945C26.9734 27.2103 26.2527 27.5 25.5013 27.5H8.5013C7.74986 27.5 7.02919 27.2103 6.49783 26.6945C5.96648 26.1788 5.66797 25.4793 5.66797 24.75V8.25C5.66797 7.52065 5.96648 6.82118 6.49783 6.30546C7.02919 5.78973 7.74986 5.5 8.5013 5.5H21.2513" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_3098_3904">
+                                                            <rect width="34" height="33" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="w-[30%] flex items-center justify-center mt-6">
+                            <!-- <LivreInfo 
+                            :options="selectedLivre"
+                            /> -->
                         </div>
                     </div>    
                     <div class="w-full flex items-center justify-between pt-8 pl-10 pr-52">
@@ -138,18 +261,26 @@ const data = useSecondStepStore();
 
 
 const props = defineProps({
+    etape: String,
     livres: Array,
 })
 
 
 const selectedLivre = ref(props.livres[0])
 const checkedLivre = ref([])
+const checkedPlst = ref([])
 
 
 //Button Add to cart
 function addToCart(){
-    data.cartItems = checkedLivre.value;
-    document.getElementById("btn-disc").click();
+    if(props.etape === 'first'){
+        data.cartItems = checkedLivre.value;
+        document.getElementById("firstbtn").click();
+    }
+    else if(props.etape === 'last'){
+        data.plastification = checkedPlst.value;
+        document.getElementById("lastbtn").click();
+    }
 }
 
 //calcul total
@@ -177,9 +308,28 @@ function selectAll(){
     }
 }
 
+function selectAllPlst(){
+     // Clear the checkedLivre array first
+     checkedPlst.value = [];
+
+    // Iterate through each category
+    for (const category in livresByCategory) {
+        // Iterate through each book in the category
+        livresByCategory[category].forEach(book => {
+            // Push the book into the checkedPlst array
+            checkedPlst.value.push(book);
+        });
+    }
+}
 
 // Group books by category
 const livresByCategory = props.livres.reduce((acc, livre) => {
+    acc[livre.categorie] = acc[livre.categorie] || [];
+    acc[livre.categorie].push(livre);
+    return acc;
+}, {});
+
+const livresByCategoryPlst = props.livres.reduce((acc, livre) => {
     acc[livre.categorie] = acc[livre.categorie] || [];
     acc[livre.categorie].push(livre);
     return acc;

@@ -1,6 +1,6 @@
 <template>
     <TransitionRoot appear :show="props.isOpen" as="template">
-      <Dialog as="div" @close="setIsOpened(false)" class="inset-0 relative z-50">
+      <Dialog as="div" class="inset-0 relative z-50">
         <TransitionChild
           as="template"
           enter="transition duration-200 ease-in-out transform"
@@ -10,7 +10,7 @@
           leave-from="translate-x-0"
           leave-to="-translate-x-full"
         >
-          <div class="fixed inset-0 bg-black/25" />
+          <div class="fixed inset-0" />
         </TransitionChild>
 
         <div class="w-full h-screen fixed inset-0 top-0 overflow-y-scroll no-scrollbar font-Poppins backdrop-blur-sm"><!--bg-[rgb(188,188,188)]  bg-opacity-50-->
@@ -32,7 +32,7 @@
                     <!-- First menu (links) -->
                     <div v-if="props.typeMod === 'menu'" class="bg-white-color text-dark-blue w-full rounded-3xl px-5 py-8 space-y-8">
                         <div class="flex flex-col space-y-5 lg:px-5">
-                            <h1 class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</h1>
+                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</DialogTitle>
                             <div class="space-y-3">
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/how-we-are">Livréeo recructe</router-link></p>
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/livero-criche">Résponsabilité des entreprises</router-link></p>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col space-y-5 lg:px-5">
-                            <h1 class="text-base 2xl:text-lg font-bold uppercase">Service Client</h1>
+                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">Service Client</DialogTitle>
                             <div class="space-y-3">
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/contactez-nous">Contactez-nous</router-link></p>
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/Livreson">Modalité de livraison  </router-link></p>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col space-y-5 lg:px-5">
-                            <h1 class="text-base 2xl:text-lg font-bold uppercase">Informations</h1>
+                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">Informations</DialogTitle>
                             <div class="space-y-5">
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/condition-general">Conditions générales de ventes</router-link> </p>
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/">confidentialité et les Cookies</router-link></p>
@@ -60,12 +60,12 @@
                     <div v-if="props.typeMod === 'panier'" class="w-full">
                       <div class="bg-white-color h-64 w-full justify-start rounded-2xl px-5 py-5 text-dark-blue">
                         <div class="flex flex-col">
-                            <h1 class="text-base 2xl:text-lg font-bold leading-relaxed">Panier</h1>
+                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed">Panier</DialogTitle>
                         </div>
                       </div>
                       <div class="w-full text-dark-blue bg-[#FFFFFF] rounded-2xl px-3 py-4 mt-5">
                         <div class="flex flex-col space-y-1">
-                            <h1 class="text-base 2xl:text-lg font-bold leading-relaxed">Récapitulatif</h1>
+                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed">Récapitulatif</DialogTitle>
                             <div class="flex items-center justify-between">
                                 <p class="text-xs font-light leading-relaxed">Sous-total</p>
                                 <p class="text-xs font-semibold leading-relaxed">3027,00 MAD</p>

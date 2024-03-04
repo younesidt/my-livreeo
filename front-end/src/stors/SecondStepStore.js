@@ -50,6 +50,9 @@ export const useSecondStepStore = defineStore("secondStepStore", {
       getLivres(state){
         return state.livres.map(item => ({...item, quantity: 1}));
       },
+      getSelectedLivres(state){
+        return state.cartItems;
+      },
       countLivreInCart(state){
         return state.cartItems.length;
       },

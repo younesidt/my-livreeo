@@ -12,9 +12,14 @@
             <SmallCard :cart="cartPlast" name="Fournitures" image="../../src/assets/fourniture.svg"/>
             <SmallCard :cart="cartFourn" name="Plastification" image="../../src/assets/plastification.svg"/>
         </div>
-        <div class="w-full flex items-center justify-center">
+        <div class="w-full flex flex-col items-center justify-center space-y-10">
             <MainCard 
+            etape="first"
             :livres="livres"
+            />
+            <MainCard 
+            etape="last"
+            :livres="selectedLivre"
             />
         </div>
     </div>
@@ -37,6 +42,7 @@ import { useSecondStepStore } from '../stors/SecondStepStore'
 const data = useSecondStepStore();
 
 const livres = data.getLivres;
+const selectedLivre = data.getSelectedLivres;
 
 const cartLivre = computed(() => {
     return data.cartItems.length;
