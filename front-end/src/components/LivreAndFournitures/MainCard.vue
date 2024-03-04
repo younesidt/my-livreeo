@@ -59,16 +59,16 @@
                                             <div class="w-1/2 flex items-center justify-start">
                                                 <div class="w-full flex items-center justify-center">
                                                     <div class="w-1/3 flex items-center justify-end">
-                                                        <div class="w-fit h-7 rounded-full text-[15px] font-normal flex items-center px-6 space-x-4 bg-dark-blue text-white-color">
-                                                        <div>
-                                                            -
-                                                        </div>
-                                                        <div>
-                                                            {{ livre.quantity }}
-                                                        </div>
-                                                        <div @click="data.increaseQuantity(livre)">
-                                                            +
-                                                        </div>
+                                                        <div class="w-28 h-7 rounded-full text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                                            <div @click="decreaseQuantity(livre)" class="cursor-pointer">
+                                                                -
+                                                            </div>
+                                                            <div>
+                                                                {{ livre.quantity }}
+                                                            </div>
+                                                            <div @click="increaseQuantity(livre)" class="cursor-pointer">
+                                                                +
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="w-1/3 flex items-center justify-end">
@@ -108,9 +108,12 @@
                         <div>
                             <button 
                             @click="addToCart()" 
-                            :class="checkedLivre.length === 0 ? 'cursor-default pointer-events-none opacity-50' : ''"
+                            :class="{
+                                'cursor-default pointer-events-none opacity-50': checkedLivre.length === 0 && data.cartItems.length === 0,
+                            }"
                             class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">
-                                Ajouter au panier ({{ checkedLivre.length }} articles)
+                                <span v-if="checkedLivre.length === 0 && data.cartItems.length >= 1">Annuler la commande</span>
+                                <span v-else>Ajouter au panier ({{ checkedLivre.length }} articles)</span>
                             </button>
                         </div>
                     </div> 
@@ -153,7 +156,7 @@ function addToCart(){
 function calcTotal(){
     const checkedLivreArray = checkedLivre.value;
     let total = checkedLivreArray.reduce((total, item) => {
-        return total + item.prix;
+        return total + (item.prix * item.quantity);
     }, 0);
     return total;
 }
@@ -187,44 +190,38 @@ const totalLivre = computed(() => {
     return calcTotal();
 });
 
-// function decreaseQuantity (item){
-//     let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
-//     if(index !== -1){
-//         checkedLivre[index].quantity -= 1;
-//         if(checkedLivre[index].quantity === 0){
-//             checkedLivre = checkedLivre.filter(livre => livre.id !== item.id);
-//         }
-//     }
-// };
-// function increaseQuantity(item){
-//     let index = data.livres.findIndex(livre => livre.id === item.id);
-//     if(index !== -1){
-//         data.livres[index].quantity += 1;
-//     }
-// };
 
-
-
+//manage quantity
+function decreaseQuantity(item){
+    let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
+    if(index !== -1 && checkedLivre.value[index].quantity !== 1){
+        checkedLivre.value[index].quantity -= 1;
+        // if(checkedLivre.value[index].quantity === 0){
+        //     checkedLivre = checkedLivre.value.filter(livre => livre.id !== item.id);
+        // }
+    }
+};
+function increaseQuantity(item){
+    let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
+    if(index !== -1){
+        checkedLivre.value[index].quantity += 1;
+    }
+};
 
 </script>
-
-
 <style scoped>
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
 }
- 
 /* Track */
 ::-webkit-scrollbar-track {
     background: #F1F0F0;
     border-radius: 5px;
-}
- 
+} 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #6192BF;
     border-radius: 5px;
 }
- 
 </style>

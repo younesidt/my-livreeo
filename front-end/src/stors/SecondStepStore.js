@@ -53,11 +53,6 @@ export const useSecondStepStore = defineStore("secondStepStore", {
       countLivreInCart(state){
         return state.cartItems.length;
       },
-      totalPrixLivres(state){
-        return state.cartItems.reduce((total, item) => {
-          return total + (item.prix * item.quantity);
-        }, 0);
-      },
     },
     actions:{
         async fetchLivres(){
@@ -90,21 +85,6 @@ export const useSecondStepStore = defineStore("secondStepStore", {
                 alert(error)
                 console.log(error)
             }
-        },
-        decreaseQuantity (item){
-          let index = this.cartItems.findIndex(livre => livre.id === item.id);
-          if(index !== -1){
-            this.cartItems[index].quantity -= 1;
-            if(this.cartItems[index].quantity === 0){
-              this.cartItems = this.cartItems.filter(livre => livre.id !== item.id);
-            }
-          }
-        },
-        increaseQuantity(item){
-          let index = this.cartItems.findIndex(livre => livre.id === item.id);
-          if(index !== -1){
-            this.cartItems[index].quantity += 1;
-          }
         },
     }
 });
