@@ -3,10 +3,11 @@ import axios from "../lib/axios";
 export const useFuornitureStore = defineStore("fourniture", {
   state: () => ({
     prodacts: [],
-    selectedcatigory:"",
+    selectedCategories:[],
     prodactsByCatigory: {},
     categorys:[],
-    sortedData:[]
+    sortedData:[],
+    cart:[],
   }),
   getters: {
     getProdacts(state) {

@@ -60,15 +60,13 @@
               {{ prodact.prix * prodact.cont }} MAD
             </p>
             <div class="px-4 w-1/7">
-              <button @click="addToCart(prodact)">
                 <input
-                  onchange="addToCart(prodact)"
+                @change="addToCard(prodact)"
                   id="default-checkbox"
                   type="checkbox"
                   value=""
                   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-              </button>
             </div>
           </div>
         </div>
@@ -100,13 +98,13 @@
       <div>
         <button
           :class="
-            prodactselected.length === 0
+            checkedItems.length === 0
               ? 'cursor-default pointer-events-none opacity-50'
               : ''
           "
           class="bg-dark-blue text-white-color md:text-base text-sm font-semibold rounded-full py-3 md:px-5 px-4"
         >
-          Ajouter au panier ({{ prodactselected.length }} articles)
+          Ajouter au panier ({{ checkedItems.length }} articles)
         </button>
       </div>
     </div>
@@ -128,6 +126,20 @@ let prodactselected = [];
 function addToCart(item) {
   prodactselected.push(item);
   return prodactselected;
+}
+const checkedItems = ref([]);
+
+function addToCard(item) {
+  const index = checkedItems.value.findIndex(i => i.id === item.id);
+  if (index !== -1) {
+    // Item already exists in the array, remove it
+    checkedItems.value.splice(index, 1);
+    store.cart = checkedItems;
+  } else {
+    // Item doesn't exist in the array, add it
+    checkedItems.value.push(item);
+    store.cart = checkedItems;
+  }
 }
 // store.filterByCategory("Cartable");
 // let dataShows  = store.prodactsByCatigory.store.selectedcatigory
