@@ -26,31 +26,15 @@
               >
                 <!-- incress  -->
                 <button
-                  @click="
-                    () => {
-                      if (prodact.stock > 0) {
-                        prodact.cont++;
-                        prodact.stock--;
-                      }
-                      return prodact.cont, prodact.stock;
-                    }
-                  "
+                @click="increaseQuantity(prodact)"
                 >
                   +
                 </button>
 
-                <p class="">{{ prodact.cont }}</p>
+                <p class="">{{ prodact.quantity }}</p>
                 <!-- decress -->
                 <button
-                  @click="
-                    () => {
-                      if (prodact.cont > 0) {
-                        prodact.cont--;
-                        prodact.stock++;
-                      }
-                      return prodact.cont, prodact.stock;
-                    }
-                  "
+                  @click="decreaseQuantity(prodact)"
                 >
                   -
                 </button>
@@ -74,14 +58,14 @@
 
       <div class="p-4 w-1/4 flex flex-col items-start text-[#5A7BA0]">
         <img
-          v-if="selectedProdact != null"
+          v-if="selectedProdact"
           :src="selectedProdact.image"
           class="w-full"
           alt=""
         />
         <p
           class="py-4 w-full font-medium md:text-[22px]"
-          v-if="selectedProdact != null"
+          v-if="selectedProdact"
         >
           {{ selectedProdact.produit }}
         </p>
@@ -92,10 +76,11 @@
     >
       <div>
         <h3 class="md:text-base text-sm font-semibold text-dark-blue">
-          TOTAL = 1 080.00 DHS
+          TOTAL = {{calcTotal() }} DHS
         </h3>
       </div>
       <div>
+        <router-link to="/bascket">
         <button
           :class="
             checkedItems.length === 0
@@ -104,8 +89,10 @@
           "
           class="bg-dark-blue text-white-color md:text-base text-sm font-semibold rounded-full py-3 md:px-5 px-4"
         >
-          Ajouter au panier ({{ checkedItems.length }} articles)
+        <span v-if="checkedItems.length === 0 && store.cart.length >= 1">Annuler la commande</span>
+        <span v-else>Ajouter au panier ({{ checkedItems.length }} articles)</span>
         </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -120,8 +107,8 @@ store.fetchProdacts();
 // onMounted(() => {
 //     store.fetchProdacts()
 // }),
-
-const selectedProdact = null;
+const selectedProdact = ref(null);
+const prodactSelected = ref([]);
 let prodactselected = [];
 function addToCart(item) {
   prodactselected.push(item);
@@ -140,6 +127,29 @@ function addToCard(item) {
     checkedItems.value.push(item);
     store.cart = checkedItems;
   }
+}
+function increaseQuantity(product) {
+  if (product.stock > 0) {
+    product.quantity++;
+    product.stock--;
+  }
+}
+
+function decreaseQuantity(product) {
+  if (product.quantity > 0) {
+    product.quantity--;
+    product.stock++;
+  }
+}
+
+
+function calcTotal(){
+    const checkedProdact = checkedItems.value;
+    let total =  checkedProdact.reduce((total, item) => {
+        return total + (item.prix * item.quantity);
+    }, 0);
+    store.total = total;
+    return total;
 }
 // store.filterByCategory("Cartable");
 // let dataShows  = store.prodactsByCatigory.store.selectedcatigory

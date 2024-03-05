@@ -8,6 +8,7 @@ export const useFuornitureStore = defineStore("fourniture", {
     categorys:[],
     sortedData:[],
     cart:[],
+    total:0,
   }),
   getters: {
     getProdacts(state) {
@@ -25,7 +26,7 @@ export const useFuornitureStore = defineStore("fourniture", {
           this.prodacts = prodacts;
           //localStorage.setItem('books', JSON.stringify(books));
           this.prodacts.forEach((item) => {
-            item.cont = 0;
+            item.quantity = 0;
           });
 
           
