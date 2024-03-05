@@ -1,7 +1,7 @@
 <template>
     <RadioGroup :model-value="props.modalClass">
         <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
-        <div class="grid grid-cols-4 gap-x-10 gap-y-5">
+        <div class="grid grid-cols-2 md:grid-cols-4 md:gap-x-10 md:gap-y-5">
           <RadioGroupOption
             v-if="props.options.length == 0"
             as="template"

@@ -1,7 +1,7 @@
 <template>
     <Listbox :model-value="props.modalClass" multiple>
         <ListboxOptions static>
-          <div class="grid grid-cols-4 gap-x-10 gap-y-5">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-5">
             <!--Default langues cards-->
             <ListboxOption
               v-if="props.options.length == 0"

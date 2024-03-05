@@ -1,9 +1,9 @@
 <template>
     <div class="container mx-auto max-w-7xl">
         <div class="w-full flex flex-col items-center justify-center text-dark-blue">
-            <div class="w-[86%] flex flex-col items-center pt-12 2xl:pt-16">
+            <div class="w-[86%] flex flex-col items-center pt-5 xl:pt-12 2xl:pt-16">
               <!-- <form @submit.prevent="mystore.fetchLivres()"> -->
-                <h1 class="w-full md:w-3/4 text-base md:text-xl text-center font-normal leading-loose pb-4">Pour génèrer les élément de <span class="text-soft-dark-blue font-semibold italic underline">la liste scolaire officielle</span> de votre enfant, nous allons avoir besoin de quelques informations ! </h1>
+                <h1 class="w-full md:w-3/4 text-sm md:text-xl text-center font-normal md:leading-loose pb-4">Pour génèrer les élément de <span class="text-soft-dark-blue font-semibold italic underline">la liste scolaire officielle</span> de votre enfant, nous allons avoir besoin de quelques informations ! </h1>
                 <div class="w-full flex flex-col items-start justify-start space-y-5 pt-10">
                     <h3 class="text-sm md:text-lg font-bold pl-4">1. Dans quelle ville habitez vous ?</h3>
                     <!-- DropDown (HeadlesUi) -->

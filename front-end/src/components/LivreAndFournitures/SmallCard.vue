@@ -19,6 +19,9 @@ const props = defineProps({
         Type: String,
         default: ""
     },
+    id:{
+        Type: String,
+    },
     image: {
         Type: File,
         default: "../../assets/manuels.svg"

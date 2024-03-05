@@ -14,7 +14,7 @@
                         Étape 3
                         <img src="../../assets/top.svg" class="h-2" alt="top">
                     </DisclosureButton>
-                    <h2 class="text-xl text-dark-blue font-semibold pt-3">Service de Plastification : Durabilité et Protection</h2>
+                    <h2 class="text-xl text-dark-blue font-semibold pt-3 pr-16">Service de Plastification : Durabilité et Protection</h2>
                     <p class="text-dark-blue text-sm font-normal">
                         Chez Livréeo, nous comprenons que les manuels scolaires sont des investissements essentiels pour l'année à venir. C'est pourquoi nous proposons un service de plastification adhèsive haut de gamme qui préserve ces ressources précieuses.
                     </p>
@@ -114,11 +114,9 @@
                         <div>
                             <button 
                             @click="addToCart()" 
-                            :class="{
-                                'cursor-default pointer-events-none opacity-50': checkedPlst.length === 0,
-                            }"
                             class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">
-                                <span>Ajouter au panier ({{ checkedPlst.length }} articles)</span>
+                                <span v-if="checkedPlst.length > 0">Ajouter au panier ({{ checkedPlst.length }} articles)</span>
+                                <span v-if="checkedPlst.length === 0">Sans Plastification ({{ checkedPlst.length }} articles)</span>
                             </button>
                         </div>
                     </div> 
@@ -130,7 +128,7 @@
 
 <script setup>
 //vue import
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 
 //components
 import LivreInfo from './LivreInfo.vue'
@@ -187,15 +185,6 @@ function selectAll(){
         });
     }
 }
-
-// watch(props.selectedLiv, (newValue) => {
-//   if(newValue.length > 0) {
-//     handleImageClick();
-//   }
-// });
-// const handleImageClick = () => {
-//   document.getElementById("imgLiv").click();
-// }
 
 
 
