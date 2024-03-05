@@ -51,7 +51,11 @@ export const useSecondStepStore = defineStore("secondStepStore", {
         return state.livres.map(item => ({...item, quantity: 1}));
       },
       getSelectedLivres(state){
-        return state.cartItems;
+        return state.cartItems.reduce((acc, livre) => {
+          acc[livre.categorie] = acc[livre.categorie] || [];
+          acc[livre.categorie].push(livre);
+          return acc;
+      }, {});
       },
       countLivreInCart(state){
         return state.cartItems.length;

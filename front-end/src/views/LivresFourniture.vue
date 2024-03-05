@@ -9,17 +9,15 @@
         <!-- 3 Card -->
         <div class="w-full flex items-center justify-center space-x-28 pb-10">
             <SmallCard :cart="cartLivre" name="Manuels" image="../../src/assets/manuels.svg"/>
-            <SmallCard :cart="cartPlast" name="Fournitures" image="../../src/assets/fourniture.svg"/>
-            <SmallCard :cart="cartFourn" name="Plastification" image="../../src/assets/plastification.svg"/>
+            <SmallCard :cart="cartFourn" name="Fournitures" image="../../src/assets/fourniture.svg"/>
+            <SmallCard :cart="cartPlast" name="Plastification" image="../../src/assets/plastification.svg"/>
         </div>
         <div class="w-full flex flex-col items-center justify-center space-y-10">
-            <MainCard 
-            etape="first"
+            <LivresCard 
             :livres="livres"
             />
-            <MainCard 
-            etape="last"
-            :livres="selectedLivre"
+            <PlastificationCard 
+            :selectedLiv="selectedLiv"
             />
         </div>
     </div>
@@ -36,13 +34,16 @@ import { computed, ref } from 'vue'
 //import components
 import SiteMapComponent from '../components/SiteMapComponent.vue'
 import SmallCard from '../components/LivreAndFournitures/SmallCard.vue'
-import MainCard from '../components/LivreAndFournitures/MainCard.vue'
+import LivresCard from '../components/LivreAndFournitures/LivresCard.vue'
+import PlastificationCard from '../components/LivreAndFournitures/PlastificationCard.vue'
 import { useSecondStepStore } from '../stors/SecondStepStore'
 
 const data = useSecondStepStore();
 
 const livres = data.getLivres;
-const selectedLivre = data.getSelectedLivres;
+const selectedLiv = computed(() => {
+    return data.getSelectedLivres;
+}) 
 
 const cartLivre = computed(() => {
     return data.cartItems.length;
@@ -62,4 +63,4 @@ const cartFourn = computed(() => {
 <style scoped> 
 
  
-</style>
+</style>../components/LivreAndFournitures/LivresCard.vue
