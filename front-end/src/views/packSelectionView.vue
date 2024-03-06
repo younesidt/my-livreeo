@@ -5,7 +5,7 @@
               <!-- <form @submit.prevent="mystore.fetchLivres()"> -->
                 <h1 class="w-full md:w-3/4 text-sm md:text-xl text-center font-normal md:leading-loose pb-4">Pour génèrer les élément de <span class="text-soft-dark-blue font-semibold italic underline">la liste scolaire officielle</span> de votre enfant, nous allons avoir besoin de quelques informations ! </h1>
                 <div class="w-full flex flex-col items-start justify-start space-y-5 pt-10">
-                    <h3 class="text-sm md:text-lg font-bold pl-4">1. Dans quelle ville habitez vous ?</h3>
+                    <h3 class="text-xs md:text-lg font-bold pl-4">1. Dans quelle ville habitez vous ?</h3>
                     <!-- DropDown (HeadlesUi) -->
                     <SelectOption
                     placeholder="Select Ville"
@@ -15,7 +15,7 @@
                     />
                 </div>
                 <div class="w-full flex flex-col items-start justify-start space-y-6 pt-12">
-                    <h3 class="text-sm md:text-lg font-bold pl-4">2. Dans quelle école votre enfant est scolarisé ?</h3>
+                    <h3 class="text-xs md:text-lg font-bold pl-4">2. Dans quelle école votre enfant est scolarisé ?</h3>
                     <SelectOption 
                     placeholder="Select école"
                     v-model="school_id"
@@ -23,14 +23,14 @@
                     namechamp="ecole"/>
                 </div>
                 <div class="w-full flex flex-col items-start justify-start space-y-8 pt-12">
-                    <h3 class="text-sm md:text-lg font-bold pl-4">3. Quelle est la classe de votre enfant ?</h3>
+                    <h3 class="text-xs md:text-lg font-bold pl-4">3. Quelle est la classe de votre enfant ?</h3>
                     <SelectClass 
                     v-model="class_id"
                     :options="mystore.getClasses"
                     />
                 </div>
                 <div class="w-full flex flex-col items-start justify-start space-y-8 pt-12">
-                    <h3 class="text-sm md:text-lg font-bold pl-4">4. Quelles sont les options de vôtre enfant ?</h3>
+                    <h3 class="text-xs md:text-lg font-bold pl-4">4. Quelles sont les options de vôtre enfant ?</h3>
                     <SelectLangues 
                     v-model="langues"
                     :options="mystore.getLangues"
