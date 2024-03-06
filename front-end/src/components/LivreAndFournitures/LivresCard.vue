@@ -1,21 +1,21 @@
 <template>
     <Disclosure as="div" v-slot="{ open }" class="w-full flex items-center justify-center">
-        <div class="w-[90%] border-[3px] px-8 py-8 rounded-[60px] border-dark-blue border-opacity-40">
+        <div class="w-[90%] border-[3px] px-4 lg:px-8 py-4 lg:py-8 rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-40">
             <!--Etape 1-->
             <div class="w-full flex items-start justify-start rounded-[35px] bg-[#F0F9FF]">
-                <div class="w-[55%] flex flex-col pt-6 pl-8 pr-4">
-                    <DisclosureButton id="firstbtn" class="w-32 flex items-center justify-between px-4 py-1.5 bg-dark-blue rounded-full font-semibold text-base text-white-color">
+                <div class="w-[55%] flex flex-col pt-4 lg:pt-6 pl-5 lg:pl-8 pr-2 lg:pr-4">
+                    <DisclosureButton id="firstbtn" class="w-24 lg:w-32 flex items-center justify-between px-2 lg:px-4 py-1 lg:py-1.5 bg-dark-blue rounded-full font-semibold text-xs lg:text-base text-white-color">
                         Étape 1
-                        <img src="../../assets/top.svg" class="h-2" alt="top">
+                        <img src="../../assets/top.svg" class="h-1.5 lg:h-2" alt="top">
                     </DisclosureButton>
-                    <h2 class="text-xl text-dark-blue font-semibold pt-3">Choisir ses Manuels Scolaires : </h2>
-                    <p class="text-dark-blue text-sm font-normal">
+                    <h2 class="text-sm lg:text-xl text-dark-blue font-semibold pt-3">Choisir ses Manuels Scolaires : </h2>
+                    <p class="text-dark-blue text-[10px] lg:text-sm font-normal">
                         Chaque manuel proposé par Livréeo est rigoureusement sélectionné pour s'aligner avec les listes officielles des établissements scolaires. Avec l'intégration systématique de l'ISBN, nous assurons une correspondance exacte entre les ouvrages recommandés par les enseignants et ceux que vous recevrez. Besoin d'ajuster votre panier ? Retirez en un clic ce que vous ne souhaitez pas acheter, pour une commande sur mesure.
                     </p>
                 </div>
                 <div class="w-[45%] flex">
                     <div class="w-full h-full flex items-start">
-                        <img src="../../assets/MyBooks.jpg" class="w-full h-[250px]" alt="books">
+                        <img src="../../assets/MyBooks.jpg" class="w-full h-[200px] lg:h-[250px]" alt="books">
                     </div>
                 </div>
             </div>

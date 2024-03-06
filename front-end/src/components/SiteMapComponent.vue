@@ -1,38 +1,38 @@
 <template>
     <div class="relative flex items-center bg-gradient-to-l from-[#5680A6] to-dark-blue text-white-color overflow-hidden">
-        <img src="../../src/assets/footer-sh.svg" class="absolute right-0 bg-cover bg-right" alt="">
-        <div class="container max-w-7xl mx-auto flex flex-col px-4 sm:px-10 pt-10 pb-20 xl:pt-16 xl:pb-24 2xl:pt-24 2xl:pb-32">
+        <img src="../../src/assets/footer-sh.svg" class="hidden xl:block absolute right-0 bg-cover bg-right" alt="">
+        <div class="container max-w-7xl mx-auto flex flex-col px-4 sm:px-10 pt-10 pb-10 md:pb-20 xl:pt-16 xl:pb-24 2xl:pt-24 2xl:pb-32">
             <div class="flex"> 
                 <img src="../assets/logofoot.svg" class="h-[52px] md:h-[62px] 2xl:h-[74px]" alt="logo">
             </div>
-            <div class="w-full flex-row lg:flex items-start justify-between px-6 md:px-10">
-                <div class="pt-12">
-                    <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">À PROPOS DE LIVRÉEO</h2>
+            <div class="w-full grid sm:grid-cols-2 md:grid-cols-3 md:space-x-6 xl:space-x-10 px-3 xl:px-10 space-y-4 md:space-y-0">
+                <div class="pt-10 md:pt-12">
+                    <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">À PROPOS DE LIVRÉEO</h2>
                     <div class="flex flex-col space-y-3">
-                        <router-link to="/" class="text-white text-base 2xl:text-xl font-light">Qui sommes nous ?</router-link>
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Livréeo créche</a>
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Livréeo recrute</a>
+                        <router-link to="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Qui sommes nous ?</router-link>
+                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Livréeo créche</a>
+                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Livréeo recrute</a>
                     </div>
                 </div>
-                <div class="pt-12">
-                    <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">SERVICE CLIENT</h2>
+                <div class="pt-8 md:pt-12">
+                    <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">SERVICE CLIENT</h2>
                     <div class="flex flex-col space-y-3">
-                        <router-link  to="/contactez-nous" class="text-white text-base 2xl:text-xl font-light">Contactez-nous</router-link>
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Modalité de livraison </a>
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light">Politique de retour</a>
+                        <router-link  to="/contactez-nous" class="text-white text-sm md:text-base 2xl:text-xl font-light">Contactez-nous</router-link>
+                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Modalité de livraison </a>
+                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light">Politique de retour</a>
                     </div>
                 </div>
-                <div class="pt-12">
-                    <h2 class="text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">INFORMATIONS</h2>
+                <div class="pt-8 md:pt-12">
+                    <h2 class="text-base md:text-lg 2xl:text-[23.18px] font-medium mb-4 xl:mb-10">INFORMATIONS</h2>
                     <div class="flex flex-col space-y-3">
-                        <a href="/" class="text-white text-base 2xl:text-xl font-light w-4/5">Conditions générales de ventes </a>
+                        <a href="/" class="text-white text-sm md:text-base 2xl:text-xl font-light w-4/5">Conditions générales de ventes </a>
                         
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-[#BBD0E0] sm:py-3 xl:py-6 2xl:py-8">
+    <div class="bg-[#BBD0E0] py-2 xl:py-6 2xl:py-8">
         <div class="container max-w-7xl mx-auto flex items-center justify-center px-10">
             <div class="w-full flex items-center justify-between">
                 <div class="hidden md:flex items-center space-x-3 2xl:space-x-5">
@@ -42,7 +42,7 @@
                     <router-link to="/"><img src="../assets/tiktok.svg" class="h-5 2xl:h-7" alt=""></router-link>
                 </div>
                 <div class="w-full xl:w-fit text-center">
-                    <p class="text-base md:text-lg 2xl:text-[22.18px] font-normal text-dark-blue">Copyright 2023 © Livreeo</p>
+                    <p class="text-xs md:text-lg 2xl:text-[22.18px] font-normal text-dark-blue">Copyright 2023 © Livreeo</p>
                 </div>
                 <div class="hidden md:flex items-center justify-start space-x-6 2xl:space-x-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 2xl:h-10" viewBox="0 0 47 37" fill="none">

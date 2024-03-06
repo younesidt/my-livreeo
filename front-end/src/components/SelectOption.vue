@@ -1,6 +1,6 @@
 <template>
     <Listbox @update:modelValue="value => emit('update:modelValue', value)" :model-value="props.modelValue">
-        <div class="relative w-3/4">
+        <div class="relative w-[85%] md:w-3/4">
             <ListboxButton v-if="props.namechamp === 'ville'" class="w-full cursor-pointer rounded-full text-sm md:text-base font-medium bg-[#E4F3FF] focus:outline-none py-3 md:py-5 pl-4 md:pl-6 text-left border border-[#1E94FD] focus-visible:border-[#1E94FD] focus-visible:ring-2">
                 <span v-if="label" class="block truncate">{{ label }}</span>
                 <span v-else>{{ props.placeholder }}</span>
