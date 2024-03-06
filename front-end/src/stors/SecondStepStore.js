@@ -45,6 +45,8 @@ export const useSecondStepStore = defineStore("secondStepStore", {
         cartItems: [],
         plastification: [],
         cartFournt: [],
+        total:0,
+        plastificationTotal:0,
     }),
     getters:{
       getLivres(state){

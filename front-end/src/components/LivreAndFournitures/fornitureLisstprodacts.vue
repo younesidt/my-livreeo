@@ -41,7 +41,7 @@
               </div>
             </div>
             <p class="w-1/5 text-center font-medium text-[10px] md:text-[18px]">
-              {{ prodact.prix * prodact.cont }} MAD
+              {{ prodact.prix * prodact.quantity }} MAD
             </p>
             <div class="px-4 w-1/7">
                 <input

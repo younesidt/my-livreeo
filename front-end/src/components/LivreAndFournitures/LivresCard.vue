@@ -158,6 +158,7 @@ function addToCart(){
 function calcTotal(){
     const checkedLivreArray = checkedLivre.value;
     let total = checkedLivreArray.reduce((total, item) => {
+        data.total = total + (item.prix * item.quantity);
         return total + (item.prix * item.quantity);
     }, 0);
     return total;

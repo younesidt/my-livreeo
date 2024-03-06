@@ -160,6 +160,7 @@ function addToCart(){
 function calcTotal(){
     const checkedLivreArray = checkedPlst.value;
     let total = checkedLivreArray.reduce((total, item) => {
+        data.plastificationTota =  total + (15 * item.quantity);
         return total + (15 * item.quantity);
     }, 0);
     return total;

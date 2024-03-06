@@ -10,8 +10,8 @@
                         <div class="w-full p-8 bg-white-color rounded-3xl my-4">
                             <p class="text-dark-blue font-bold text-[15px] md:text-[20px] pb-4">Récapitulatif </p>
                             <div class="w-full py-4 flex flex-row justify-between items-center">
-                                <p class=" font-light  text-[18px]">Livraison</p>
-                                <p class=" font-semibold  text-[16px]">35.0000 MAD</p>
+                                <p class=" font-light  text-[18px]">Sous-total</p>
+                                <p class=" font-semibold  text-[16px]">{{ total }} MAD</p>
                             </div>
                             <div class="w-full py-4 flex flex-row justify-between items-center border-b-2 border-dark-blue">
                                 <p class=" font-light  text-[18px]">Livraison</p>
@@ -19,16 +19,27 @@
                             </div>
                             <div class="w-full py-4 flex flex-row justify-between items-center">
                                 <p class=" font-semibold  text-[20px]">Total <br> <span class="font-light  text-[14px]">TVA incluse</span></p>
-                                <p class=" font-semibold  text-[20px]">35.0000 MAD</p>
+                                <p class=" font-semibold  text-[20px]">{{ total }} MAD</p>
                             </div>
                             <div class="w-full flex flex-col justify-between items-center py-4">
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full text-[11px] md:text-[18px] font-semibold my-4">Valider mon panier</button>
+                                <router-link to="/mode-livreson" class="w-full flex items-center justify-center">
+                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full text-[11px] md:text-[18px] font-semibold my-4">Valider mon panier</button></router-link>
                                 <p>où </p>
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-light md:text-[16px] text-[10px]">Choisir un autre packr</button>
+                                <router-link to="/pack-selection" class="w-full flex items-center justify-center">
+                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-light md:text-[16px] text-[10px]">Choisir un autre packr</button></router-link>
                             </div>
                         </div>
                     </div>
 </template>
 <script setup>
+import { reactive, computed } from 'vue'
+import { useFuornitureStore } from "../../stors/fournitureStepStore";
+import { useSecondStepStore } from '../../stors/SecondStepStore'
+const Liver = useSecondStepStore();
+const fourniture = useFuornitureStore();
+
+const total = computed(() => {
+  return fourniture.total + Liver.total + Liver.plastificationTotal;
+})
 
 </script>
