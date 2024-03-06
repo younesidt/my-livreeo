@@ -1,11 +1,11 @@
 <template>
     <div class="md:py-8 md:px-16 px-8 py-4 mb-4 rounded-3xl bg-[#F0F9FF] flex md:flex-row flex-col items-center">
-        <div class="w-full md:w-1/4 text-dark-blue font-medium text-[35px] pb-4">
+        <div class="w-full md:w-1/6 text-dark-blue font-medium text-[35px] pb-4">
             Filtre
         </div>
       
         <div
-          class="grid grid-cols-2 items-start md:grid-cols-4 gap-4 text-dark-blue w-full md:w-3/4"
+          class="grid grid-cols-2 items-start md:grid-cols-4 text-dark-blue w-full md:w-7/6"
         >
           <div>
             <p class="pb-2  mb-2 text-[22px] font-medium">Meilleurs ventes </p>

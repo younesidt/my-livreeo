@@ -3,10 +3,12 @@ import axios from "../lib/axios";
 export const useFuornitureStore = defineStore("fourniture", {
   state: () => ({
     prodacts: [],
-    selectedcatigory:"",
+    selectedCategories:[],
     prodactsByCatigory: {},
     categorys:[],
-    sortedData:[]
+    sortedData:[],
+    cart:[],
+    total:0,
   }),
   getters: {
     getProdacts(state) {
@@ -24,7 +26,7 @@ export const useFuornitureStore = defineStore("fourniture", {
           this.prodacts = prodacts;
           //localStorage.setItem('books', JSON.stringify(books));
           this.prodacts.forEach((item) => {
-            item.cont = 0;
+            item.quantity = 0;
           });
 
           
