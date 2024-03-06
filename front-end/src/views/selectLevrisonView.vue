@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="w-full my-16 flex flex-row justify-between items-center">
-                        <img src="../assets/back.svg" height="">
+                        <router-link to="/bascket"><img src="../assets/back.svg" height=""></router-link>
                         <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
                     </div>
                 </div>
