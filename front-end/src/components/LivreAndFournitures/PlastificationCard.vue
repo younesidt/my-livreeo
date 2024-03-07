@@ -1,11 +1,11 @@
 <template>
     <Disclosure as="div" v-slot="{ open }" class="w-full flex items-center justify-center">
-        <div class="w-[90%] border-[3px] px-4 lg:px-8 py-4 lg:py-8 rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-40">
+        <div class="w-[90%] border-2 sm:border-[3px] px-2 sm:px-4 lg:px-8 py-2 sm:py-4 lg:py-8 rounded-[35px] sm:rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-40">
             <!--Button-->
             
             <!--Etape 1-->
             <div class="w-full flex items-start justify-start rounded-[35px] bg-[#F0F9FF]">
-                <div class="w-[55%] flex flex-col pt-4 lg:pt-6 pl-5 lg:pl-8 pr-2 lg:pr-4">
+                <div class="w-full pb-4 sm:pb-0 sm:w-[55%] flex flex-col pt-4 lg:pt-6 pl-5 lg:pl-8 pr-2 lg:pr-4">
                     <DisclosureButton 
                         id="secondbtn" 
                         :class="data.cartItems.length === 0 ? 'cursor-default pointer-events-none' : 'cursor-pointer'"
@@ -19,7 +19,7 @@
                         Chez Livréeo, nous comprenons que les manuels scolaires sont des investissements essentiels pour l'année à venir. C'est pourquoi nous proposons un service de plastification adhèsive haut de gamme qui préserve ces ressources précieuses.
                     </p>
                 </div>
-                <div class="w-[45%] flex">
+                <div class="hidden w-[45%] sm:flex">
                     <div class="w-full h-48 lg:h-64 bg-[url('../../src/assets/plastification2.svg')] bg-no-repeat bg-cover bg-right"></div>
                 </div>
             </div>
