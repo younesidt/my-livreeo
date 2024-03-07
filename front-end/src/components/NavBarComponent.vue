@@ -1,6 +1,6 @@
 <template>
     <nav :class="{ 'shadow-scroll': isScrolled }" class="sticky right-0 left-0 z-40 top-0 tw-backdrop-blur-md">
-        <div class="container mx-auto max-w-7xl py-4 px-4 md:px-0">
+        <div class="container mx-auto max-w-7xl py-4 px-4 xl:px-0">
             <div class="w-full flex items-center justify-between">
                 <router-link to="/">
                     <div class="flex items-center">
