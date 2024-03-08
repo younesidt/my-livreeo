@@ -1,12 +1,14 @@
 <template>
-    <div class="w-52 flex flex-col items-center">
-        <img :src="props.options.image" alt="livre">
+    <div class="flex flex-row md:flex-col items-start px-2 md:px-8 space-x-3 md:space-x-0">
+        <div class="w-36 md:w-40 lg:w-full">
+            <img :src="props.options.image" alt="livre">
+        </div>
         <div class="w-full flex flex-col text-[#5A7BA0] items-start">
-            <span class="text-lg font-medium pb-3">{{ props.options.name }}</span>
-            <p class="text-xs font-light">ISBN : 978-2013953115</p>
-            <p class="text-xs font-light">Année : 2016</p>
-            <p class="text-xs font-light">Edition : Hachette</p>
-            <p class="text-xs font-light">Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca</p>
+            <span class="text-sm md:text-lg font-medium pb-3">{{ props.options.name }}</span>
+            <p class="text-[8px] md:text-xs font-light">ISBN : 978-2013953115</p>
+            <p class="text-[8px] md:text-xs font-light">Année : 2016</p>
+            <p class="text-[8px] md:text-xs font-light">Edition : Hachette</p>
+            <p class="text-[8px] md:text-xs font-light">Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca</p>
         </div>
     </div> 
 </template>
