@@ -19,6 +19,7 @@ import ModeLivreson from '../views/selectLevrisonView.vue'
 import Fourniture from '../views/FournitureView.vue'
 import Adress from '../views/UserInfo/AdressView.vue'
 import UserInfo from '../views/UserInfo/userInformation.vue'
+import paymentMethod from '../views/UserInfo/paymentMethod.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
 
 const router = createRouter({
@@ -55,15 +56,21 @@ const router = createRouter({
             component:  ModeLivreson
           },
           {
+            path: '/user-address',
+            name: 'user-addres',
+            component:  Adress
+          },
+          {
             path: '/user-info',
             name: ' User-info',
             component:   UserInfo
           },
           {
-            path: '/user-address',
-            name: 'user-addres',
-            component:  Adress
+            path: '/payment-method',
+            name: '  payment-method',
+            component:    paymentMethod
           },
+          
           {
             path: '/list',
             name: 'Listes Scolaires',
