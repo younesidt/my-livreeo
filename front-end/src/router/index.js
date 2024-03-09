@@ -1,9 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-import Home from '../views/HomeView.vue';
-import PackSelection from '../views/packSelectionView.vue';
-import LivresFourniture from '../views/LivresFourniture.vue';
-import List from '../views/SchooleListView.vue';
+import Home from '../views/HomeView.vue'
+import PackSelection from '../views/packSelectionView.vue'
+import LivresFourniture from '../views/LivresFourniture.vue'
+import List from '../views/SchooleListView.vue'
 import ListView from '../views/ListView.vue'
 import Contact from '../views/ContatcView.vue'
 import conditionLegal from '../views/about-views/ConditionGeneralView.vue'
@@ -18,6 +18,8 @@ import Bascket from '../views/BasketView.vue'
 import ModeLivreson from '../views/selectLevrisonView.vue'
 import Fourniture from '../views/FournitureView.vue'
 import Adress from '../views/UserInfo/AdressView.vue'
+import TypeFourniture from '../views/TypeFourniture.vue'
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -111,7 +113,12 @@ const router = createRouter({
           name: 'Statut Commande',
           component: StatutCommande
         },
+        {
+          path: '/type-fournitures',
+          name: 'Type Fournitures',
+          component: TypeFourniture
+        },
     ]
   })
   
-export default router
+export default router;

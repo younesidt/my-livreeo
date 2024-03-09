@@ -9,7 +9,7 @@
       <p
         class="w-full md:w-1/2 text-center text-[11px] md:text-[22px] font-meduim"
       >
-        Pour tout achat d’une tousse et d’un sac Easpack*, profitez d'une
+        Pour tout achat d'une tousse et d'un sac Easpack*, profitez d'une
         réduction de 10 % !
       </p>
       <img
@@ -109,8 +109,8 @@
 </template>
 <script setup>
 import { onMounted, ref } from "vue";
-import fornitureProdacts from "../components/LivreAndFournitures/fornitureLisstprodacts.vue"
-import Filter from "../components/LivreAndFournitures/Filter.vue"
+import fornitureProdacts from "../components/DefaultFaurniture/fornitureLisstprodacts.vue"
+import Filter from "../components/DefaultFaurniture/Filter.vue"
 import { useFuornitureStore } from "../stors/fournitureStepStore";
 
 const store = useFuornitureStore();

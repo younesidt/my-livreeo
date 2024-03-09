@@ -1,7 +1,9 @@
 <template>
   <div class="font-Poppins">
-    <CoponComponent/>
-    <NavBarComponent/>
+    <div class="sticky right-0 left-0 z-40 top-0">
+      <CoponComponent/>
+      <NavBarComponent/>
+    </div>
     <router-view />
   </div>
 </template>

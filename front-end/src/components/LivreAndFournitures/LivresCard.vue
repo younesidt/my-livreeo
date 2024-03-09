@@ -34,10 +34,7 @@
                             <div class="w-full flex items-center justify-end pr-4 lg:pr-12">
                                 <button @click="selectAll()" class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button>
                             </div>   
-                            <div class="h-[300px] md:h-[400px] overflow-y-auto space-y-4 md:space-y-6">
-                                <!-- <div>
-                                    <p class="text-dark-blue text-xl">{{ checkedLivre }}</p>
-                                </div> -->
+                            <div class="h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
                                 <div v-for="(livres, category) in livresByCategory" :key="category">
                                     <div class="w-full flex flex-col items-start">
                                         <h3 class="text-xs md:text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
@@ -226,4 +223,6 @@ function increaseQuantity(item){
     background: #6192BF;
     border-radius: 5px;
 }
+
+
 </style>

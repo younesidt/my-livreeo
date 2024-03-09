@@ -33,38 +33,35 @@
                 leave-to-class="transform scale-95 opacity-0"
             >
                 <DisclosurePanel class="flex flex-col">
-                    <div class="w-full flex"> 
-                        <div class="w-[70%] mt-6">
-                            <div class="w-full flex items-center justify-end pr-12">
-                                <button @click="selectAll()" class="font-semibold text-dark-blue text-base bg-[#F0F9FF] py-1.5 px-8 rounded-full">Selectionez Tous</button>
+                    <div class="w-full flex flex-col-reverse md:flex-row"> 
+                        <div class="w-full md:w-[70%] mt-6">
+                            <div class="w-full flex items-center justify-end pr-4 lg:pr-12">
+                                <button @click="selectAll()" class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button>
                             </div>   
-                            <div class="max-h-[400px] overflow-y-auto space-y-6">
-                                <!-- <div>
-                                    <p class="text-dark-blue text-xl">{{ checkedLivre }}</p>
-                                </div> -->
+                            <div class="max-h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
                                 <div v-for="(livres, category) in props.selectedLiv" :key="category">
                                     <div class="w-full flex flex-col items-start">
-                                        <h3 class="text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
+                                        <h3 class="text-xs md:text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
                                         <!-- as="template"-->
                                         <div
                                             v-for="livre in livres" 
                                             :key="livre.id"
                                             class="w-full flex items-center pt-4"
                                         >
-                                            <div class="w-1/2 flex items-center space-x-3 pl-10">
+                                            <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
                                                 <div @click="selectedLivre = livre" id="imgLiv" class="cursor-pointer">
-                                                    <div class="w-12">
+                                                    <div class="w-8 md:w-12">
                                                         <img :src="livre.image" alt="livre">
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="text-dark-blue text-sm font-medium">{{ livre.name }}</p>
+                                                    <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ livre.name }}</p>
                                                 </div>
                                             </div>
                                             <div class="w-1/2 flex items-center justify-start">
                                                 <div class="w-full flex items-center justify-center">
                                                     <div class="w-1/3 flex items-center justify-end">
-                                                        <div class="w-28 h-7 rounded-full text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                                        <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
                                                             <div class="cursor-pointer">
                                                                 -
                                                             </div>
@@ -77,44 +74,33 @@
                                                         </div>
                                                     </div>
                                                     <div class="w-1/3 flex items-center justify-end">
-                                                        <p class="text-dark-blue text-[15px] font-medium">{{ livre.prix }} MAD</p>
+                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ livre.prix }} MAD</p>
                                                     </div>
                                                     <div class="w-1/3 flex items-center justify-center">                                                        
-                                                        <input type="checkbox" :id="livre.id" :value="livre" class="h-4 w-4" v-model="checkedPlst">
+                                                        <input type="checkbox" :id="livre.id" :value="livre" class="h-3 md:h-4 w-3 md:w-4" v-model="checkedPlst">
                                                     </div>
                                                 </div>
-                                                <!-- <svg width="24" height="23" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g clip-path="url(#clip0_3098_3904)">
-                                                        <path d="M12.75 15.1251L31.5 8.25L42.8333 -2.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        <path d="M28.3346 16.5V24.75C28.3346 25.4793 28.0361 26.1788 27.5048 26.6945C26.9734 27.2103 26.2527 27.5 25.5013 27.5H8.5013C7.74986 27.5 7.02919 27.2103 6.49783 26.6945C5.96648 26.1788 5.66797 25.4793 5.66797 24.75V8.25C5.66797 7.52065 5.96648 6.82118 6.49783 6.30546C7.02919 5.78973 7.74986 5.5 8.5013 5.5H21.2513" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </g>
-                                                    <defs>
-                                                        <clipPath id="clip0_3098_3904">
-                                                            <rect width="34" height="33" fill="white"/>
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>  
                         </div>
-                        <div class="w-[30%] flex items-center justify-center mt-6">
+                        <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
                             <LivreInfo
                             v-if="selectedLivre"
                             :options="selectedLivre"
                             />
                         </div>
                     </div>    
-                    <div class="w-full flex items-center justify-between pt-8 pl-10 pr-52">
+                    <div class="w-full flex items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
                         <div>
-                            <h3 class="text-base font-semibold text-dark-blue">TOTAL = {{ totalPlst }} DHS</h3>
+                            <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = {{ totalPlst }} DHS</h3>
                         </div>
                         <div>
                             <button 
                             @click="addToCart()" 
-                            class="bg-dark-blue text-white-color text-base font-semibold rounded-full py-3 px-5">
+                            class="bg-dark-blue text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5">
                                 <span v-if="checkedPlst.length > 0">Ajouter au panier ({{ checkedPlst.length }} articles)</span>
                                 <span v-if="checkedPlst.length === 0">Sans Plastification ({{ checkedPlst.length }} articles)</span>
                             </button>

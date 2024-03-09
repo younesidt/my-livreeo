@@ -4,7 +4,7 @@
             <img src="../assets/fie.png" class="h-[450px] 2xl:h-full z-10" alt="fille">
             <img src="../assets/popover.svg" class="h-[250px] 2xl:h-full" alt="">
         </div> -->
-        <div class="w-full flex items-center justify-center -space-x-8 sm:-space-x-16 xl:-space-x-24 2xl:-space-x-32 pt-10 md:mt-20">
+        <div class="w-full flex items-center justify-center -space-x-8 sm:-space-x-16 xl:-space-x-24 2xl:-space-x-32 pt-10 md:mt-20 xl:mt-8">
             <div class="z-10">
                 <img src="../assets/fie.png" class="h-[160px] sm:h-[300px] xl:h-[450px] 2xl:h-[550px]" alt="fille">
             </div>
