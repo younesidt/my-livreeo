@@ -18,6 +18,7 @@ import Bascket from '../views/BasketView.vue'
 import ModeLivreson from '../views/selectLevrisonView.vue'
 import Fourniture from '../views/FournitureView.vue'
 import Adress from '../views/UserInfo/AdressView.vue'
+import UserInfo from '../views/UserInfo/userInformation.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
 
 const router = createRouter({
@@ -54,7 +55,12 @@ const router = createRouter({
             component:  ModeLivreson
           },
           {
-            path: '/user-addres',
+            path: '/user-info',
+            name: ' User-info',
+            component:   UserInfo
+          },
+          {
+            path: '/user-info',
             name: 'user-addres',
             component:  Adress
           },
