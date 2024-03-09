@@ -60,7 +60,7 @@ const router = createRouter({
             component:   UserInfo
           },
           {
-            path: '/user-info',
+            path: '/user-address',
             name: 'user-addres',
             component:  Adress
           },
