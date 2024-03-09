@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-1/2">
+  <div class="flex flex-col w-full md:w-1/2">
     <div
       class="bg-white-color w-full md:w-full md:h-[400px] rounded-3xl p-8 flex flex-col items-start"
     >
