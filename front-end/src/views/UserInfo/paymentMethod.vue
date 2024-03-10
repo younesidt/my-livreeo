@@ -16,7 +16,7 @@
                     </div>
                     <div class="w-full my-16 flex flex-row justify-between items-center">
                         <router-link to="/user-info"><img src="../../assets/back.svg" height=""></router-link>
-                        <router-link to="/user-address">
+                        <router-link to="/cart-info">
                             <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
                         </router-link>
                     </div>

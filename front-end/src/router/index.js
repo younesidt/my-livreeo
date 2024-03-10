@@ -20,6 +20,7 @@ import Fourniture from '../views/FournitureView.vue'
 import Adress from '../views/UserInfo/AdressView.vue'
 import UserInfo from '../views/UserInfo/userInformation.vue'
 import paymentMethod from '../views/UserInfo/paymentMethod.vue'
+import cartInfo from '../views/UserInfo/cartInfoView.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
 
 const router = createRouter({
@@ -63,12 +64,17 @@ const router = createRouter({
           {
             path: '/user-info',
             name: ' User-info',
-            component:   UserInfo
+            component:UserInfo
           },
           {
             path: '/payment-method',
             name: '  payment-method',
-            component:    paymentMethod
+            component:paymentMethod
+          },
+          {
+            path: '/cart-info',
+            name: 'cart-info',
+            component:cartInfo
           },
           
           {
