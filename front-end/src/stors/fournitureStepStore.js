@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "../lib/axios";
+
 export const useFuornitureStore = defineStore("fourniture", {
   state: () => ({
     prodacts: [],
@@ -48,8 +49,8 @@ export const useFuornitureStore = defineStore("fourniture", {
         console.log(error);
       }
     },
-  filterByCategory(category) {
-    return this.prodacts = this.prodacts.filter(item => item.categorie === category);
-}
+    filterByCategory(category) {
+      return this.prodacts = this.prodacts.filter(item => item.categorie === category);
+    },
   },
 });
