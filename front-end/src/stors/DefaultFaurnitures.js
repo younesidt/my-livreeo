@@ -10,7 +10,11 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 image: "",
                 categorie: "trousse",
                 color: ["black", "white", "red"]
+                
             }
+            //TODO:first thing the first 
+            // HACK:
+            // FIXME:
         ]
     }),
     getters:{
