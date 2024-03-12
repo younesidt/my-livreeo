@@ -1,5 +1,5 @@
 <template>
-    <div class=" bg-white-blue h-screen">
+    <div class=" bg-white-blue">
         <div class="container mx-auto max-w-7xl">
             <div class="w-full flex flex-col items-center justify-center text-dark-blue">
                 <div class="w-[86%] flex flex-col items-center justify-center pt-12 2xl:pt-8">
