@@ -47,7 +47,7 @@ const router = createRouter({
             component: LivresFourniture
           },
           {
-            path: '/Fourniture',
+            path: '/Fourniture/:categorie',
             name: 'Fourniture',
             component: Fourniture
           },

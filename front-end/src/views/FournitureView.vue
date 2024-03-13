@@ -143,9 +143,24 @@
 import smallCardFournt from "../components/DefaultFaurniture/smallCardFournt.vue"
 import ProductsFourniture from "../components/DefaultFaurniture/ProductsFourniture.vue"
 import { useDefaultFaurnitures } from "../stors/DefaultFaurnitures"
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
+const route = useRoute();
 const data = useDefaultFaurnitures();
-const products = data.getProducts;
+
+// const categorie = computed(() => {
+//   return route.params.categorie;
+// });
+
+// watch(() => route.params.categorie, (newValue) => {
+//   categorie.value = newValue;
+// });
+
+const products = computed(() => {
+  const categorie = route.params.categorie;
+  return data.getFournituresByCat(categorie);
+});
 
 // import { onMounted, ref } from "vue";
 // import fornitureProdacts from "../components/DefaultFaurniture/fornitureLisstprodacts.vue"

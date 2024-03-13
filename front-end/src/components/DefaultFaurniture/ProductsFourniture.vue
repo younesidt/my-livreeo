@@ -168,59 +168,59 @@
                                 class="w-full flex items-center pt-4"
                             >
                                 <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                                    <div @click="selectedProduct = product" class="cursor-pointer">
-                                        <div class="w-8 md:w-24">
-                                            <img :src="product.image" alt="product">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
-                                    </div>
+                                  <div @click="selectedProduct = product" class="cursor-pointer">
+                                      <div class="w-8 md:w-24">
+                                          <img :src="product.image" alt="product">
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
+                                  </div>
                                 </div>
                                 <div class="w-1/2 flex items-center justify-start">
-                                    <div class="w-full flex items-center justify-center">
-                                        <div class="w-1/3 flex items-center justify-end">
-                                            <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                                <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
-                                                    -
-                                                </div>
-                                                <div>
-                                                    1
-                                                </div>
-                                                <div class="cursor-pointer"><!--@click="increaseQuantity(livre)"-->
-                                                    +
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="w-1/3 flex items-center justify-end">
-                                            <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
-                                        </div>
-                                        <div class="w-1/3 flex items-center justify-center">                                                        
-                                            <input type="checkbox" :id="product.id" :value="product" class="h-3 md:h-4 w-3 md:w-4"><!--v-model="checkedLivre"-->
-                                        </div>
-                                    </div>
+                                  <div class="w-full flex items-center justify-center">
+                                      <div class="w-1/3 flex items-center justify-end">
+                                          <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                              <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
+                                                  -
+                                              </div>
+                                              <div>
+                                                  1
+                                              </div>
+                                              <div class="cursor-pointer"><!--@click="increaseQuantity(livre)"-->
+                                                  +
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="w-1/3 flex items-center justify-end">
+                                          <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                                      </div>
+                                      <div class="w-1/3 flex items-center justify-center">                                                        
+                                          <input type="checkbox" :id="product.id" :value="product" class="h-3 md:h-4 w-3 md:w-4"><!--v-model="checkedLivre"-->
+                                      </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
                     </div>  
+                    <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
+                      <div class="pl-8">
+                        <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = 1000 DHS</h3>
+                      </div>
+                      <div>
+                          <button
+                          class="bg-dark-blue text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5">
+                              Ajouter au panier (2 articles)
+                          </button>
+                      </div>
+                    </div>
                 </div>
-                <div class="w-full md:w-[30%] flex items-center justify-center">
-                    <productInfo 
+                <div class="w-full md:w-[30%] flex items-start justify-center mt-2">
+                    <!-- <productInfo 
                     :options="selectedProduct"
-                    />
+                    /> -->
                 </div>
-            </div>    
-            <div class="w-full flex items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
-                <div>
-                    <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = 1000 DHS</h3>
-                </div>
-                <div>
-                    <button
-                    class="bg-dark-blue text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5">
-                        Ajouter au panier (2 articles)
-                    </button>
-                </div>
-            </div> 
+            </div>     
         </div> 
 
       </div>
@@ -232,7 +232,7 @@ import { ref } from 'vue'
 import productInfo from './productInfo.vue'
 
 const props = defineProps({
-    products: Array,
+  products: Array,
 })
 const selectedProduct = ref(props.products[0])
 
