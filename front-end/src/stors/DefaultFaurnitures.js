@@ -47,7 +47,11 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 categorie: "cartable",
                 color: ["dark", "green"],
                 type: "trousse 2"
+                
             },
+            //TODO:first thing the first 
+            // HACK:
+            // FIXME:
         ]
     }),
     getters:{

@@ -30,7 +30,7 @@ export const useFuornitureStore = defineStore("fourniture", {
             item.quantity = 0;
           });
 
-          
+          //TODO_fix this
           //soert prodacts by category
 
           this.prodacts.forEach((item) => {
