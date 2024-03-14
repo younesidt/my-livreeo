@@ -15,9 +15,9 @@
 
   <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-8">
     <div class="w-full flex items-center justify-center space-x-5 sm:space-x-10 md:space-x-28 pb-10">
-        <smallCardFournt name="Cartables" image="../../src/assets/cartabl.svg"/>
-        <smallCardFournt name="Trousses" image="../../src/assets/trouse.svg"/>
-        <smallCardFournt name="Calculatrices" image="../../src/assets/calculatrice.svg"/>
+        <router-link to="/Fourniture/cartable"><smallCardFournt name="Cartables" image="../../src/assets/cartabl.svg"/></router-link>
+        <router-link to="/Fourniture/trousse"><smallCardFournt name="Trousses" image="../../src/assets/trouse.svg"/></router-link>
+        <router-link to="/Fourniture/calculatrice"><smallCardFournt name="Calculatrices" image="../../src/assets/calculatrice.svg"/></router-link>
     </div>
 
     <ProductsFourniture :products="products"/>
@@ -30,7 +30,7 @@
   <br>
   <br>
 
-
+  <SiteMapComponent />
 
   <!-- <div class="bg-[#F1F1F1] w-full flex items-center justfy-center">
     <div
@@ -142,38 +142,18 @@
 <script setup>
 import smallCardFournt from "../components/DefaultFaurniture/smallCardFournt.vue"
 import ProductsFourniture from "../components/DefaultFaurniture/ProductsFourniture.vue"
+import SiteMapComponent from "../components/SiteMapComponent.vue"
 import { useDefaultFaurnitures } from "../stors/DefaultFaurnitures"
-import { useRoute } from "vue-router";
-import { computed } from "vue";
 
-const route = useRoute();
+
 const data = useDefaultFaurnitures();
+const products = data.getProducts;
 
-// const categorie = computed(() => {
-//   return route.params.categorie;
-// });
 
-// watch(() => route.params.categorie, (newValue) => {
-//   categorie.value = newValue;
-// });
-
-const products = computed(() => {
-  const categorie = route.params.categorie;
-  return data.getFournituresByCat(categorie);
-});
-
-// import { onMounted, ref } from "vue";
-// import fornitureProdacts from "../components/DefaultFaurniture/fornitureLisstprodacts.vue"
-// import Filter from "../components/DefaultFaurniture/Filter.vue"
-// import { useFuornitureStore } from "../stors/fournitureStepStore";
-
-// const store = useFuornitureStore();
-// store.fetchProdacts();
-// // onMounted(() => {
-// //     store.fetchProdacts()
-// // }),
 
 </script>
+
+
 <style scoped>
 /* width */
 ::-webkit-scrollbar {

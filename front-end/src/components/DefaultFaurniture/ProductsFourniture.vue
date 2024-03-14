@@ -163,7 +163,7 @@
                     <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
                         <div class="w-full flex flex-col items-start">
                             <div 
-                                v-for="product in props.products"
+                                v-for="product in fournitures"
                                 :key="product.id" 
                                 class="w-full flex items-center pt-4"
                             >
@@ -216,9 +216,9 @@
                     </div>
                 </div>
                 <div class="w-full md:w-[30%] flex items-start justify-center mt-2">
-                    <!-- <productInfo 
-                    :options="selectedProduct"
-                    /> -->
+                    <productInfo
+                     :options="selectedProduct"
+                    />
                 </div>
             </div>     
         </div> 
@@ -228,17 +228,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import productInfo from './productInfo.vue'
+import { useRoute } from "vue-router";
+
 
 const props = defineProps({
   products: Array,
 })
-const selectedProduct = ref(props.products[0])
-
 const isChecked = ref('')
 const isChecked2 = ref('')
 const isChecked3 = ref('')
+
+const route = useRoute();
+const mycategorie = computed(() => route.params.categorie);
+const fournitures = computed(() => { return getFournituresByCat(); });
+const selectedProduct = ref(fournitures.value[0]); //props.products[0]
+
+
+function getFournituresByCat(){
+  return props.products.filter(item => item.categorie === mycategorie.value);
+}
+
+
+
+
+
 
 
 </script>

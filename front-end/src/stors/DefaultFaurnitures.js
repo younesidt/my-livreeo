@@ -60,8 +60,8 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
         }
     },
     actions:{
-        getFournituresByCat(categorie){
-            return this.fourniture = this.fourniture.filter(item => item.categorie === categorie);
-        }
+        // getFournituresByCat(categorie){
+        //     return this.fourniture = this.fourniture.filter(item => item.categorie === categorie);
+        // }
     }
 });
