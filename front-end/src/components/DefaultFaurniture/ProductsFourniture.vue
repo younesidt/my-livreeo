@@ -9,26 +9,26 @@
           <div class="flex flex-col">
             <h3 class="text-lg font-medium pb-1">Meilleurs ventes</h3>
             <div class="flex items-center">
-              <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="Prix croissant">
-              <label class="relative" for="checkbox1">
-                <img v-if="isChecked !== 'Prix croissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                <img v-if="isChecked === 'Prix croissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                <img v-if="isChecked === 'Prix croissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
+              <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
+              <label class="relative cursor-pointer" for="checkbox1">
+                <img v-if="isChecked !== 'croissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
+                <img v-if="isChecked === 'croissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
+                <img v-if="isChecked === 'croissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
               </label>
               <p class="pl-3 text-sm font-medium">Prix croissant</p>
             </div>
             <div class="flex items-center">
-              <input type="radio" name="checkbox" id="checkbox2" class="hidden" v-model="isChecked" value="Prix decroissant">
-              <label class="relative" for="checkbox2">
-                <img v-if="isChecked !== 'Prix decroissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                <img v-if="isChecked === 'Prix decroissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                <img v-if="isChecked === 'Prix decroissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
+              <input type="radio" name="checkbox" id="checkbox2" class="hidden" v-model="isChecked" value="decroissant">
+              <label class="relative cursor-pointer" for="checkbox2">
+                <img v-if="isChecked !== 'decroissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
+                <img v-if="isChecked === 'decroissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
+                <img v-if="isChecked === 'decroissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
               </label>
               <p class="pl-3 text-sm font-medium">Prix decroissant</p>  
             </div>
             <div class="flex items-center">
               <input type="radio" name="checkbox" id="checkbox3" class="hidden" v-model="isChecked" value="Note des clients">
-              <label class="relative" for="checkbox3">
+              <label class="relative cursor-pointer" for="checkbox3">
                 <img v-if="isChecked !== 'Note des clients'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
                 <img v-if="isChecked === 'Note des clients'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
                 <img v-if="isChecked === 'Note des clients'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
@@ -39,32 +39,16 @@
           <!--Categories-->
           <div class="flex flex-col">
             <h3 class="text-lg font-medium pb-1">Categories</h3>
-            <div class="flex items-center">
-              <input type="radio" name="checkbox-cat" id="checkbox4" class="hidden" v-model="isChecked2" value="Cartables">
-              <label class="relative" for="checkbox4">
-                <img v-if="isChecked2 !== 'Cartables'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                <img v-if="isChecked2 === 'Cartables'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                <img v-if="isChecked2 === 'Cartables'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-              </label>
-              <p class="pl-3 text-sm font-medium">Cartables</p>
-            </div>
-            <div class="flex items-center">
-              <input type="radio" name="checkbox-cat" id="checkbox5" class="hidden" v-model="isChecked2" value="Trolley">
-              <label class="relative" for="checkbox5">
-                <img v-if="isChecked2 !== 'Trolley'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                <img v-if="isChecked2 === 'Trolley'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                <img v-if="isChecked2 === 'Trolley'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-              </label>
-              <p class="pl-3 text-sm font-medium">Trolley</p>  
-            </div>
-            <div class="flex items-center">
-              <input type="radio" name="checkbox-cat" id="checkbox6" class="hidden" v-model="isChecked2" value="Sac-à-dos">
-              <label class="relative" for="checkbox6">
-                <img v-if="isChecked2 !== 'Sac-à-dos'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                <img v-if="isChecked2 === 'Sac-à-dos'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                <img v-if="isChecked2 === 'Sac-à-dos'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-              </label>
-              <p class="pl-3 text-sm font-medium">Sac-à-dos</p>
+            <div v-for="item in categories">
+              <div class="flex items-center">
+                <input type="radio" name="checkbox-cat" :id="item" class="hidden" v-model="isChecked2" :value="item">
+                <label class="relative cursor-pointer" :for="item">
+                  <img v-if="isChecked2 !== item" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
+                  <img v-if="isChecked2 === item" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
+                  <img v-if="isChecked2 === item" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
+                </label>
+                <p class="pl-3 text-sm font-medium">{{ item }}</p>
+              </div>
             </div>
           </div>
           <!--couleurs-->
@@ -73,7 +57,7 @@
             <div class="grid grid-cols-5 gap-x-1.5 gap-y-1">
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox7" class="hidden" v-model="isChecked3" value="blue">
-                <label class="relative" for="checkbox7">
+                <label class="relative cursor-pointer" for="checkbox7">
                   <div v-if="isChecked3 !== 'blue'" class="w-5 h-5 rounded-full bg-dark-blue"></div>
                   <div v-if="isChecked3 === 'blue'" class="flex items-center justify-center w-8 h-8 rounded-full bg-dark-blue">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -86,7 +70,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox8" class="hidden" v-model="isChecked3" value="dark">
-                <label class="relative" for="checkbox8">
+                <label class="relative cursor-pointer" for="checkbox8">
                   <div v-if="isChecked3 !== 'dark'" class="w-5 h-5 rounded-full bg-[#000]"></div>
                   <div v-if="isChecked3 === 'dark'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#000]">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -99,7 +83,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox9" class="hidden" v-model="isChecked3" value="red">
-                <label class="relative" for="checkbox9">
+                <label class="relative cursor-pointer" for="checkbox9">
                   <div v-if="isChecked3 !== 'red'" class="w-5 h-5 rounded-full bg-[#F35757]"></div>
                   <div v-if="isChecked3 === 'red'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F35757]">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -112,7 +96,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox10" class="hidden" v-model="isChecked3" value="green">
-                <label class="relative" for="checkbox10">
+                <label class="relative cursor-pointer" for="checkbox10">
                   <div v-if="isChecked3 !== 'green'" class="w-5 h-5 rounded-full bg-[#51E04E]"></div>
                   <div v-if="isChecked3 === 'green'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#51E04E]">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -125,7 +109,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox11" class="hidden" v-model="isChecked3" value="pink">
-                <label class="relative" for="checkbox11">
+                <label class="relative cursor-pointer" for="checkbox11">
                   <div v-if="isChecked3 !== 'pink'" class="w-5 h-5 rounded-full bg-[#AD19E1]"></div>
                   <div v-if="isChecked3 === 'pink'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#AD19E1]">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -138,7 +122,7 @@
               </div>
               <div class="flex items-center justify-center">
                 <input type="radio" name="checkbox-col" id="checkbox12" class="hidden" v-model="isChecked3" value="yellow">
-                <label class="relative" for="checkbox12">
+                <label class="relative cursor-pointer" for="checkbox12">
                   <div v-if="isChecked3 !== 'yellow'" class="w-5 h-5 rounded-full bg-[#e1d719]"></div>
                   <div v-if="isChecked3 === 'yellow'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#e1d719]">
                     <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
@@ -158,69 +142,69 @@
         </div>
 
         <div class="flex flex-col">
-            <div class="w-full flex flex-col-reverse md:flex-row"> 
-                <div class="w-full md:w-[70%] mt-6">  
-                    <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
-                        <div class="w-full flex flex-col items-start">
-                            <div 
-                                v-for="product in fournitures"
-                                :key="product.id" 
-                                class="w-full flex items-center pt-4"
-                            >
-                                <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                                  <div @click="selectedProduct = product" class="cursor-pointer">
-                                      <div class="w-8 md:w-24">
-                                          <img :src="product.image" alt="product">
-                                      </div>
-                                  </div>
-                                  <div>
-                                      <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
-                                  </div>
-                                </div>
-                                <div class="w-1/2 flex items-center justify-start">
-                                  <div class="w-full flex items-center justify-center">
-                                      <div class="w-1/3 flex items-center justify-end">
-                                          <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                              <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
-                                                  -
-                                              </div>
-                                              <div>
-                                                  1
-                                              </div>
-                                              <div class="cursor-pointer"><!--@click="increaseQuantity(livre)"-->
-                                                  +
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="w-1/3 flex items-center justify-end">
-                                          <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
-                                      </div>
-                                      <div class="w-1/3 flex items-center justify-center">                                                        
-                                          <input type="checkbox" :id="product.id" :value="product" class="h-3 md:h-4 w-3 md:w-4"><!--v-model="checkedLivre"-->
-                                      </div>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
-                      <div class="pl-8">
-                        <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = 1000 DHS</h3>
+          <div class="w-full flex flex-col-reverse md:flex-row"> 
+            <div class="w-full md:w-[70%] mt-6">  
+              <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
+                <div class="w-full flex flex-col items-start">
+                  <div 
+                    v-for="product in fournitures"
+                    :key="product.id" 
+                    class="w-full flex items-center pt-4"
+                  >
+                    <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
+                      <div @click="selectedProduct = product" class="cursor-pointer">
+                          <div class="w-8 md:w-24">
+                              <img :src="product.image" alt="product">
+                          </div>
                       </div>
                       <div>
-                          <button
-                          class="bg-dark-blue text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5">
-                              Ajouter au panier (2 articles)
-                          </button>
+                          <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
                       </div>
                     </div>
+                    <div class="w-1/2 flex items-center justify-start">
+                      <div class="w-full flex items-center justify-center">
+                          <div class="w-1/3 flex items-center justify-end">
+                              <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                  <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
+                                      -
+                                  </div>
+                                  <div>
+                                      1
+                                  </div>
+                                  <div class="cursor-pointer"><!--@click="increaseQuantity(livre)"-->
+                                      +
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="w-1/3 flex items-center justify-end">
+                              <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                          </div>
+                          <div class="w-1/3 flex items-center justify-center">                                                        
+                              <input type="checkbox" :id="product.id" :value="product" class="h-3 md:h-4 w-3 md:w-4"><!--v-model="checkedLivre"-->
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="w-full md:w-[30%] flex items-start justify-center mt-2">
-                    <productInfo
-                     :options="selectedProduct"
-                    />
+              </div>  
+              <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
+                <div class="pl-8">
+                  <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = 1000 DHS</h3>
                 </div>
-            </div>     
+                <div>
+                    <button
+                    class="bg-dark-blue text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5">
+                        Ajouter au panier (2 articles)
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-[30%] flex items-start justify-center mt-2">
+                <productInfo
+                  :options="selectedProduct"
+                />
+            </div>
+          </div>     
         </div> 
 
       </div>
@@ -228,7 +212,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import productInfo from './productInfo.vue'
 import { useRoute } from "vue-router";
 
@@ -242,7 +226,23 @@ const isChecked3 = ref('')
 
 const route = useRoute();
 const mycategorie = computed(() => route.params.categorie);
-const fournitures = computed(() => { return getFournituresByCat(); });
+
+//Get fournitures and order them asc or desc
+const fournitures = computed(() => { 
+    const sortedFournitures = getFournituresByCat().slice(); // Make a copy to avoid mutating original data
+
+    if (isChecked.value === 'croissant') {
+      sortedFournitures.sort((a, b) => a.prix - b.prix); // Sort in ascending order
+      //console.log(sortedFournitures);
+    } 
+    else if (isChecked.value === 'decroissant') 
+    {
+      sortedFournitures.sort((a, b) => b.prix - a.prix); // Sort in descending order
+      //console.log(sortedFournitures);
+    }
+    return sortedFournitures; 
+});
+
 const selectedProduct = ref(fournitures.value[0]); //props.products[0]
 
 
@@ -250,11 +250,33 @@ function getFournituresByCat(){
   return props.products.filter(item => item.categorie === mycategorie.value);
 }
 
+//Filter (Categories)
+const categories = ref(getUniqueTypes(fournitures.value));
 
+watch(mycategorie, () => {
+  categories.value = getUniqueTypes(fournitures.value);
+  //console.log(categories.value);
+});
 
+function getUniqueTypes(fourniture) {
+  const uniqueTypesSet = new Set();
+  fourniture.forEach(item => {
+    uniqueTypesSet.add(item.type);
+  });
+  return Array.from(uniqueTypesSet);
+}
 
-
-
+// watch(isChecked2.value, (newValue) => {
+//   if(newValue !== ''){
+//     //const mySortedFourn = fournitures.value;
+//     fournitures.value = fournitures.value.reduce((acc, item) => {
+//       if (item.type === isChecked2.value) {
+//         acc.push(item);
+//       }
+//       return acc;
+//     }, []);
+//   }
+// });
 
 </script>
 

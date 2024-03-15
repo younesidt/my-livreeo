@@ -1,4 +1,4 @@
-<tamplate>
+<template>
     <div class=" bg-white-blue">
         <div class="container mx-auto max-w-7xl">
             <div class="w-full flex flex-col items-center justify-center text-dark-blue">
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-</tamplate>
+</template>
 <script setup>
 
 </script>
