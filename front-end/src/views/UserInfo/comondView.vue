@@ -36,7 +36,5 @@
     </div>
 
 </template>
-<script setup>
-</template>
                 
 <script setup></script>

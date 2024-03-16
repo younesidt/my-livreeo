@@ -179,8 +179,17 @@
                           <div class="w-1/3 flex items-center justify-end">
                               <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
                           </div>
-                          <div class="w-1/3 flex items-center justify-center">                                                        
-                              <input type="checkbox" :id="product.id" :value="product" class="h-3 md:h-4 w-3 md:w-4"><!--v-model="checkedLivre"-->
+                          <div class="w-1/3 flex items-center justify-center">
+                            <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedProducts">                                                        
+                            <div @click="handleDivClick(product.id)" class="relative w-9 h-9 rounded-full bg-dark-blue flex items-center justify-center cursor-pointer hover:bg-[#004179e5] transition duration-200 ease-in-out">
+                              <svg class="h-3 md:h-5" viewBox="0 0 30 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.94116 9.375H24.8914C25.3988 9.37494 25.9001 9.47941 26.3612 9.68124C26.8222 9.88307 27.2319 10.1775 27.5623 10.5443C27.8927 10.9111 28.1359 11.3417 28.2753 11.8064C28.4147 12.2712 28.4469 12.7592 28.3698 13.2369L26.1617 26.9012C25.97 28.0886 25.3384 29.1715 24.3811 29.9537C23.4239 30.7359 22.2043 31.1657 20.9432 31.1654H8.88758C7.62677 31.1653 6.40762 30.7353 5.45075 29.9531C4.49388 29.171 3.8625 28.0883 3.67085 26.9012L1.46276 13.2369C1.38564 12.7592 1.41788 12.2712 1.55725 11.8064C1.69663 11.3417 1.93985 10.9111 2.27025 10.5443C2.60064 10.1775 3.01039 9.88307 3.47141 9.68124C3.93242 9.47941 4.4338 9.37494 4.94116 9.375Z" stroke="white" :stroke-width="myProduct === product ? 3 : 2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.64062 14.4095V6.02854C9.64062 4.69489 10.1967 3.41586 11.1866 2.47283C12.1765 1.52979 13.519 1 14.9189 1C16.3188 1 17.6614 1.52979 18.6513 2.47283C19.6411 3.41586 20.1972 4.69489 20.1972 6.02854V14.4095" stroke="white" :stroke-width="myProduct === product ? 3 : 2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              <svg v-if="myProduct === product.id" class="h-2 w-2 absolute top-[17px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.07422 3.15866L2.58444 4.75278C2.97886 5.16912 3.64191 5.16912 4.03634 4.75278L7.14382 1.47266" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                              </svg>
+                            </div>
                           </div>
                       </div>
                     </div>
@@ -214,15 +223,27 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import productInfo from './productInfo.vue'
-import { useRoute } from "vue-router";
+import { useRoute } from "vue-router"
 
 
 const props = defineProps({
   products: Array,
 })
+
 const isChecked = ref('')
 const isChecked2 = ref('')
 const isChecked3 = ref('')
+const checkedProducts = ref([])
+const myProduct =  ref(null)
+
+function handleDivClick(id) {
+  myProduct.value = id;
+  document.getElementById(id).click();
+}
+
+watch(checkedProducts, () => {
+  console.log(checkedProducts.value);
+});
 
 const route = useRoute();
 const mycategorie = computed(() => route.params.categorie);
@@ -240,6 +261,15 @@ const fournitures = computed(() => {
       sortedFournitures.sort((a, b) => b.prix - a.prix); // Sort in descending order
       //console.log(sortedFournitures);
     }
+
+    if(isChecked2.value !== ''){
+      return sortedFournitures.reduce((acc, item) => {
+        if (item.type === isChecked2.value) {
+          acc.push(item);
+        }
+        return acc;
+      }, []);
+    }
     return sortedFournitures; 
 });
 
@@ -254,6 +284,7 @@ function getFournituresByCat(){
 const categories = ref(getUniqueTypes(fournitures.value));
 
 watch(mycategorie, () => {
+  isChecked2.value = '';
   categories.value = getUniqueTypes(fournitures.value);
   //console.log(categories.value);
 });
@@ -265,18 +296,6 @@ function getUniqueTypes(fourniture) {
   });
   return Array.from(uniqueTypesSet);
 }
-
-// watch(isChecked2.value, (newValue) => {
-//   if(newValue !== ''){
-//     //const mySortedFourn = fournitures.value;
-//     fournitures.value = fournitures.value.reduce((acc, item) => {
-//       if (item.type === isChecked2.value) {
-//         acc.push(item);
-//       }
-//       return acc;
-//     }, []);
-//   }
-// });
 
 </script>
 

@@ -4,7 +4,7 @@
             <img :src="props.options.image" class="h-44 xl:h-64" alt="product">
         </div>
         <div class="w-full flex flex-col text-[#5A7BA0] items-start">
-            <div class="grid grid-cols-5 gap-x-3 gap-y-1 pb-2">
+            <div class="grid grid-cols-5 gap-x-2 gap-y-1 pb-2">
                 <div class="flex items-center justify-center">
                     <input type="radio" name="checkbox-col" id="checkbox13" class="hidden" v-model="checkedColor" value="blue">
                     <label class="relative cursor-pointer" for="checkbox13">
