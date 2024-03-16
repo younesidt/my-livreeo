@@ -10,7 +10,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 image: "../../src/assets/calculatrice.png",
                 categorie: "calculatrice",
                 color: ["dark", "white", "red"],
-                type: "trousse 1"
+                type: "calculatrice 1"
             },
             {
                 id:2,
@@ -19,7 +19,16 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 image: "../../src/assets/calculatrice2.png",
                 categorie: "calculatrice",
                 color: ["orange", "white"],
-                type: "trousse 1"
+                type: "calculatrice 1"
+            },
+            {
+                id:22,
+                name:"EASTPAK OVAL 3",
+                prix: 390,
+                image: "../../src/assets/calculatrice2.png",
+                categorie: "calculatrice",
+                color: ["orange", "white"],
+                type: "calculatrice 2"
             },
             {
                 id:3,
@@ -37,17 +46,25 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 image: "../../src/assets/trousse.png",
                 categorie: "trousse",
                 color: ["white", "green"],
-                type: "trousse 2"
+                type: "trousse 1"
             },
             {
                 id:5,
-                name:"EASTPAK OVAL 5",
+                name:"cartable defhe",
                 prix: 90,
                 image: "../../src/assets/cartable.png",
                 categorie: "cartable",
                 color: ["dark", "green"],
-                type: "trousse 2"
-                
+                type: "Trolley"
+            },
+            {
+                id:6,
+                name:"cartable ggggg",
+                prix: 180,
+                image: "../../src/assets/cartable.png",
+                categorie: "cartable",
+                color: ["dark", "white"],
+                type: "Sac-à-dos"
             },
             //TODO:first thing the first 
             // HACK:
@@ -60,8 +77,8 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
         }
     },
     actions:{
-        getFournituresByCat(categorie){
-            return this.fourniture = this.fourniture.filter(item => item.categorie === categorie);
-        }
+        // getFournituresByCat(categorie){
+        //     return this.fourniture = this.fourniture.filter(item => item.categorie === categorie);
+        // }
     }
 });
