@@ -8,32 +8,63 @@
                         <img src="../../assets/done.svg">
                         <div class="w-2/3 font-bold text-[15px]  text-dark-blue">Payement validé</div>
                     </div>
-                    <div class="w-full flex flex-row justify-evenly gap-8 py-8 border border-dark-blue rounded-full px-4">
+                    <div class="w-full flex flex-row justify-center py-4 border border-dark-blue rounded-full px-4">
                         <div class="flex flex-col justify-center items-center w-1/4">
                             <p class="font-bold text-[15px]">Numéro de commande</p>
                             <p class=" text-soft-dark-blue mt-4">56785</p>
                         </div>
                         <div class="flex flex-col justify-center items-center border-x-2 border-dark-blue w-1/4">
-                            <p class="font-bold text-[15px]">Numéro de commande</p>
-                            <p class=" text-soft-dark-blue mt-4">56785</p>
+                            <p class="font-bold text-[15px]">Date</p>
+                            <p class=" text-soft-dark-blue mt-4">{{ today.toShortFormat() }}</p>
                         </div>
                         <div class="flex flex-col justify-center items-center border-x-2 border-dark-blue w-1/4">
-                            <p class="font-bold text-[15px]">Numéro de commande</p>
-                            <p class=" text-soft-dark-blue mt-4">56785</p>
+                            <p class="font-bold text-[15px]">Total</p>
+                            <p class=" text-soft-dark-blue mt-4">{{ total }} MAD</p>
                         </div>
                         <div class="flex flex-col justify-center items-center w-1/4">
-                            <p class="font-bold text-[15px]">Numéro de commande</p>
+                            <p class="font-bold text-[15px]">Payment Method</p>
                             <p class=" text-soft-dark-blue mt-4">56785</p>
                         </div>
                     </div>
                     <div class="my-20 w-full flex flex-row justify-around">
-                        <div>fff</div>
-                        <div>fff</div>
+                        <button class="p-1 md:p-2  border border-dark-blue rounded-full flex flex-row justify-between items-center">
+                            <img src="../../assets/download-a.svg" class="md:h-auto h-9">
+                            <spn class="font-semibold text-[10px] ml-2 md:text-[20px]  text-dark-blue">Téléchargez votre facture</spn>
+                        </button>
+                        <button class="p-1 md:p-2  border border-dark-blue rounded-full flex flex-row justify-between items-center bg-dark-blue text-white-color">
+                            <img src="../../assets/start-over.svg" class="md:h-auto h-9">
+                            <spn class="font-semibold text-[10px] md:text-[20px] ml-2 text-white-color">Choisir un autre PACK</spn>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-                
-<script setup></script>
+
+<script setup>
+import { useFuornitureStore } from "../../stors/fournitureStepStore";
+import { useSecondStepStore } from '../../stors/SecondStepStore'
+import { computed } from 'vue'
+
+const liver = useSecondStepStore();
+const fourniture = useFuornitureStore();
+
+Date.prototype.toShortFormat = function() {
+const monthNames = ["Jan", "Feb", "Mar", "Apr",
+                    "May", "Jun", "Jul", "Aug",
+                    "Sep", "Oct", "Nov", "Dec"];
+const day = this.getDate();
+const monthIndex = this.getMonth();
+const monthName = monthNames[monthIndex];
+const year = this.getFullYear();
+return `${monthName} ${day},${year}`;  
+}
+let today = new Date();
+
+
+const total = computed(() => {
+  return fourniture.total + liver.total + liver.plastificationTotal;
+})
+
+</script>
