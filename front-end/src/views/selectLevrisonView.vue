@@ -22,9 +22,9 @@
                         </div>
                     </div>
                     <div class="w-full my-16 flex flex-row justify-between items-center">
-                        <router-link to="/bascket"><img src="../assets/back.svg" height=""></router-link>
+                        <router-link to="/bascket"><img src="../assets/back.svg" class="w-12"></router-link>
                         <router-link to="/user-address">
-                            <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
+                            <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
                         </router-link>
                     </div>
                 </div>
@@ -36,7 +36,8 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-
+import { useEndPoint } from '../stors/endpoint';
+const store = useEndPoint();
 const plans = [
     {
         id: 1,
@@ -67,6 +68,7 @@ const selectedPlan = ref(null);
 // Function to select a plan
 const selectPlan = (plan) => {
     selectedPlan.value = plan;
+    store.type_livraison = selectedPlan.value;
 }
 
 // Watcher for changes in selectedPlan

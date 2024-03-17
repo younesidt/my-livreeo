@@ -77,7 +77,7 @@
         class="w-full py-4 flex flex-row justify-between items-center border-b-2 border-dark-blue"
       >
         <p class="font-light text-[18px]">Livraison</p>
-        <p class="font-light text-[14px]">Calculé à l’étape suivante</p>
+        <p class="font-light text-[14px]">{{ livrisoPrix.prix }}MAD</p>
       </div>
       <div class="w-full py-4 flex flex-row justify-between items-center">
         <p class="font-semibold text-[20px]">
@@ -92,10 +92,12 @@
 <script setup>
 import { useFuornitureStore } from "../../stors/fournitureStepStore";
 import { useSecondStepStore } from '../../stors/SecondStepStore'
+import { useEndPoint } from "../../stors/endpoint";
 import { reactive, computed, ref } from 'vue'
 
 const liver = useSecondStepStore();
 const fourniture = useFuornitureStore();
+const livrison = useEndPoint();
 
 function removeProdact(itemToRemove) {
   const index = fourniture.cart.indexOf(itemToRemove);
@@ -115,6 +117,7 @@ const total = computed(() => {
   return fourniture.total + liver.total + liver.plastificationTotal;
 })
 
+const livrisoPrix = livrison.type_livraison;
 </script>
 
 <style scoped>

@@ -15,9 +15,9 @@
                         </div>
                     </div>
                     <div class="w-full my-16 flex flex-row justify-between items-center">
-                        <router-link to="/user-info"><img src="../../assets/back.svg" height=""></router-link>
+                        <router-link to="/user-info"><img src="../../assets/back.svg" height="" class="w-12"></router-link>
                         <router-link to="/cart-info">
-                            <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
+                            <button class="py-3 px-8 text-white-color bg-dark-blue rounded-full font-semibold md:text-[20px] text-[15px]">Aller au paiement</button>
                         </router-link>
                     </div>
                 </div>
@@ -29,23 +29,29 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import { useEndPoint } from '../../stors/endpoint';
+const store = useEndPoint();
 
 const plans = [
     {
         id: 1,
         name: 'Carte Bancaire (payement sécurisée) ',
+        desc:"Carte Bancaire"
     },
     {
         id: 2,
         name: 'Paiement en espèces chez Wafacash',
+        desc:"Wafacash"
     },
     {
         id: 3,
         name: 'Paiement par virement bancaire ',
+        desc:"virement bancaire"
     },
     {
         id: 4,
         name: 'Paiement 2X et 3X sans frais ',
+        desc:"2X et 3X sans frais"
     }
 ]
 
@@ -55,6 +61,8 @@ const selectedPlan = ref(null);
 // Function to select a plan
 const selectPlan = (plan) => {
     selectedPlan.value = plan;
+    store.type_paiement.type = selectedPlan.value;
+
 }
 
 // Watcher for changes in selectedPlan

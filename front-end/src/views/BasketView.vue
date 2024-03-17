@@ -4,7 +4,7 @@
         <div class="w-full flex flex-col items-center justify-center text-dark-blue">
             <div class="w-[86%] flex flex-col pt-6 2xl:pt-8">
                 <div>
-                    <router-link to="/Fourniture" class="w-full flex items-center justify-center">
+                    <router-link to="/Fourniture" class="w-full flex items-center md:justify-center">
                     <img src="../assets/back.svg">
                     </router-link>
                 </div>

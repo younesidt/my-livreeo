@@ -23,10 +23,10 @@
                             </div>
                             <div class="w-full flex flex-col justify-between items-center py-4">
                                 <router-link to="/mode-livreson" class="w-full flex items-center justify-center">
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full text-[11px] md:text-[18px] font-semibold my-4">Valider mon panier</button></router-link>
+                                <button class="w-2/3 py-3 px-4 md:px-8 text-white-color bg-dark-blue rounded-full text-[11px] md:text-[18px] font-semibold my-4">Valider mon panier</button></router-link>
                                 <p>où </p>
                                 <router-link to="/pack-selection" class="w-full flex items-center justify-center">
-                                <button class="w-2/3 py-3 px-8 text-white-color bg-dark-blue rounded-full mt-4 font-light md:text-[16px] text-[10px]">Choisir un autre packr</button></router-link>
+                                <button class="w-2/3 py-3 md:px-8 px-4 text-white-color bg-dark-blue rounded-full mt-4 font-light md:text-[16px] text-[10px]">Choisir un autre packr</button></router-link>
                             </div>
                         </div>
                     </div>
