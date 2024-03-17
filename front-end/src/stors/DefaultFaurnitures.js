@@ -69,12 +69,14 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
             //TODO:first thing the first 
             // HACK:
             // FIXME:
-        ]
+        ],
+        panierProducts: [],
+        total: 0,
     }),
     getters:{
         getProducts(state){
-            return state.fourniture;
-        }
+            return state.fourniture.map(item => ({...item, quantity: 1}));
+        },
     },
     actions:{
         // getFournituresByCat(categorie){
