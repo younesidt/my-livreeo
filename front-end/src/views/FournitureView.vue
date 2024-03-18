@@ -13,25 +13,30 @@
     </div>
   </div>
 
-  <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-8">
+  <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-6">
     <div class="w-full flex items-center justify-center space-x-5 sm:space-x-10 md:space-x-28 pb-10">
-        <router-link to="/Fourniture/cartable"><smallCardFournt name="Cartables" image="../../src/assets/cartabl.svg"/></router-link>
-        <router-link to="/Fourniture/trousse"><smallCardFournt name="Trousses" image="../../src/assets/trouse.svg"/></router-link>
-        <router-link to="/Fourniture/calculatrice"><smallCardFournt name="Calculatrices" image="../../src/assets/calculatrice.svg"/></router-link>
+        <router-link to="/Fourniture/cartable"><smallCardFournt :cart="cartCartable" name="Cartables" image="../../src/assets/cartabl.svg"/></router-link>
+        <router-link to="/Fourniture/trousse"><smallCardFournt :cart="cartTrousse" name="Trousses" image="../../src/assets/trouse.svg"/></router-link>
+        <router-link to="/Fourniture/calculatrice"><smallCardFournt :cart="cartCalcul" name="Calculatrices" image="../../src/assets/calculatrice.svg"/></router-link>
     </div>
 
     <ProductsFourniture :products="products"/>
+
+    <div class="w-full flex items-center justify-between pt-6 px-6">
+      <div>
+        <router-link to="/type-fournitures">
+          <img src="../assets/back-home.svg" class="h-10 pl-6 cursor-pointer" alt="">
+        </router-link>
+      </div>
+      <div>
+        <router-link to="/bascket">
+          <button class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color text-[10px] md:text-base font-medium rounded-full py-1.5 md:py-3 px-3 md:px-7">Aller au paiement</button>
+        </router-link>
+      </div>
+    </div>
     
   </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
   <SiteMapComponent />
-
   <!-- <div class="bg-[#F1F1F1] w-full flex items-center justfy-center">
     <div
       class="mx-auto w-full flex flex-col items-center justify-center text-dark-blue"
@@ -140,6 +145,7 @@
   </div> -->
 </template>
 <script setup>
+import { computed } from "vue"
 import smallCardFournt from "../components/DefaultFaurniture/smallCardFournt.vue"
 import ProductsFourniture from "../components/DefaultFaurniture/ProductsFourniture.vue"
 import SiteMapComponent from "../components/SiteMapComponent.vue"
@@ -149,6 +155,20 @@ import { useDefaultFaurnitures } from "../stors/DefaultFaurnitures"
 const data = useDefaultFaurnitures();
 const products = data.getProducts;
 
+const cartCartable = computed(() => {
+  const products = data.panierProducts.filter(item => item.categorie === "cartable");
+  return products.length;
+});
+
+const cartCalcul = computed(() => {
+  const products = data.panierProducts.filter(item => item.categorie === "calculatrice");
+  return products.length;
+});
+
+const cartTrousse = computed(() => {
+  const products = data.panierProducts.filter(item => item.categorie === "trousse");
+  return products.length;
+});
 
 
 </script>

@@ -202,6 +202,7 @@
                 </div>
                 <div>
                   <button
+                    @click="addToCart()"
                     class="bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out text-white-color text-xs md:text-base font-semibold rounded-full py-1.5 md:py-3 px-3 md:px-5"
                     :class="{
                       'cursor-default pointer-events-none opacity-50': countProducts() === 0,
@@ -305,6 +306,11 @@ function increaseQuantity(item){
     checkedProducts.value[index].quantity += 1;
   }
 };
+
+//Button Add to cart
+function addToCart(){
+  data.panierProducts = checkedProducts.value;
+}
 
 //Filter (Categories)
 const categories = ref(getUniqueTypes(fournitures.value));

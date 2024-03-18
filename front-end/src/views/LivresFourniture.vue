@@ -44,9 +44,11 @@
                     </div>
                 </div>
                 <div class="w-full flex items-center justify-end pb-3 sm:pb-0">
-                    <button class="text-xs md:text-sm font-normal leading-relaxed bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out rounded-full text-white-color px-2 sm:px-4 md:px-8 py-2 md:py-4">
-                        Aller au paiement
-                    </button>
+                    <router-link to="/type-fournitures">
+                        <button class="text-xs md:text-sm font-normal leading-relaxed bg-dark-blue hover:bg-[#004179e5] transition duration-200 ease-in-out rounded-full text-white-color px-2 sm:px-4 md:px-8 py-2 md:py-4">
+                            Aller au paiement
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </div>
