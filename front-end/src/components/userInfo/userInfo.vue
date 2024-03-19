@@ -17,6 +17,8 @@
 </template>
 <script setup>
 import {ref } from 'vue'
+import { useEndPoint } from '../../stors/endpoint';
+const store = useEndPoint();
 
 const formData = ref({
   name: '',
@@ -26,7 +28,9 @@ const formData = ref({
 });
 
 const submitForm = () => {
-  console.log('Form Data:', formData.value);
+  store.formulaire.nom = formData.value.name
+  store.formulaire.numberPhone = formData.value.phoneNum
+  store.formulaire.email = formData.value.email
   // You can perform further actions with the form data here, such as sending it to a server
 };
 </script>

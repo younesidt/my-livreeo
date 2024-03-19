@@ -48,6 +48,8 @@
 </template>
 <script setup>
     import {ref } from 'vue'
+    import { useEndPoint } from '../../stors/endpoint';
+    const store = useEndPoint();
     const mounths = [1,2,3,4,5,6,7,8,9,10,11,12];
 
     const today = new Date();
@@ -72,7 +74,10 @@
 
 
 const submitForm = () => {
-  console.log('Form Data:', formData.value);
+    store.type_paiement.nom =formData.value.fullName
+    store.type_paiement.numero_carte = formData.value.cardNum
+    store.type_paiement.date_expiration = `${formData.value.EXPDate.year} \ ${formData.value.EXPDate.mounth}`
+    store.type_paiement.code_securite = formData.value.cvv
   // You can perform further actions with the form data here, such as sending it to a server
 };
 </script>

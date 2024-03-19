@@ -22,7 +22,7 @@ export const useEndPoint = defineStore("endPoint", {
             formulaire:{
                 addres:"",
                 ville:"",
-                infpcomlimontaire:"",
+                infocomlimontaire:"",
                 nom:"",
                 numberPhone:0,
                 email:"",
