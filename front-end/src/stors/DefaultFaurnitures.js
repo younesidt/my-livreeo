@@ -9,7 +9,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 360,
                 image: "../../src/assets/calculatrice.png",
                 categorie: "calculatrice",
-                color: ["dark", "white", "red"],
+                color: ["#000", "#ff0000", "#004079", "#D9D9D9"],
                 type: "calculatrice 1"
             },
             {
@@ -18,7 +18,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 370,
                 image: "../../src/assets/calculatrice2.png",
                 categorie: "calculatrice",
-                color: ["orange", "white"],
+                color: ["#FFA500", "#004079"],
                 type: "calculatrice 1"
             },
             {
@@ -27,7 +27,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 390,
                 image: "../../src/assets/calculatrice2.png",
                 categorie: "calculatrice",
-                color: ["orange", "white"],
+                color: ["#FFA500", "#ff0000"],
                 type: "calculatrice 2"
             },
             {
@@ -36,7 +36,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 200,
                 image: "../../src/assets/trousse.png",
                 categorie: "trousse",
-                color: ["dark", "red"],
+                color: ["#000", "#ff0000"],
                 type: "trousse 2"
             },
             {
@@ -45,7 +45,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 100,
                 image: "../../src/assets/trousse.png",
                 categorie: "trousse",
-                color: ["white", "green"],
+                color: ["#004079", "#00FF00"],
                 type: "trousse 1"
             },
             {
@@ -54,7 +54,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 90,
                 image: "../../src/assets/cartable.png",
                 categorie: "cartable",
-                color: ["dark", "green"],
+                color: ["#000", "#00FF00"],
                 type: "Trolley"
             },
             {
@@ -63,19 +63,16 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 180,
                 image: "../../src/assets/cartable.png",
                 categorie: "cartable",
-                color: ["dark", "white"],
+                color: ["#000", "#004079"],
                 type: "Sac-à-dos"
             },
-            //TODO:first thing the first 
-            // HACK:
-            // FIXME:
         ],
         panierProducts: [],
         total: 0,
     }),
     getters:{
         getProducts(state){
-            return state.fourniture.map(item => ({...item, quantity: 1}));
+            return state.fourniture.map(item => ({...item, quantity: 1, selectedColor: ''}));
         },
     },
     actions:{

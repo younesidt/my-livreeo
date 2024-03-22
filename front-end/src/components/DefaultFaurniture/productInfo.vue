@@ -5,31 +5,20 @@
         </div>
         <div class="w-full flex flex-col text-[#5A7BA0] items-start">
             <div class="grid grid-cols-5 gap-x-2 gap-y-1 pb-2">
-                <div class="flex items-center justify-center">
-                    <input type="radio" name="checkbox-col" id="checkbox13" class="hidden" v-model="checkedColor" value="blue">
-                    <label class="relative cursor-pointer" for="checkbox13">
-                        <div v-if="checkedColor !== 'blue'" class="w-8 h-8 rounded-full bg-dark-blue"></div>
-                        <div v-if="checkedColor === 'blue'" class="flex items-center justify-center w-10 h-10 rounded-full bg-dark-blue">
-                            <div class="bg-[#FFFFFF] flex items-center justify-center w-8 h-8 rounded-full">
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 4.17143L4.14286 7L9 1" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                <div v-for="item in props.options.color" :key="item" class="flex items-center">
+                    <div class="flex items-center justify-center">
+                        <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="checkedColor" :value="item">
+                        <label class="relative cursor-pointer" :for="item">
+                            <div v-if="checkedColor !== item" :class="`w-8 h-8 rounded-full bg-[${item}]`"></div>
+                            <div v-if="checkedColor === item" :class="`flex items-center justify-center w-10 h-10 rounded-full bg-[${item}]`">
+                                <div class="bg-[#FFFFFF] flex items-center justify-center w-8 h-8 rounded-full">
+                                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 4.17143L4.14286 7L9 1" :stroke="item" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                    </label>
-                </div>
-                <div class="flex items-center justify-center">
-                    <input type="radio" name="checkbox-col" id="checkbox14" class="hidden" v-model="checkedColor" value="dark">
-                    <label class="relative cursor-pointer" for="checkbox14">
-                        <div v-if="checkedColor !== 'dark'" class="w-8 h-8 rounded-full bg-[#000]"></div>
-                        <div v-if="checkedColor === 'dark'" class="flex items-center justify-center w-10 h-10 rounded-full bg-[#000]">
-                            <div class="bg-[#FFFFFF] flex items-center justify-center w-8 h-8 rounded-full">
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 4.17143L4.14286 7L9 1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            </div>
-                        </div>
-                    </label>
+                        </label>
+                    </div>
                 </div>
             </div>
             <span class="text-sm md:text-lg font-medium pb-2">{{ props.options.name }}</span>
@@ -41,7 +30,7 @@
     </div> 
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, getCurrentInstance, computed  } from 'vue'
 
 
 
@@ -49,6 +38,20 @@ const props = defineProps({
     options: Object,
 })
 
-const checkedColor = ref('')
+const checkedColor = ref('');
+const { emit } = getCurrentInstance();
+
+
+watch(() => props.options, () => {
+    // Set the default value of checkedColor to the first color in props.options.color
+    if (props.options.color && props.options.color.length > 0) {
+        checkedColor.value = props.options.color[0];
+        emit('colorChange', checkedColor.value);
+    }
+}, { immediate: true })
+
+watch(() => checkedColor.value, () => {
+    emit('colorChange', checkedColor.value);
+})
 
 </script>
