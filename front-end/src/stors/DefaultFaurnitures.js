@@ -9,7 +9,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 360,
                 image: "../../src/assets/calculatrice.png",
                 categorie: "calculatrice",
-                color: ["#000", "#ff0000", "#004079", "#D9D9D9"],
+                color: ["#000", "#3273BA", "#004079", "#DEEFF9"],
                 type: "calculatrice 1"
             },
             {
@@ -27,7 +27,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 390,
                 image: "../../src/assets/calculatrice2.png",
                 categorie: "calculatrice",
-                color: ["#FFA500", "#ff0000"],
+                color: ["#FFA500", "#FF0000"],
                 type: "calculatrice 2"
             },
             {
@@ -36,7 +36,7 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
                 prix: 200,
                 image: "../../src/assets/trousse.png",
                 categorie: "trousse",
-                color: ["#000", "#ff0000"],
+                color: ["#000", "#FF0000"],
                 type: "trousse 2"
             },
             {

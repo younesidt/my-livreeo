@@ -9,8 +9,8 @@
                     <div class="flex items-center justify-center">
                         <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="checkedColor" :value="item">
                         <label class="relative cursor-pointer" :for="item">
-                            <div v-if="checkedColor !== item" :class="`w-8 h-8 rounded-full bg-[${item}]`"></div>
-                            <div v-if="checkedColor === item" :class="`flex items-center justify-center w-10 h-10 rounded-full bg-[${item}]`">
+                            <div v-if="checkedColor !== item" :style="{ backgroundColor: item }" class="w-8 h-8 rounded-full"></div>
+                            <div v-if="checkedColor === item" :style="{ backgroundColor: item }" class="flex items-center justify-center w-10 h-10 rounded-full">
                                 <div class="bg-[#FFFFFF] flex items-center justify-center w-8 h-8 rounded-full">
                                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1 4.17143L4.14286 7L9 1" :stroke="item" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
