@@ -293,11 +293,11 @@ const selectedProduct = ref(fournitures.value[0]); //props.products[0]
 const handleColorChange = (color) => {
   selectedProduct.value.selectedColor = color;
   //Find the corresponding product in checkedProducts and update its selectedColor
-  const productId = selectedProduct.value.id;
-  const productIndex = checkedProducts.value.findIndex(product => product.id === productId);
-  if (productIndex !== -1) {
-    checkedProducts.value[productIndex].selectedColor = color;
-  }
+  // const productId = selectedProduct.value.id;
+  // const productIndex = checkedProducts.value.findIndex(product => product.id === productId);
+  // if (productIndex !== -1) {
+  //   checkedProducts.value[productIndex].selectedColor = color;
+  // }
 }
 
 
