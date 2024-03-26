@@ -321,7 +321,27 @@ function increaseQuantity(item){
 
 //Button Add to cart
 function addToCart(){
-  data.panierProducts.push(checkedProducts.value);
+  checkedProducts.value.forEach(product => {
+    // Check if the product already exists in the cart
+    const index = data.panierProducts.findIndex(item => item.id === product.id);
+    
+    if (index !== -1) {
+      // If the product(color) exists, update its quantity
+      if(product.selectedColor === data.panierProducts[index].selectedColor)
+      {
+        data.panierProducts[index].quantity += product.quantity;
+      }
+      else
+      {
+        data.panierProducts.push({ ...product });
+      }
+    } 
+    else {
+      // If the product doesn't exist, push it to the cart
+      data.panierProducts.push({ ...product });
+    }
+  });
+  // data.panierProducts.push(checkedProducts.value);
   checkedProducts.value = [];
   myProduct.value = [];
 }
