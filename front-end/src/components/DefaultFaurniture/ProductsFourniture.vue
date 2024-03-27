@@ -1,7 +1,7 @@
 <template>
     <div class="w-full flex flex-col items-center justify-center space-y-10 text-dark-blue">
-      <div class="w-full border-2 px-2 sm:px-4 py-2 sm:py-4 rounded-[35px] sm:rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-20">
-        <div class="bg-[#F0F9FF] flex w-full pt-12 pb-10 items-start justify-start rounded-[40px] space-x-24">
+      <div class="w-[90%] xl:w-full border-2 px-2 sm:px-4 py-2 sm:py-4 rounded-[35px] sm:rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-20">
+        <div class="hidden bg-[#F0F9FF] xl:flex w-full pt-12 pb-10 items-start justify-start rounded-[40px] space-x-24">
           <div class="pt-5 pr-8 pl-16">
             <h1 class="font-medium text-3xl">Filtre</h1>
           </div>
@@ -55,83 +55,20 @@
           <div class="flex flex-col">
             <h3 class="text-lg font-medium pb-1">Couleurs</h3>
             <div class="grid grid-cols-5 gap-x-1.5 gap-y-1">
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox7" class="hidden" v-model="isChecked3" value="blue">
-                <label class="relative cursor-pointer" for="checkbox7">
-                  <div v-if="isChecked3 !== 'blue'" class="w-5 h-5 rounded-full bg-dark-blue"></div>
-                  <div v-if="isChecked3 === 'blue'" class="flex items-center justify-center w-8 h-8 rounded-full bg-dark-blue">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#004079" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+              <div v-for="item in color" class="flex items-center">
+                <div class="flex items-center justify-start">
+                  <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="isChecked3" :value="item">
+                  <label class="relative cursor-pointer" :for="item">
+                    <div v-if="isChecked3 !== item" :style="{ backgroundColor: item }" class="w-5 h-5 rounded-full"></div>
+                    <div v-if="isChecked3 === item" :style="{ backgroundColor: item }" class="flex items-center justify-center w-7 h-7 rounded-full">
+                      <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
+                        <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 4.17143L4.14286 7L9 1" :stroke="item" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                </label>
-              </div>
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox8" class="hidden" v-model="isChecked3" value="dark">
-                <label class="relative cursor-pointer" for="checkbox8">
-                  <div v-if="isChecked3 !== 'dark'" class="w-5 h-5 rounded-full bg-[#000]"></div>
-                  <div v-if="isChecked3 === 'dark'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#000]">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </label>
-              </div>
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox9" class="hidden" v-model="isChecked3" value="red">
-                <label class="relative cursor-pointer" for="checkbox9">
-                  <div v-if="isChecked3 !== 'red'" class="w-5 h-5 rounded-full bg-[#F35757]"></div>
-                  <div v-if="isChecked3 === 'red'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F35757]">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#F35757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </label>
-              </div>
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox10" class="hidden" v-model="isChecked3" value="green">
-                <label class="relative cursor-pointer" for="checkbox10">
-                  <div v-if="isChecked3 !== 'green'" class="w-5 h-5 rounded-full bg-[#51E04E]"></div>
-                  <div v-if="isChecked3 === 'green'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#51E04E]">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#51E04E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </label>
-              </div>
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox11" class="hidden" v-model="isChecked3" value="pink">
-                <label class="relative cursor-pointer" for="checkbox11">
-                  <div v-if="isChecked3 !== 'pink'" class="w-5 h-5 rounded-full bg-[#AD19E1]"></div>
-                  <div v-if="isChecked3 === 'pink'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#AD19E1]">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#AD19E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </label>
-              </div>
-              <div class="flex items-center justify-center">
-                <input type="radio" name="checkbox-col" id="checkbox12" class="hidden" v-model="isChecked3" value="yellow">
-                <label class="relative cursor-pointer" for="checkbox12">
-                  <div v-if="isChecked3 !== 'yellow'" class="w-5 h-5 rounded-full bg-[#e1d719]"></div>
-                  <div v-if="isChecked3 === 'yellow'" class="flex items-center justify-center w-8 h-8 rounded-full bg-[#e1d719]">
-                    <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                      <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.17143L4.14286 7L9 1" stroke="#e1d719" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </label>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -146,6 +83,9 @@
             <div class="w-full md:w-[70%] mt-6">  
               <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
                 <div class="w-full flex flex-col items-start">
+                  <div v-if="fournitures.length === 0" class="w-full h-[60vh] flex items-center justify-center text-dark-blue text-md font-medium">
+                    Aucun produit disponible pour le moment !
+                  </div>
                   <div 
                     v-for="product in fournitures"
                     :key="product.id" 
@@ -194,6 +134,7 @@
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>  
               <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
@@ -277,13 +218,33 @@ const fournitures = computed(() => {
       //console.log(sortedFournitures);
     }
 
-    if(isChecked2.value !== ''){
-      return sortedFournitures.reduce((acc, item) => {
-        if (item.type === isChecked2.value) {
-          acc.push(item);
-        }
-        return acc;
-      }, []);
+
+    if(isChecked2.value !== '' || isChecked3.value !== ''){
+      if(isChecked2.value !== '' && isChecked3.value !== '')
+      {
+        return sortedFournitures.reduce((acc, item) => {
+          if (item.type === isChecked2.value && item.color.includes(isChecked3.value)) {
+            acc.push(item);
+          }
+          return acc;
+        }, []);
+      }
+      else if(isChecked2.value !== ''){
+        return sortedFournitures.reduce((acc, item) => {
+          if (item.type === isChecked2.value) {
+            acc.push(item);
+          }
+          return acc;
+        }, []);
+      }
+      else if(isChecked3.value !== ''){
+        return sortedFournitures.reduce((acc, item) => {
+          if (item.color.includes(isChecked3.value)) {
+            acc.push(item);
+          }
+          return acc;
+        }, []);
+      }
     }
     return sortedFournitures; 
 });
@@ -349,12 +310,6 @@ function addToCart(){
 //Filter (Categories)
 const categories = ref(getUniqueTypes(fournitures.value));
 
-watch(mycategorie, () => {
-  isChecked2.value = '';
-  categories.value = getUniqueTypes(fournitures.value);
-  //console.log(categories.value);
-});
-
 function getUniqueTypes(fourniture) {
   const uniqueTypesSet = new Set();
   fourniture.forEach(item => {
@@ -362,6 +317,35 @@ function getUniqueTypes(fourniture) {
   });
   return Array.from(uniqueTypesSet);
 }
+
+//Filter (Color)
+const color = ref(getUniqueColors(fournitures.value));
+
+// watch(mycategorie, () => {
+//   isChecked3.value = '';
+//   color.value = getUniqueColors(fournitures.value);
+//   //console.log(categories.value);
+// });
+
+function getUniqueColors(fourniture) {
+  const uniqueColorsSet = new Set();
+  fourniture.forEach(item => {
+    item.color.forEach(color => {
+      uniqueColorsSet.add(color);
+    });
+  });
+  return Array.from(uniqueColorsSet);
+}
+
+
+watch(mycategorie, () => {
+  isChecked2.value = '';
+  isChecked3.value = '';
+  categories.value = getUniqueTypes(fournitures.value);
+  color.value = getUniqueColors(fournitures.value);
+  //console.log(categories.value);
+});
+
 
 //function calcul total
 function calcTotal(){
