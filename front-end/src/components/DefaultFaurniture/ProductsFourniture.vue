@@ -79,8 +79,8 @@
         </div>
 
         <div class="flex flex-col">
-          <div class="w-full flex flex-col-reverse md:flex-row"> 
-            <div class="w-full md:w-[70%] mt-6">  
+          <div class="w-full flex flex-col-reverse xl:flex-row"> 
+            <div class="w-full xl:w-[70%] mt-6">  
               <div class="h-[300px] md:h-[450px] overflow-y-auto space-y-4 md:space-y-6">
                 <div class="w-full flex flex-col items-start">
                   <div v-if="fournitures.length === 0" class="w-full h-[60vh] flex items-center justify-center text-dark-blue text-md font-medium">
@@ -153,7 +153,7 @@
                 </div>
               </div>
             </div>
-            <div class="w-full md:w-[30%] flex items-start justify-center mt-2">
+            <div class="w-full xl:w-[30%] flex items-start justify-start xl:justify-center mt-2">
                 <productInfo
                   :options="selectedProduct"
                   @colorChange="handleColorChange"
@@ -334,6 +334,7 @@ function getUniqueColors(fourniture) {
       uniqueColorsSet.add(color);
     });
   });
+  //console.log(Array.from(uniqueColorsSet));
   return Array.from(uniqueColorsSet);
 }
 
