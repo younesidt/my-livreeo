@@ -25,7 +25,7 @@
     <div class="w-full flex items-center justify-between pt-6 px-6">
       <div>
         <router-link to="/type-fournitures">
-          <img src="../assets/back-home.svg" class="h-10 pl-6 cursor-pointer" alt="">
+          <img src="../assets/back-home.svg" class="h-7 md:h-10 pl-3 md:pl-6 cursor-pointer" alt="">
         </router-link>
       </div>
       <div>
