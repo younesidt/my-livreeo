@@ -1,81 +1,83 @@
 <template>
     <div class="w-full flex flex-col items-center justify-center space-y-10 text-dark-blue">
       <div class="w-[90%] xl:w-full border-2 px-2 sm:px-4 py-2 sm:py-4 rounded-[35px] sm:rounded-[40px] lg:rounded-[60px] border-dark-blue border-opacity-20">
-        <div class="bg-[#F0F9FF] flex flex-col xl:flex-row w-full pt-6 xl:pt-12 pb-10 items-center xl:items-start justify-center xl:justify-start rounded-[40px] xl:space-x-24">
-          <div class="w-full flex items-center justify-center pb-3 xl:pb-0 xl:pt-5 xl:pr-8 xl:pl-16">
-            <h1 class="font-medium text-3xl">Filtre</h1>
+        <div class="bg-[#F0F9FF] flex flex-col lg:flex-row w-full pt-6 xl:pt-12 pb-5 xl:pb-10 items-center xl:items-start justify-center xl:justify-start rounded-[26px] lg:rounded-[40px]">
+          <div class="w-full md:w-1/5 flex items-center justify-center pb-3 xl:pb-0 xl:pt-5">
+            <h1 class="font-medium text-2xl lg:text-3xl">Filtre</h1>
           </div>
-          <div class="w-full grid grid-cols-2 xl:grid-cols-5">
-            <!--meilleurs ventes-->
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium pb-1">Meilleurs ventes</h3>
-              <div class="flex items-center">
-                <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
-                <label class="relative cursor-pointer" for="checkbox1">
-                  <img v-if="isChecked !== 'croissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                  <img v-if="isChecked === 'croissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                  <img v-if="isChecked === 'croissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-                </label>
-                <p class="pl-3 text-sm font-medium">Prix croissant</p>
-              </div>
-              <div class="flex items-center">
-                <input type="radio" name="checkbox" id="checkbox2" class="hidden" v-model="isChecked" value="decroissant">
-                <label class="relative cursor-pointer" for="checkbox2">
-                  <img v-if="isChecked !== 'decroissant'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                  <img v-if="isChecked === 'decroissant'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                  <img v-if="isChecked === 'decroissant'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-                </label>
-                <p class="pl-3 text-sm font-medium">Prix decroissant</p>  
-              </div>
-              <div class="flex items-center">
-                <input type="radio" name="checkbox" id="checkbox3" class="hidden" v-model="isChecked" value="Note des clients">
-                <label class="relative cursor-pointer" for="checkbox3">
-                  <img v-if="isChecked !== 'Note des clients'" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                  <img v-if="isChecked === 'Note des clients'" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                  <img v-if="isChecked === 'Note des clients'" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
-                </label>
-                <p class="pl-3 text-sm font-medium">Note des clients</p>
-              </div>
-            </div>
-            <!--Categories-->
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium pb-1">Categories</h3>
-              <div v-for="item in categories">
+          <div class="xl:w-4/5">
+            <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-x-8 sm:gap-x-16 lg:gap-x-0 gap-y-6 lg:gap-y-0 space-x-0 lg:space-x-14 xl:space-x-0">
+              <!--meilleurs ventes-->
+              <div class="flex flex-col">
+                <h3 class="text-base lg:text-lg font-medium pb-1">Meilleurs ventes</h3>
                 <div class="flex items-center">
-                  <input type="radio" name="checkbox-cat" :id="item" class="hidden" v-model="isChecked2" :value="item">
-                  <label class="relative cursor-pointer" :for="item">
-                    <img v-if="isChecked2 !== item" src="../../assets/checked2.svg" class="w-4 h-4" alt="">
-                    <img v-if="isChecked2 === item" src="../../assets/check1.svg" class="w-4 h-4" alt="checked">  
-                    <img v-if="isChecked2 === item" src="../../assets/inside.svg" class="w-3 h-3 absolute top-0 right-0" alt="">
+                  <input type="radio" name="checkbox" id="checkbox1" class="hidden" v-model="isChecked" value="croissant">
+                  <label class="relative cursor-pointer" for="checkbox1">
+                    <img v-if="isChecked !== 'croissant'" src="../../assets/checked2.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="">
+                    <img v-if="isChecked === 'croissant'" src="../../assets/check1.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="checked">  
+                    <img v-if="isChecked === 'croissant'" src="../../assets/inside.svg" class="w-2 h-2.5 lg:w-3 lg:h-3 absolute top-0 right-0" alt="">
                   </label>
-                  <p class="pl-3 text-sm font-medium">{{ item }}</p>
+                  <p class="pl-3 text-xs lg:text-sm font-medium">Prix croissant</p>
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" name="checkbox" id="checkbox2" class="hidden" v-model="isChecked" value="decroissant">
+                  <label class="relative cursor-pointer" for="checkbox2">
+                    <img v-if="isChecked !== 'decroissant'" src="../../assets/checked2.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="">
+                    <img v-if="isChecked === 'decroissant'" src="../../assets/check1.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="checked">  
+                    <img v-if="isChecked === 'decroissant'" src="../../assets/inside.svg" class="w-2 h-2.5 lg:w-3 lg:h-3 absolute top-0 right-0" alt="">
+                  </label>
+                  <p class="pl-3 text-xs lg:text-sm font-medium">Prix decroissant</p>  
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" name="checkbox" id="checkbox3" class="hidden" v-model="isChecked" value="Note des clients">
+                  <label class="relative cursor-pointer" for="checkbox3">
+                    <img v-if="isChecked !== 'Note des clients'" src="../../assets/checked2.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="">
+                    <img v-if="isChecked === 'Note des clients'" src="../../assets/check1.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="checked">  
+                    <img v-if="isChecked === 'Note des clients'" src="../../assets/inside.svg" class="w-2 h-2.5 lg:w-3 lg:h-3 absolute top-0 right-0" alt="">
+                  </label>
+                  <p class="pl-3 text-xs lg:text-sm font-medium">Note des clients</p>
                 </div>
               </div>
-            </div>
-            <!--couleurs-->
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium pb-1">Couleurs</h3>
-              <div class="grid grid-cols-5 gap-x-1.5 gap-y-1">
-                <div v-for="item in color" class="flex items-center">
-                  <div class="flex items-center justify-start">
-                    <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="isChecked3" :value="item">
+              <!--Categories-->
+              <div class="flex flex-col">
+                <h3 class="text-base lg:text-lg font-medium pb-1">Categories</h3>
+                <div v-for="item in categories">
+                  <div class="flex items-center">
+                    <input type="radio" name="checkbox-cat" :id="item" class="hidden" v-model="isChecked2" :value="item">
                     <label class="relative cursor-pointer" :for="item">
-                      <div v-if="isChecked3 !== item" :style="{ backgroundColor: item }" class="w-5 h-5 rounded-full"></div>
-                      <div v-if="isChecked3 === item" :style="{ backgroundColor: item }" class="flex items-center justify-center w-7 h-7 rounded-full">
-                        <div class="bg-[#FFFFFF] flex items-center justify-center w-5 h-5 rounded-full">
-                          <svg width="8" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 4.17143L4.14286 7L9 1" :stroke="item" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </div>
-                      </div>
+                      <img v-if="isChecked2 !== item" src="../../assets/checked2.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="">
+                      <img v-if="isChecked2 === item" src="../../assets/check1.svg" class="w-3 h-3 lg:w-4 lg:h-4" alt="checked">  
+                      <img v-if="isChecked2 === item" src="../../assets/inside.svg" class="w-2 h-2.5 lg:w-3 lg:h-3 absolute top-0 right-0" alt="">
                     </label>
+                    <p class="pl-3 text-xs lg:text-sm font-medium">{{ item }}</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <!--prix-->
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium pb-1">Prix</h3>
+              <!--couleurs-->
+              <div class="flex flex-col">
+                <h3 class="text-base lg:text-lg font-medium pb-1">Couleurs</h3>
+                <div class="w-fit grid grid-cols-5 gap-y-1 gap-x-1 lg:gap-x-2">
+                  <div v-for="item in color" class="flex items-center">
+                    <div class="flex items-center justify-start">
+                      <input type="radio" name="checkbox-col" :id="item" class="hidden" v-model="isChecked3" :value="item">
+                      <label class="relative cursor-pointer" :for="item">
+                        <div v-if="isChecked3 !== item" :style="{ backgroundColor: item }" class="w-4 h-4 lg:w-5 lg:h-5 rounded-full"></div>
+                        <div v-if="isChecked3 === item" :style="{ backgroundColor: item }" class="flex items-center justify-center w-6 h-6 lg:w-7 lg:h-7 rounded-full">
+                          <div class="bg-[#FFFFFF] flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full">
+                            <svg class="h-[5px] lg:h-2" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 4.17143L4.14286 7L9 1" :stroke="item" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--prix-->
+              <div class="flex flex-col">
+                <h3 class="text-base lg:text-lg font-medium pb-1">Prix</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -136,7 +138,6 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>  
               <div class="w-full flex items-center justify-between pt-4 lg:pt-8 pb-2">
@@ -155,7 +156,7 @@
                 </div>
               </div>
             </div>
-            <div class="w-full xl:w-[30%] flex items-start justify-start xl:justify-center mt-2">
+            <div class="w-full xl:w-[30%] flex items-start justify-start xl:justify-center mt-5 xl:mt-2">
                 <productInfo
                   :options="selectedProduct"
                   @colorChange="handleColorChange"

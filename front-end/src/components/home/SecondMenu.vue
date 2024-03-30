@@ -58,9 +58,22 @@
 
                     <!-- Second menu (panier + facture)-->
                     <div v-if="props.typeMod === 'panier'" class="w-full">
-                      <div class="bg-white-color h-64 w-full justify-start rounded-2xl px-5 py-5 text-dark-blue">
+                      <div class="bg-white-color h-64 w-full justify-start rounded-2xl px-2 py-5 text-dark-blue">
                         <div class="flex flex-col">
-                            <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed">Panier</DialogTitle>
+                          <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed pl-3">Panier</DialogTitle>
+                          <!--Default Calculatrice -->
+                          <div class="w-full flex items-center justify-start">
+                            <div class="w-20 flex items-center justify-center">
+                              <img src="../../assets/defaultCalc.svg" class="w-16" alt="calculatrice">
+                            </div>
+                            <div class="flex flex-col items-start justify-start space-y-1">
+                              <h3 class="text-xs font-semibold">Calculatrice</h3>
+                              <div class="border border-[#6192BF] w-20 h-3 rounded-lg">
+
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
                       <div class="w-full text-dark-blue bg-[#FFFFFF] rounded-2xl px-3 py-4 mt-5">
