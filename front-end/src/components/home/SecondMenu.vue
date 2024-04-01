@@ -14,7 +14,7 @@
         </TransitionChild>
 
         <div class="w-full h-screen fixed inset-0 top-0 overflow-y-scroll no-scrollbar font-Poppins backdrop-blur-sm"><!--bg-[rgb(188,188,188)]  bg-opacity-50-->
-            <div class="w-full min-h-screen absolute top-0 right-0 xl:w-1/3 2xl:w-1/4 bg-[rgb(225,238,248)] px-4 py-6">
+            <div class="w-full min-h-screen absolute top-0 right-0 md:w-[50%] lg:w-[40%] xl:w-1/3 2xl:w-[25%] bg-[rgb(225,238,248)] px-4 py-6">
                 <TransitionChild
                   as="template"
                   enter="transition-opacity duration-300 ease-linear"
@@ -58,20 +58,107 @@
 
                     <!-- Second menu (panier + facture)-->
                     <div v-if="props.typeMod === 'panier'" class="w-full">
-                      <div class="bg-white-color h-64 w-full justify-start rounded-2xl px-2 py-5 text-dark-blue">
+                      <div class="bg-white-color min-h-64 w-full justify-start rounded-2xl px-2 py-5 text-dark-blue">
                         <div class="flex flex-col">
-                          <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed pl-3">Panier</DialogTitle>
-                          <!--Default Calculatrice -->
-                          <div class="w-full flex items-center justify-start">
-                            <div class="w-20 flex items-center justify-center">
-                              <img src="../../assets/defaultCalc.svg" class="w-16" alt="calculatrice">
-                            </div>
-                            <div class="flex flex-col items-start justify-start space-y-1">
-                              <h3 class="text-xs font-semibold">Calculatrice</h3>
-                              <div class="border border-[#6192BF] w-20 h-3 rounded-lg">
-
+                          <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed pl-3 pb-2">Panier</DialogTitle>
+                          <div class="flex flex-col space-y-3 pl-1 max-h-72 overflow-y-scroll no-scrollbar">
+                            <!--livres -->
+                            <div class="w-full flex items-center justify-start">
+                              <div class="w-20 flex items-center justify-center">
+                                <img src="../../assets/latin.png" class="w-10" alt="calculatrice">
                               </div>
+                              <div class="w-full flex items-end justify-around">
+                                <div class="flex flex-col items-start justify-start space-y-1">
+                                  <h3 class="text-xs font-semibold">Manuels</h3>
+                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div class="w-full flex items-center justify-between px-1">
+                                      <p class="text-[7px] font-medium">41 Produit</p>
+                                      <img src="../../assets/drop-icon.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="cursor-pointer">
+                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                </div>
+                                <div>
+                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                </div>
+                              </div>
+                              
                             </div>
+                            <!--Fournitures -->
+                            <div class="w-full flex items-center justify-start">
+                              <div class="w-20 flex items-center justify-center">
+                                <img src="../../assets/Calligraphe.svg" class="h-14" alt="calculatrice">
+                              </div>
+                              <div class="w-full flex items-end justify-around">
+                                <div class="flex flex-col items-start justify-start space-y-1">
+                                  <h3 class="text-xs font-semibold">Fournitures</h3>
+                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div class="w-full flex items-center justify-between px-1">
+                                      <p class="text-[7px] font-medium pt-0.5">41 Produit</p>
+                                      <img src="../../assets/drop-icon.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="cursor-pointer">
+                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                </div>
+                                <div>
+                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            <!--Default Calculatrice -->
+                            <div class="w-full flex items-center justify-start">
+                              <div class="w-20 flex items-center justify-center">
+                                <img src="../../assets/defaultCalc.svg" class="w-16" alt="calculatrice">
+                              </div>
+                              <div class="w-full flex items-end justify-around">
+                                <div class="flex flex-col items-start justify-start space-y-1">
+                                  <h3 class="text-xs font-semibold">Calculatrice</h3>
+                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div class="w-full flex items-center justify-between px-1">
+                                      <p class="text-[7px] font-medium pt-0.5">41 Produit</p>
+                                      <img src="../../assets/drop-icon.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="cursor-pointer">
+                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                </div>
+                                <div>
+                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            <!--Default Cartable -->
+                            <div class="w-full flex items-center justify-start">
+                              <div class="w-20 flex items-center justify-center">
+                                <img src="../../assets/cartable-panier.svg" class="w-16" alt="calculatrice">
+                              </div>
+                              <div class="w-full flex items-end justify-around">
+                                <div class="flex flex-col items-start justify-start space-y-1">
+                                  <h3 class="text-xs font-semibold">Cartable</h3>
+                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div class="w-full flex items-center justify-between px-1">
+                                      <p class="text-[7px] font-medium">41 Produit</p>
+                                      <img src="../../assets/drop-icon.svg" alt="">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="cursor-pointer">
+                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                </div>
+                                <div>
+                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            
                           </div>
 
                         </div>
@@ -142,3 +229,4 @@
   
 </script>
   
+
