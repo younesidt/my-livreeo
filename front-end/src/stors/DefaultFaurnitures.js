@@ -74,10 +74,11 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
         getProducts(state){
             return state.fourniture.map(item => ({...item, quantity: 1, selectedColor: ''}));
         },
+
     },
     actions:{
-        // getFournituresByCat(categorie){
-        //     return this.fourniture = this.fourniture.filter(item => item.categorie === categorie);
-        // }
+        deleteProductsByCategory(category) {
+            this.panierProducts = this.panierProducts.filter(item => item.categorie !== category);
+        },
     }
 });

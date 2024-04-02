@@ -14,7 +14,7 @@
         </TransitionChild>
 
         <div class="w-full h-screen fixed inset-0 top-0 overflow-y-scroll no-scrollbar font-Poppins backdrop-blur-sm"><!--bg-[rgb(188,188,188)]  bg-opacity-50-->
-            <div class="w-full min-h-screen absolute top-0 right-0 md:w-[50%] lg:w-[40%] xl:w-1/3 2xl:w-[25%] bg-[rgb(225,238,248)] px-4 py-6">
+            <div class="w-full min-h-screen absolute top-0 right-0 sm:w-[55%] md:w-[45%] lg:w-[40%] xl:w-1/3 2xl:w-[25%] bg-[rgb(225,238,248)] px-4 py-6">
                 <TransitionChild
                   as="template"
                   enter="transition-opacity duration-300 ease-linear"
@@ -111,49 +111,80 @@
                               
                             </div>
                             <!--Default Calculatrice -->
-                            <div class="w-full flex items-center justify-start">
+                            <div v-if="getFournitures('calculatrice')" class="w-full flex items-center justify-start">
                               <div class="w-20 flex items-center justify-center">
                                 <img src="../../assets/defaultCalc.svg" class="w-16" alt="calculatrice">
                               </div>
                               <div class="w-full flex items-end justify-around">
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Calculatrice</h3>
-                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
-                                    <div class="w-full flex items-center justify-between px-1">
-                                      <p class="text-[7px] font-medium pt-0.5">41 Produit</p>
-                                      <img src="../../assets/drop-icon.svg" alt="">
+                                  <router-link to="/Fourniture/calculatrice">
+                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                      <div class="w-full flex items-center justify-between px-1">
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getFournitures('calculatrice') }} Produit</p>
+                                        <img src="../../assets/drop-icon.svg" alt="">
+                                      </div>
                                     </div>
-                                  </div>
+                                  </router-link>
                                 </div>
                                 <div class="cursor-pointer">
-                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                  <h3 @click="deleteProducts('calculatrice')" class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
-                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                  <p class="text-xs font-bold">{{ getTotalPrice('calculatrice') }},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
                               
                             </div>
                             <!--Default Cartable -->
-                            <div class="w-full flex items-center justify-start">
+                            <div v-if="getFournitures('cartable')" class="w-full flex items-center justify-start">
                               <div class="w-20 flex items-center justify-center">
                                 <img src="../../assets/cartable-panier.svg" class="w-16" alt="calculatrice">
                               </div>
                               <div class="w-full flex items-end justify-around">
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Cartable</h3>
-                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
-                                    <div class="w-full flex items-center justify-between px-1">
-                                      <p class="text-[7px] font-medium">41 Produit</p>
-                                      <img src="../../assets/drop-icon.svg" alt="">
+                                  <router-link to="/Fourniture/cartable">
+                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                      <div class="w-full flex items-center justify-between px-1">
+                                        <p class="text-[7px] font-medium">{{ getFournitures('cartable') }} Produit</p>
+                                        <img src="../../assets/drop-icon.svg" alt="">
+                                      </div>
                                     </div>
-                                  </div>
+                                  </router-link>
                                 </div>
                                 <div class="cursor-pointer">
-                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                  <h3 @click="deleteProducts('cartable')" class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
-                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                  <p class="text-xs font-bold">{{ getTotalPrice('cartable') }},00 <span class="font-medium uppercase">MAD</span></p>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <!--Default Trousse -->
+                            <div v-if="getFournitures('trousse')" class="w-full flex items-center justify-start">
+                              <div class="w-20 flex items-center justify-center">
+                                <img src="../../assets/trousse2.png" class="w-16" alt="calculatrice">
+                              </div>
+                              <div class="w-full flex items-end justify-around">
+                                <div class="flex flex-col items-start justify-start space-y-1">
+                                  <h3 class="text-xs font-semibold">Trousse</h3>
+                                  <router-link to="/Fourniture/trousse">
+                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                      <div class="w-full flex items-center justify-between px-1">
+                                        <p class="text-[7px] font-medium">{{ getFournitures('trousse') }} Produit</p>
+                                        <img src="../../assets/drop-icon.svg" alt="">
+                                      </div>
+                                    </div>
+                                  </router-link>
+                                </div>
+                                <div class="cursor-pointer">
+                                  <h3 @click="deleteProducts('trousse')" class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                </div>
+                                <div>
+                                  <p class="text-xs font-bold">{{ getTotalPrice('trousse') }},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
                               
@@ -204,7 +235,7 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue';
+  import { computed } from 'vue';
   import {
     TransitionRoot,
     TransitionChild,
@@ -212,9 +243,23 @@
     DialogOverlay,
     DialogTitle,
   } from '@headlessui/vue';
+  import { useDefaultFaurnitures } from '../../stors/DefaultFaurnitures';
   
-  const isOpen = ref(true)
-  const typeMod = ref('')
+  const data = useDefaultFaurnitures(); 
+  
+  const getFournitures = computed(() => (categorie) => {
+    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    return products.length;
+  });
+  const getTotalPrice = computed(() => (categorie) => {
+    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    return products.reduce((total, product) => total + (product.prix * product.quantity), 0);
+  });
+
+  //Delete button
+  const deleteProducts = (category) => {
+    data.deleteProductsByCategory(category);
+  }
 
 
   const props = defineProps({
@@ -228,5 +273,22 @@
   }
   
 </script>
+
+<style scoped>
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #D9D9D9;
+    border-radius: 5px;
+} 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004079;
+  border-radius: 5px;
+}
+</style>
   
 
