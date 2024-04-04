@@ -63,7 +63,7 @@
                           <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed pl-3 pb-2">Panier</DialogTitle>
                           <div class="flex flex-col space-y-3 pl-1 max-h-72 overflow-y-scroll no-scrollbar">
                             <!--livres -->
-                            <div class="w-full flex items-center justify-start">
+                            <div v-if="getLivres" class="w-full flex items-center justify-start">
                               <div class="w-20 flex items-center justify-center">
                                 <img src="../../assets/latin.png" class="w-10" alt="calculatrice">
                               </div>
@@ -72,7 +72,7 @@
                                   <h3 class="text-xs font-semibold">Manuels</h3>
                                   <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                     <div class="w-full flex items-center justify-between px-1">
-                                      <p class="text-[7px] font-medium">41 Produit</p>
+                                      <p class="text-[7px] font-medium">{{ getLivres }} Produit</p>
                                       <img src="../../assets/drop-icon.svg" alt="">
                                     </div>
                                   </div>
@@ -81,13 +81,13 @@
                                   <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
-                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                  <p class="text-xs font-bold">{{getTotalLivre}},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
                               
                             </div>
                             <!--Fournitures -->
-                            <div class="w-full flex items-center justify-start">
+                            <div class="w-full hidden items-center justify-start">
                               <div class="w-20 flex items-center justify-center">
                                 <img src="../../assets/Calligraphe.svg" class="h-14" alt="calculatrice">
                               </div>
@@ -244,7 +244,9 @@
     DialogTitle,
   } from '@headlessui/vue';
   import { useDefaultFaurnitures } from '../../stors/DefaultFaurnitures';
+  import { useSecondStepStore } from '../../stors/SecondStepStore';
   
+  //Default faurnitures panier
   const data = useDefaultFaurnitures(); 
   
   const getFournitures = computed(() => (categorie) => {
@@ -260,6 +262,19 @@
   const deleteProducts = (category) => {
     data.deleteProductsByCategory(category);
   }
+
+  //livre + faurnitures panier
+  const secondData = useSecondStepStore();
+
+  const getLivres = computed(() => {
+    const livres = secondData.cartItems.length;
+    return livres;
+  });
+  const getTotalLivre = computed(() => {
+    const livre = secondData.cartItems;
+    return livre.reduce((total, product) => total + (product.prix * product.quantity), 0);
+  });
+
 
 
   const props = defineProps({

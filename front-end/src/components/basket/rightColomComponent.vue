@@ -33,10 +33,8 @@
 </template>
 <script setup>
 import { reactive, computed } from 'vue'
-import { useFuornitureStore } from "../../stors/fournitureStepStore";
 import { useSecondStepStore } from '../../stors/SecondStepStore'
 const Liver = useSecondStepStore();
-const fourniture = useFuornitureStore();
 
 const total = computed(() => {
   return fourniture.total + Liver.total + Liver.plastificationTotal;

@@ -90,13 +90,11 @@
   </div>
 </template>
 <script setup>
-import { useFuornitureStore } from "../../stors/fournitureStepStore";
 import { useSecondStepStore } from '../../stors/SecondStepStore'
 import { useEndPoint } from "../../stors/endpoint";
 import { reactive, computed, ref } from 'vue'
 
 const liver = useSecondStepStore();
-const fourniture = useFuornitureStore();
 const livrison = useEndPoint();
 
 function removeProdact(itemToRemove) {

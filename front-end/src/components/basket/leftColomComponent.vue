@@ -38,11 +38,9 @@
     </div>
 </template>
 <script setup>
-import { useFuornitureStore } from "../../stors/fournitureStepStore";
 import { useSecondStepStore } from '../../stors/SecondStepStore'
 
 const liver = useSecondStepStore();
-const fourniture = useFuornitureStore();
 
 function removeProdact(itemToRemove) {
   const index = fourniture.cart.indexOf(itemToRemove);

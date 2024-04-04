@@ -50,13 +50,11 @@
 </template>
 
 <script setup>
-import { useFuornitureStore } from "../../stors/fournitureStepStore";
 import { useSecondStepStore } from '../../stors/SecondStepStore'
 import { useEndPoint } from "../../stors/endpoint";
 import { computed } from 'vue'
 
 const liver = useSecondStepStore();
-const fourniture = useFuornitureStore();
 const user = useEndPoint();
 
 const payment = user.type_paiement.type.desc;
