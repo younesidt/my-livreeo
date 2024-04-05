@@ -42,6 +42,16 @@ export const useSecondStepStore = defineStore("secondStepStore", {
               categorie: "Français"
           },
         ],
+        faurnitures:[
+          {
+            id:1,
+            name:"Calligraphe : 90g 24x32 grands carreaux de 96 pages",
+            description:"Cahier 24x32, 96 pages, grands carreaux",
+            prix: 22,
+            image: "../../src/assets/livre.svg",
+            categorie: "HG SI et classiques"
+          },
+        ],
         cartItems: [],
         plastification: [],
         cartFournt: [],
