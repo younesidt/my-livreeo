@@ -48,8 +48,32 @@ export const useSecondStepStore = defineStore("secondStepStore", {
             name:"Calligraphe : 90g 24x32 grands carreaux de 96 pages",
             description:"Cahier 24x32, 96 pages, grands carreaux",
             prix: 22,
-            image: "../../src/assets/livre.svg",
+            image: "../../src/assets/calligraphe.png",
             categorie: "HG SI et classiques"
+          },
+          {
+            id:2,
+            name:"Oxford 90g : 24x32 grands carreaux de 96 pages",
+            description:"Cahier 24x32, 96 pages, grands carreaux",
+            prix: 32,
+            image: "../../src/assets/calligraphe.png",
+            categorie: "HG SI et classiques"
+          },
+          {
+            id:3,
+            name:"Clairefontaine 90g : 24x32 grands carreaux de 96 pages",
+            description:"Cahier 24x32, 96 pages, grands carreaux",
+            prix: 42,
+            image: "../../src/assets/calligraphe.png",
+            categorie: "HG SI et classiques"
+          },
+          {
+            id:4,
+            name:"Maped : crayon de couleur 12 color'peps star",
+            description:"Maped : crayon de couleur 12 color'peps star",
+            prix: 29,
+            image: "../../src/assets/maped.png",
+            categorie: "Matériel pour la cartographie"
           },
         ],
         cartItems: [],
@@ -61,6 +85,9 @@ export const useSecondStepStore = defineStore("secondStepStore", {
     getters:{
       getLivres(state){
         return state.livres.map(item => ({...item, quantity: 1}));
+      },
+      getFournitures(state){
+        return state.faurnitures.map(item => ({...item, quantity: 1}));
       },
       getSelectedLivres(state){
         return state.cartItems.reduce((acc, livre) => {

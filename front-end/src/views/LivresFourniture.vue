@@ -30,6 +30,9 @@
             <LivresCard 
             :livres="livres"
             />
+            <FournituresCard 
+            :fournitures="fournitures"
+            />
             <PlastificationCard 
             :selectedLiv="selectedLiv"
             />
@@ -63,12 +66,14 @@ import { computed, ref } from 'vue'
 import SiteMapComponent from '../components/SiteMapComponent.vue'
 import SmallCard from '../components/LivreAndFournitures/SmallCard.vue'
 import LivresCard from '../components/LivreAndFournitures/LivresCard.vue'
+import FournituresCard from '../components/LivreAndFournitures/FournituresCard.vue'
 import PlastificationCard from '../components/LivreAndFournitures/PlastificationCard.vue'
 import { useSecondStepStore } from '../stors/SecondStepStore'
 
 const data = useSecondStepStore();
 
 const livres = data.getLivres;
+const fournitures = data.getFournitures;
 const selectedLiv = computed(() => {
     return data.getSelectedLivres;
 }) 
