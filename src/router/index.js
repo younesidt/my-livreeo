@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 
 import Home from '../views/HomeView.vue'
 import PackSelection from '../views/packSelectionView.vue'
