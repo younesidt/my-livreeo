@@ -25,7 +25,7 @@ import facture from '../views/UserInfo/comondView.vue'
 import TypeFourniture from '../views/TypeFourniture.vue'
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
           {
             path: '/',
