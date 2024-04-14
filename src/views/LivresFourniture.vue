@@ -22,9 +22,9 @@
     <div class="container mx-auto max-w-7xl pt-6 md:pt-12 pb-5 md:pb-8">
         <!-- 3 Card -->
         <div class="w-full flex items-center justify-center space-x-5 sm:space-x-10 md:space-x-28 pb-10">
-            <SmallCard :cart="cartLivre" name="Manuels" image="../../src/assets/manuels.svg"/>
-            <SmallCard :cart="cartFourn" name="Fournitures" image="../../src/assets/fourniture.svg"/>
-            <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" image="../../src/assets/plastification.svg"/>
+            <SmallCard :cart="cartLivre" name="Manuels" image="../../livreeo/src/assets/manuels.svg"/>
+            <SmallCard :cart="cartFourn" name="Fournitures" image="../../livreeo/src/assets/fourniture.svg"/>
+            <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" image="../../livreeo/src/assets/plastification.svg"/>
         </div>
         <div class="w-full flex flex-col items-center justify-center space-y-10">
             <LivresCard 

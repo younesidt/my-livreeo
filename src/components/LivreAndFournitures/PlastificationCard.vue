@@ -20,7 +20,10 @@
                     </p>
                 </div>
                 <div class="hidden w-[45%] sm:flex">
-                    <div class="w-full h-48 lg:h-64 bg-[url('../../src/assets/plastification2.svg')] bg-no-repeat bg-cover bg-right"></div>
+                    <!-- <div class="w-full h-48 lg:h-64 bg-[url('../../src/assets/plastification2.svg')] bg-no-repeat bg-cover bg-right"></div> -->
+                    <div class="w-full h-48 lg:h-64">
+                        <img src="../../assets/plastification2.svg" class="object-cover w-full h-48 lg:h-64" alt="books">
+                    </div>
                 </div>
             </div>
 
