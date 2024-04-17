@@ -37,24 +37,29 @@
                             <div class="h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
                                 <div v-for="(products, category) in fournByCategory" :key="category">
                                     <div class="w-full flex flex-col items-start">
-                                        <h3 class="text-xs md:text-base font-semibold text-dark-blue pl-1">{{ category }}</h3>
+                                        <h3 class="text-xs md:text-lg font-semibold text-dark-blue pl-1">{{ category }}</h3>
                                         <!-- as="template"-->
                                         <div 
-                                            v-for="product in products" 
+                                            v-for="(product, index) in products"
+                                            :class="{'first-product w-full': index === 0, 'other-products w-fit space-x-8': index !== 0}" 
                                             :key="product.id" 
-                                            class="w-full flex items-center pt-4"
+                                            class="flex items-center pt-4"
                                         >
-                                            <div class="w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10">
-                                                <div class="cursor-pointer"><!--@click="selectedLivre = product"-->
-                                                    <div class="w-8 md:w-16">
+                                            <div :class="index === 0 ? 'w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10' : 'w-1/2 flex items-center space-x-1 md:pl-4 lg:pl-10'">
+                                                <div @click="selectedProduct = product" class="cursor-pointer">
+                                                    <div :class="index === 0 ? 'w-10 md:w-20' : 'w-7 md:w-14 ml-20'">
                                                         <img :src="product.image" alt="livre">
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <p class="text-dark-blue text-[10px] md:text-sm font-medium">{{ product.name }}</p>
+                                                <div :class="index !== 0 ? 'w-80 space-y-2' : 'space-y-2'">
+                                                    <p :class="index === 0 ? 'text-dark-blue text-[10px] md:text-xs font-medium' : 'text-dark-blue text-[6px] md:text-[9px] font-medium'"><span :class="index === 0 ? 'text-[12px] md:text-sm' : ''">{{product.marque}} :</span> {{ product.name }}</p>
+                                                    <div v-if="index === 0" class="flex items-center">
+                                                        <p class="text-dark-blue text-[8px] md:text-[10px] font-medium cursor-pointer">Autres models disponibles </p>
+                                                        <img src="../../assets/arrow.svg" class="h-3" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="w-1/2 flex items-center justify-start">
+                                            <div v-if="index === 0" class="w-1/2 flex items-center justify-start">
                                                 <div class="w-full flex items-center justify-center">
                                                     <div class="w-1/3 flex items-center justify-end">
                                                         <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
@@ -74,11 +79,16 @@
                                                     </div>
                                                     <div class="w-1/3 flex items-center justify-center">                                                        
                                                         <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedLivre">
-                                                        <div class="relative cursor-pointer"><!--@click="handleDivClick(livre.id)"-->
+                                                        <div @click="handleDivClick(product.id)" class="relative cursor-pointer">
                                                             <img src="../../assets/checkbox-liv.svg" class="h-4 md:h-6" alt="">
-                                                            <img src="../../assets/inside.svg" class="w-3 h-3 absolute right-1 top-1" alt=""><!--v-if="myLivres.includes(livre.id)"-->
+                                                            <img v-if="myProduct.includes(product.id)" src="../../assets/inside.svg" class="w-3 h-3 absolute right-1 top-1" alt="">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div v-else>
+                                                <div class="flex items-center justify-center">
+                                                    <p class="text-dark-blue text-[6px] md:text-[9px] font-bold">{{ product.prix }}.00 MAD</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,14 +97,14 @@
                             </div>  
                         </div>
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
-                            <!-- <LivreInfo 
-                            :options="selectedLivre"
-                            /> -->
+                            <FournitureInfo 
+                            :options="selectedProduct"
+                            />
                         </div>
                     </div>    
                     <div class="w-full flex items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
                         <div>
-                            <h3 class="text-xs md:text-base font-semibold text-dark-blue">TOTAL = 1000 DHS</h3><!--totalLivre-->
+                            <h3 class="text-xs md:text-base font-normal text-dark-blue">SOUS-TOTAL FOURNITURES = <span class="font-semibold">1000 DHS</span></h3><!--totalLivre-->
                         </div>
                         <div>
                             <!--@click="addToCart()" -->
@@ -119,7 +129,7 @@
 import { ref, computed } from 'vue'
 
 //components
-import LivreInfo from './LivreInfo.vue'
+import FournitureInfo from './FournitureInfo.vue'
 
 //HeadlessUI
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
@@ -133,19 +143,19 @@ const props = defineProps({
 })
 
 
-// const selectedLivre = ref(props.livres[0])
+const selectedProduct = ref(props.fournitures[0])
 const checkedLivre = ref([])
-const myLivres =  ref([])
+const myProduct =  ref([])
 
-// function handleDivClick(id) {
-//     const index = myLivres.value.indexOf(id);
-//     if (index === -1) {
-//         myLivres.value.push(id);
-//     } else {
-//         myLivres.value.splice(index, 1);
-//     }
-//     document.getElementById(id).click();
-// }
+function handleDivClick(id) {
+    const index = myProduct.value.indexOf(id);
+    if (index === -1) {
+        myProduct.value.push(id);
+    } else {
+        myProduct.value.splice(index, 1);
+    }
+    document.getElementById(id).click();
+}
 
 
 //Button Add to cart
@@ -169,7 +179,7 @@ const myLivres =  ref([])
 // function selectAll(){
 //      // Clear the checkedLivre array first
 //      checkedLivre.value = [];
-//      myLivres.value = [];
+//      myProduct.value = [];
 
 //     // Iterate through each category
 //     for (const category in livresByCategory) {
@@ -177,12 +187,12 @@ const myLivres =  ref([])
 //         livresByCategory[category].forEach(book => {
 //             // Push the book into the checkedLivre array
 //             checkedLivre.value.push(book);
-//             myLivres.value.push(book.id);
+//             myProduct.value.push(book.id);
 //         });
 //     }
 // }
 
-// Group books by category
+// Group fournitures by category
 const fournByCategory = props.fournitures.reduce((acc, product) => {
     acc[product.categorie] = acc[product.categorie] || [];
     acc[product.categorie].push(product);

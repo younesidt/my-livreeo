@@ -45,35 +45,51 @@ export const useSecondStepStore = defineStore("secondStepStore", {
         faurnitures:[
           {
             id:1,
-            name:"Calligraphe : 90g 24x32 grands carreaux de 96 pages",
+            name:"90g 24x32 grands carreaux de 96 pages 1",
             description:"Cahier 24x32, 96 pages, grands carreaux",
             prix: 22,
             image: "../../livreeo/src/assets/calligraphe.png",
-            categorie: "HG SI et classiques"
+            marque: "Calligraphe",
+            categorie: "HG SI et classiques",
+            annee: "2018",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },
           {
             id:2,
-            name:"Oxford 90g : 24x32 grands carreaux de 96 pages",
+            name:"24x32 grands carreaux de 96 pages 2",
             description:"Cahier 24x32, 96 pages, grands carreaux",
             prix: 32,
             image: "../../livreeo/src/assets/calligraphe.png",
-            categorie: "HG SI et classiques"
+            marque: "Oxford 90g",
+            categorie: "HG SI et classiques",
+            annee: "2017",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },
           {
             id:3,
-            name:"Clairefontaine 90g : 24x32 grands carreaux de 96 pages",
+            name:"24x32 grands carreaux de 96 pages 3",
             description:"Cahier 24x32, 96 pages, grands carreaux",
             prix: 42,
             image: "../../livreeo/src/assets/calligraphe.png",
-            categorie: "HG SI et classiques"
+            marque: "Clairefontaine 90g",
+            categorie: "HG SI et classiques",
+            annee: "2016",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },
           {
             id:4,
-            name:"Maped : crayon de couleur 12 color'peps star",
-            description:"Maped : crayon de couleur 12 color'peps star",
+            name:"crayon de couleur 12 color'peps star",
+            description:"crayon de couleur 12 color'peps star",
             prix: 29,
             image: "../../livreeo/src/assets/maped.png",
-            categorie: "Matériel pour la cartographie"
+            marque: "Maped",
+            categorie: "Matériel pour la cartographie",
+            annee: "2014",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },
         ],
         cartItems: [],
