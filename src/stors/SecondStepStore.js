@@ -80,6 +80,30 @@ export const useSecondStepStore = defineStore("secondStepStore", {
             auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },
           {
+            id:6,
+            name:"24x32 grands carreaux de 96 pages 3",
+            description:"Cahier 24x32, 96 pages, grands carreaux",
+            prix: 42,
+            image: "../../livreeo/src/assets/calligraphe.png",
+            marque: "Clairefontaine 90g",
+            categorie: "HG SI et classiques",
+            annee: "2016",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
+          },
+          {
+            id:7,
+            name:"24x32 grands carreaux de 96 pages 3",
+            description:"Cahier 24x32, 96 pages, grands carreaux",
+            prix: 42,
+            image: "../../livreeo/src/assets/calligraphe.png",
+            marque: "Clairefontaine 90g",
+            categorie: "HG SI et classiques",
+            annee: "2016",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
+          },
+          {
             id:4,
             name:"crayon de couleur 12 color'peps star",
             description:"crayon de couleur 12 color'peps star",
@@ -88,6 +112,18 @@ export const useSecondStepStore = defineStore("secondStepStore", {
             marque: "Maped",
             categorie: "Matériel pour la cartographie",
             annee: "2014",
+            edition: "Hachette",
+            auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
+          },
+          {
+            id:5,
+            name:"crayon de couleur 15 color'peps star",
+            description:"crayon de couleur 12 color'peps star",
+            prix: 50,
+            image: "../../livreeo/src/assets/maped.png",
+            marque: "Maped",
+            categorie: "Matériel pour la cartographie",
+            annee: "2015",
             edition: "Hachette",
             auteur: "Auteur(s)Françoise Carrier-Nayrolles Stéphane Jougla Mélinée Emilie Deschellette-Frasca"
           },

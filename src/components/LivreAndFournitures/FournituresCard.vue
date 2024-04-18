@@ -35,18 +35,12 @@
                                 <button class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button><!--@click="selectAll()"-->
                             </div>   
                             <div class="h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
-                                <div v-for="(products, category) in fournByCategory" :key="category">
+                                <div v-for="(products, category) in fournByCategory" :key="category" :class="{'max-h-[300px] overflow-y-auto': index !== 0}">
                                     <div class="w-full flex flex-col items-start">
                                         <h3 class="text-xs md:text-lg font-semibold text-dark-blue pl-1">{{ category }}</h3>
-                                        <!-- as="template"-->
-                                        <div 
-                                            v-for="(product, index) in products"
-                                            :class="{'first-product w-full': index === 0, 'other-products w-fit space-x-8': index !== 0}" 
-                                            :key="product.id" 
-                                            class="flex items-center pt-4"
-                                        >
+                                        <div v-for="(product, index) in products" :key="product.id" :class="{'first-product w-full  pt-4': index === 0, 'other-products w-fit space-x-8 pt-1': index !== 0,'hidden': index !== 0 && !showOtherProducts[category]}" class="flex items-center">
                                             <div :class="index === 0 ? 'w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10' : 'w-1/2 flex items-center space-x-1 md:pl-4 lg:pl-10'">
-                                                <div @click="selectedProduct = product" class="cursor-pointer">
+                                                <div @click="selectedProduct = product, moveToTop(category, index)" class="cursor-pointer">
                                                     <div :class="index === 0 ? 'w-10 md:w-20' : 'w-7 md:w-14 ml-20'">
                                                         <img :src="product.image" alt="livre">
                                                     </div>
@@ -54,47 +48,48 @@
                                                 <div :class="index !== 0 ? 'w-80 space-y-2' : 'space-y-2'">
                                                     <p :class="index === 0 ? 'text-dark-blue text-[10px] md:text-xs font-medium' : 'text-dark-blue text-[6px] md:text-[9px] font-medium'"><span :class="index === 0 ? 'text-[12px] md:text-sm' : ''">{{product.marque}} :</span> {{ product.name }}</p>
                                                     <div v-if="index === 0" class="flex items-center">
-                                                        <p class="text-dark-blue text-[8px] md:text-[10px] font-medium cursor-pointer">Autres models disponibles </p>
+                                                        <p @click="toggleOtherProducts(category)" class="text-dark-blue text-[8px] md:text-[10px] font-medium cursor-pointer">Autres modèles disponibles </p>
                                                         <img src="../../assets/arrow.svg" class="h-3" alt="">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div v-if="index === 0" class="w-1/2 flex items-center justify-start">
                                                 <div class="w-full flex items-center justify-center">
-                                                    <div class="w-1/3 flex items-center justify-end">
-                                                        <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                                            <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
-                                                                -
-                                                            </div>
-                                                            <div>
-                                                                {{ product.quantity }}
-                                                            </div>
-                                                            <div class="cursor-pointer">
-                                                                +
-                                                            </div>
-                                                        </div>
+                                                <div class="w-1/3 flex items-center justify-end">
+                                                    <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
+                                                    <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
+                                                        -
                                                     </div>
-                                                    <div class="w-1/3 flex items-center justify-end">
-                                                        <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                                                    <div>
+                                                        {{ product.quantity }}
                                                     </div>
-                                                    <div class="w-1/3 flex items-center justify-center">                                                        
-                                                        <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedLivre">
-                                                        <div @click="handleDivClick(product.id)" class="relative cursor-pointer">
-                                                            <img src="../../assets/checkbox-liv.svg" class="h-4 md:h-6" alt="">
-                                                            <img v-if="myProduct.includes(product.id)" src="../../assets/inside.svg" class="w-3 h-3 absolute right-1 top-1" alt="">
-                                                        </div>
+                                                    <div class="cursor-pointer">
+                                                        +
                                                     </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w-1/3 flex items-center justify-end">
+                                                    <p class="text-dark-blue text-[10px] md:text-[15px] font-medium">{{ product.prix }} MAD</p>
+                                                </div>
+                                                <div class="w-1/3 flex items-center justify-center">                                                        
+                                                    <input type="checkbox" :id="product.id" :value="product" class="hidden" v-model="checkedLivre">
+                                                    <div @click="handleDivClick(product.id)" class="relative cursor-pointer">
+                                                    <img src="../../assets/checkbox-liv.svg" class="h-4 md:h-6" alt="">
+                                                    <img v-if="myProduct.includes(product.id)" src="../../assets/inside.svg" class="w-3 h-3 absolute right-1 top-1" alt="">
+                                                    </div>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div v-else>
                                                 <div class="flex items-center justify-center">
-                                                    <p class="text-dark-blue text-[6px] md:text-[9px] font-bold">{{ product.prix }}.00 MAD</p>
+                                                <p class="text-dark-blue text-[6px] md:text-[9px] font-bold">{{ product.prix }}.00 MAD</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
+  
                         </div>
                         <div class="w-full md:w-[30%] flex items-center justify-center mt-6">
                             <FournitureInfo 
@@ -221,6 +216,30 @@ const fournByCategory = props.fournitures.reduce((acc, product) => {
 //         checkedLivre.value[index].quantity += 1;
 //     }
 // };
+
+
+// Define a reactive object to track whether to show other products for each category
+const showOtherProducts = ref({});
+
+// Initialize showOtherProducts with true for each category
+for (const category in fournByCategory) {
+  showOtherProducts.value[category] = true;
+}
+
+// Function to toggle the visibility of other products for a specific category
+const toggleOtherProducts = (category) => {
+  showOtherProducts.value[category] = !showOtherProducts.value[category];
+};
+
+// Function to move the clicked product to the top
+const moveToTop = (category, index) => {
+  // Don't need to do anything if the clicked product is already the first one
+  if (index === 0) return;
+
+  // Reorder the products array by moving the clicked product to the top
+  const [clickedProduct] = fournByCategory[category].splice(index, 1);
+  fournByCategory[category].unshift(clickedProduct);
+};
 
 </script>
 <style scoped>
