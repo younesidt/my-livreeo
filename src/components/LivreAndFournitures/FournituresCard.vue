@@ -32,11 +32,11 @@
                     <div class="w-full flex flex-col-reverse md:flex-row"> 
                         <div class="w-full md:w-[70%] mt-6">
                             <div class="w-full flex items-center justify-end pr-4 lg:pr-12">
-                                <button class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button><!--@click="selectAll()"-->
+                                <button @click="selectAll()" class="font-semibold text-dark-blue text-xs md:text-base bg-[#F0F9FF] py-1.5 px-4 md:px-8 rounded-full">Selectionez Tous</button>
                             </div>   
                             <div class="h-[300px] md:h-[420px] overflow-y-auto space-y-4 md:space-y-6">
-                                <div v-for="(products, category) in fournByCategory" :key="category" :class="{'max-h-[300px] overflow-y-auto': index !== 0}">
-                                    <div class="w-full flex flex-col items-start">
+                                <div v-for="(products, category) in fournByCategory" :key="category">
+                                    <div class="w-full flex flex-col items-start" :class="{'max-h-[300px] overflow-y-auto no-scrollbar': index !== 0}">
                                         <h3 class="text-xs md:text-lg font-semibold text-dark-blue pl-1">{{ category }}</h3>
                                         <div v-for="(product, index) in products" :key="product.id" :class="{'first-product w-full  pt-4': index === 0, 'other-products w-fit space-x-8 pt-1': index !== 0,'hidden': index !== 0 && !showOtherProducts[category]}" class="flex items-center">
                                             <div :class="index === 0 ? 'w-1/2 flex items-center space-x-1 md:space-x-3 md:pl-4 lg:pl-10' : 'w-1/2 flex items-center space-x-1 md:pl-4 lg:pl-10'">
@@ -57,13 +57,13 @@
                                                 <div class="w-full flex items-center justify-center">
                                                 <div class="w-1/3 flex items-center justify-end">
                                                     <div class="w-28 h-5 md:h-7 rounded-full text-xs md:text-[15px] font-normal flex items-center justify-evenly bg-dark-blue text-white-color">
-                                                    <div class="cursor-pointer"><!--@click="decreaseQuantity(livre)"-->
+                                                    <div @click="decreaseQuantity(product)" class="cursor-pointer">
                                                         -
                                                     </div>
                                                     <div>
                                                         {{ product.quantity }}
                                                     </div>
-                                                    <div class="cursor-pointer">
+                                                    <div @click="increaseQuantity(product)" class="cursor-pointer">
                                                         +
                                                     </div>
                                                     </div>
@@ -99,11 +99,11 @@
                     </div>    
                     <div class="w-full flex items-center justify-between px-3 lg:px-0 pt-4 lg:pt-8 lg:pl-10 lg:pr-52">
                         <div>
-                            <h3 class="text-xs md:text-base font-normal text-dark-blue">SOUS-TOTAL FOURNITURES = <span class="font-semibold">1000 DHS</span></h3><!--totalLivre-->
+                            <h3 class="text-xs md:text-base font-normal text-dark-blue">SOUS-TOTAL FOURNITURES = <span class="font-semibold">{{totalLivre}} DHS</span></h3>
                         </div>
                         <div>
-                            <!--@click="addToCart()" -->
                             <button 
+                            @click="addToCart()"
                             :class="{
                                 'cursor-default pointer-events-none opacity-50': checkedLivre.length === 0 && data.cartItems.length === 0,
                             }"
@@ -154,38 +154,38 @@ function handleDivClick(id) {
 
 
 //Button Add to cart
-// function addToCart(){
-//     data.cartItems = checkedLivre.value;
-//     document.getElementById("lastbtn").click();
-// }
+function addToCart(){
+    data.cartFournt = checkedLivre.value;
+    document.getElementById("lastbtn").click();
+}
 
 //calcul total
-// function calcTotal(){
-//     const checkedLivreArray = checkedLivre.value;
-//     let total = checkedLivreArray.reduce((total, item) => {
-//         data.total = total + (item.prix * item.quantity);
-//         return total + (item.prix * item.quantity);
-//     }, 0);
-//     return total;
-// }
+function calcTotal(){
+    const checkedLivreArray = checkedLivre.value;
+    let total = checkedLivreArray.reduce((total, item) => {
+        data.total = total + (item.prix * item.quantity);
+        return total + (item.prix * item.quantity);
+    }, 0);
+    return total;
+}
 
 
 //Button Select All
-// function selectAll(){
-//      // Clear the checkedLivre array first
-//      checkedLivre.value = [];
-//      myProduct.value = [];
+function selectAll(){
+     // Clear the checkedLivre array first
+     checkedLivre.value = [];
+     myProduct.value = [];
 
-//     // Iterate through each category
-//     for (const category in livresByCategory) {
-//         // Iterate through each book in the category
-//         livresByCategory[category].forEach(book => {
-//             // Push the book into the checkedLivre array
-//             checkedLivre.value.push(book);
-//             myProduct.value.push(book.id);
-//         });
-//     }
-// }
+    // Iterate through each category
+    for (const category in fournByCategory) {
+        // Iterate through each product in the category
+        fournByCategory[category].forEach(product => {
+            // Push the product into the checkedLivre array
+            checkedLivre.value.push(product);
+            myProduct.value.push(product.id);
+        });
+    }
+}
 
 // Group fournitures by category
 const fournByCategory = props.fournitures.reduce((acc, product) => {
@@ -195,27 +195,27 @@ const fournByCategory = props.fournitures.reduce((acc, product) => {
 }, {});
 
 //Calcul total livre
-// const totalLivre = computed(() => {
-//     return calcTotal();
-// });
+const totalLivre = computed(() => {
+    return calcTotal();
+});
 
 
 //manage quantity
-// function decreaseQuantity(item){
-//     let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
-//     if(index !== -1 && checkedLivre.value[index].quantity !== 1){
-//         checkedLivre.value[index].quantity -= 1;
-//         // if(checkedLivre.value[index].quantity === 0){
-//         //     checkedLivre = checkedLivre.value.filter(livre => livre.id !== item.id);
-//         // }
-//     }
-// };
-// function increaseQuantity(item){
-//     let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
-//     if(index !== -1){
-//         checkedLivre.value[index].quantity += 1;
-//     }
-// };
+function decreaseQuantity(item){
+    let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
+    if(index !== -1 && checkedLivre.value[index].quantity !== 1){
+        checkedLivre.value[index].quantity -= 1;
+        // if(checkedLivre.value[index].quantity === 0){
+        //     checkedLivre = checkedLivre.value.filter(livre => livre.id !== item.id);
+        // }
+    }
+};
+function increaseQuantity(item){
+    let index = checkedLivre.value.findIndex(livre => livre.id === item.id);
+    if(index !== -1){
+        checkedLivre.value[index].quantity += 1;
+    }
+};
 
 
 // Define a reactive object to track whether to show other products for each category
@@ -240,7 +240,6 @@ const moveToTop = (category, index) => {
   const [clickedProduct] = fournByCategory[category].splice(index, 1);
   fournByCategory[category].unshift(clickedProduct);
 };
-
 </script>
 <style scoped>
 /* width */
@@ -257,6 +256,4 @@ const moveToTop = (category, index) => {
     background: #6192BF;
     border-radius: 5px;
 }
-
-
 </style>

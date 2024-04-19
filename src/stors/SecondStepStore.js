@@ -151,6 +151,9 @@ export const useSecondStepStore = defineStore("secondStepStore", {
       countLivreInCart(state){
         return state.cartItems.length;
       },
+      calcTotalPanier(state){
+        return state.plastificationTotal + state.cartItems.reduce((total, livre) => total + (livre.prix * livre.quantity), 0) + state.cartFournt.reduce((total, product) => total + (product.prix * product.quantity), 0); 
+      }
     },
     actions:{
         async fetchLivres(){
@@ -184,5 +187,12 @@ export const useSecondStepStore = defineStore("secondStepStore", {
                 console.log(error)
             }
         },
+        deleteLiv(){
+          this.cartItems = [];
+        },
+        deleteFaurn(){
+          this.cartFournt = [];
+        }
+
     }
 });

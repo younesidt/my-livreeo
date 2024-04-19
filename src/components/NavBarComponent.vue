@@ -55,7 +55,7 @@ const data = useDefaultFaurnitures();
 
 const getCount = computed(() => {
     const products = data.panierProducts;
-    return products.length;
+    return products.reduce((count, product) => count + (1 * product.quantity), 0);
 });
 
 const isOpen = ref(false)

@@ -14,7 +14,7 @@
         </TransitionChild>
 
         <div class="w-full h-screen fixed inset-0 top-0 overflow-y-scroll no-scrollbar font-Poppins backdrop-blur-sm"><!--bg-[rgb(188,188,188)]  bg-opacity-50-->
-            <div class="w-full min-h-screen absolute top-0 right-0 sm:w-[55%] md:w-[45%] lg:w-[40%] xl:w-1/3 2xl:w-[25%] bg-[rgb(225,238,248)] px-4 py-6">
+            <div class="w-full min-h-screen absolute top-0 right-0 sm:w-[55%] md:w-[45%] lg:w-[40%] xl:w-[450px] bg-[rgb(225,238,248)] px-4 py-6">
                 <TransitionChild
                   as="template"
                   enter="transition-opacity duration-300 ease-linear"
@@ -34,7 +34,7 @@
                         <div class="flex flex-col space-y-5 lg:px-5">
                             <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold uppercase">À PROPOS DE LIVRÉEO</DialogTitle>
                             <div class="space-y-3">
-                                <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/how-we-are">Livréeo recructe</router-link></p>
+                                <router-link to="/about/how-we-are" @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light">Livréeo recructe</router-link>
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/about/livero-criche">Résponsabilité des entreprises</router-link></p>
                                 <p @click="setIsOpened(false)" class="text-base 2xl:text-lg font-light"><router-link to="/">Parrainer-un-ami</router-link></p>
                             </div>
@@ -70,42 +70,46 @@
                               <div class="w-full flex items-end justify-around">
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Manuels</h3>
-                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
-                                    <div class="w-full flex items-center justify-between px-1">
-                                      <p class="text-[7px] font-medium">{{ getLivres }} Produit</p>
-                                      <img src="../../assets/drop-icon.svg" alt="">
+                                  <router-link to="/Livres-Fourniture">
+                                    <div @click="setIsOpened(false)" class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                      <div class="w-full flex items-center justify-between px-1">
+                                        <p class="text-[7px] font-medium">{{ getLivres }} Produit</p>
+                                        <img src="../../assets/drop-icon.svg" alt="">
+                                      </div>
                                     </div>
-                                  </div>
+                                  </router-link>
                                 </div>
                                 <div class="cursor-pointer">
-                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                  <h3 @click="deleteLivre()" class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
-                                  <p class="text-xs font-bold">{{getTotalLivre}},00 <span class="font-medium uppercase">MAD</span></p>
+                                  <p class="text-xs font-bold">{{getTotalLivre + secondData.plastificationTotal}},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
                               
                             </div>
                             <!--Fournitures -->
-                            <div class="w-full hidden items-center justify-start">
+                            <div v-if="getProducts" class="w-full flex items-center justify-start">
                               <div class="w-20 flex items-center justify-center">
                                 <img src="../../assets/Calligraphe.svg" class="h-14" alt="calculatrice">
                               </div>
                               <div class="w-full flex items-end justify-around">
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Fournitures</h3>
-                                  <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
-                                    <div class="w-full flex items-center justify-between px-1">
-                                      <p class="text-[7px] font-medium pt-0.5">41 Produit</p>
-                                      <img src="../../assets/drop-icon.svg" alt="">
+                                  <router-link to="/Livres-Fourniture">
+                                    <div @click="setIsOpened(false)" class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                      <div class="w-full flex items-center justify-between px-1">
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getProducts }} Produit</p>
+                                        <img src="../../assets/drop-icon.svg" alt="">
+                                      </div>
                                     </div>
-                                  </div>
+                                  </router-link>
                                 </div>
                                 <div class="cursor-pointer">
-                                  <h3 class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                  <h3 @click="deleteFaurn()"class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
-                                  <p class="text-xs font-bold">420,00 <span class="font-medium uppercase">MAD</span></p>
+                                  <p class="text-xs font-bold">{{getTotalProduct}},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
                               
@@ -119,9 +123,9 @@
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Calculatrice</h3>
                                   <router-link to="/Fourniture/calculatrice">
-                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div @click="setIsOpened(false)" class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                       <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium pt-0.5">{{ getFournitures('calculatrice') }} Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('calculatrice') }} Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                       </div>
                                     </div>
@@ -145,9 +149,9 @@
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Cartable</h3>
                                   <router-link to="/Fourniture/cartable">
-                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div @click="setIsOpened(false)" class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                       <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium">{{ getFournitures('cartable') }} Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('cartable') }} Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                       </div>
                                     </div>
@@ -172,9 +176,9 @@
                                 <div class="flex flex-col items-start justify-start space-y-1">
                                   <h3 class="text-xs font-semibold">Trousse</h3>
                                   <router-link to="/Fourniture/trousse">
-                                    <div class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
+                                    <div @click="setIsOpened(false)" class="border-[0.5px] border-[#6192BF] w-16 h-3.5 rounded-xl flex items-center cursor-pointer">
                                       <div class="w-full flex items-center justify-between px-1">
-                                        <p class="text-[7px] font-medium">{{ getFournitures('trousse') }} Produit</p>
+                                        <p class="text-[7px] font-medium pt-0.5">{{ getCountFourn('trousse') }} Produit</p>
                                         <img src="../../assets/drop-icon.svg" alt="">
                                       </div>
                                     </div>
@@ -194,12 +198,12 @@
 
                         </div>
                       </div>
-                      <div class="w-full text-dark-blue bg-[#FFFFFF] rounded-2xl px-3 py-4 mt-5">
+                      <div class="w-full text-dark-blue bg-[#FFFFFF] rounded-[24px] px-5 py-4 mt-5">
                         <div class="flex flex-col space-y-1">
                             <DialogTitle as="h1" class="text-base 2xl:text-lg font-bold leading-relaxed">Récapitulatif</DialogTitle>
                             <div class="flex items-center justify-between">
                                 <p class="text-xs font-light leading-relaxed">Sous-total</p>
-                                <p class="text-xs font-semibold leading-relaxed">3027,00 MAD</p>
+                                <p v-if="data.totalPanier + secondData.calcTotalPanier !== 0" class="text-xs font-semibold leading-relaxed">{{ data.totalPanier + secondData.calcTotalPanier }} MAD</p>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-xs font-light leading-relaxed">Livraison</p>
@@ -211,16 +215,16 @@
                                     Total
                                     <span class="font-light text-[8px]">TVA incluse</span>
                                 </p>
-                                <p class="text-sm font-bold leading-relaxed">3027,00 MAD</p>
+                                <p v-if="data.totalPanier + secondData.calcTotalPanier !== 0" class="text-sm font-bold leading-relaxed">{{ data.totalPanier + secondData.calcTotalPanier }} MAD</p>
                             </div>
-                            <div class="flex flex-col items-center justify-center pt-2 px-4 space-y-1">
+                            <div class="flex flex-col items-center justify-center pt-2 px-5 space-y-1">
                                 <button class="text-sm font-semibold leading-relaxed bg-dark-blue rounded-full text-white-color w-full py-2 hover:bg-[#004179e5] transition duration-200 ease-in-out">Valider mon panier</button>
                                 <p class="text-sm font-semibold">où</p>
                                 <div class="relative cursor-pointer flex items-center justify-center text-sm py-2 text-center font-semibold leading-relaxed ring-1 ring-dark-blue rounded-full text-dark-blue hover:bg-dark-blue hover:text-white-blue w-full transition duration-500 ease-in-out">
-                                  <div class="absolute flex items-center justify-center left-1 bg-dark-blue w-8 h-8 rounded-full">
+                                  <div class="absolute flex items-center justify-center left-1.5 bg-dark-blue w-7 h-7 rounded-full">
                                     <img src="../../assets/toleft.svg" alt="">
                                   </div>
-                                  <span> Choisir un autre pack</span>
+                                  <span> Choisir un autre PACK</span>
                                 </div>
                             </div>
                         </div>
@@ -235,7 +239,7 @@
   </template>
   
   <script setup>
-  import { computed } from 'vue';
+  import { computed, ref } from 'vue';
   import {
     TransitionRoot,
     TransitionChild,
@@ -253,6 +257,10 @@
     const products = data.panierProducts.filter(item => item.categorie === categorie);
     return products.length;
   });
+  const getCountFourn = computed(() => (categorie) => {
+    const products = data.panierProducts.filter(item => item.categorie === categorie);
+    return products.reduce((count, product) => count + (1 * product.quantity), 0);
+  });
   const getTotalPrice = computed(() => (categorie) => {
     const products = data.panierProducts.filter(item => item.categorie === categorie);
     return products.reduce((total, product) => total + (product.prix * product.quantity), 0);
@@ -262,9 +270,19 @@
   const deleteProducts = (category) => {
     data.deleteProductsByCategory(category);
   }
+  
 
   //livre + faurnitures panier
   const secondData = useSecondStepStore();
+
+  //Button supprimer livre
+  const deleteLivre = () => {
+    secondData.deleteLiv();
+  }
+  //Button supprimer faurnitures
+  const deleteFaurn = () => {
+    secondData.deleteFaurn();
+  }
 
   const getLivres = computed(() => {
     const livres = secondData.cartItems.length;
@@ -273,6 +291,15 @@
   const getTotalLivre = computed(() => {
     const livre = secondData.cartItems;
     return livre.reduce((total, product) => total + (product.prix * product.quantity), 0);
+  });
+
+  const getProducts = computed(() => {
+    const products = secondData.cartFournt.length;
+    return products;
+  });
+  const getTotalProduct = computed(() => {
+    const product = secondData.cartFournt;
+    return product.reduce((total, product) => total + (product.prix * product.quantity), 0);
   });
 
 
@@ -285,6 +312,12 @@
 
   function setIsOpened(value){
     emitt('toggle', value);
+  }
+
+  const isOpen = ref(true)
+
+  function closeModal() {
+    isOpen.value = false
   }
   
 </script>
@@ -303,6 +336,10 @@
 ::-webkit-scrollbar-thumb {
   background: #004079;
   border-radius: 5px;
+}
+
+.focus\:outline-none:focus {
+  outline: none !important;
 }
 </style>
   

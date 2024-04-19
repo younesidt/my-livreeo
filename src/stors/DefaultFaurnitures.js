@@ -74,11 +74,14 @@ export const useDefaultFaurnitures = defineStore("defaultFaurnitures", {
         getProducts(state){
             return state.fourniture.map(item => ({...item, quantity: 1, selectedColor: ''}));
         },
-
+        totalPanier(state){
+            return state.panierProducts.reduce((total, product) => total + (product.prix * product.quantity), 0);
+        }
     },
     actions:{
         deleteProductsByCategory(category) {
             this.panierProducts = this.panierProducts.filter(item => item.categorie !== category);
         },
+
     }
 });
