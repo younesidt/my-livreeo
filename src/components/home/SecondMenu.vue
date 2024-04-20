@@ -106,7 +106,7 @@
                                   </router-link>
                                 </div>
                                 <div class="cursor-pointer">
-                                  <h3 @click="deleteFaurn()"class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
+                                  <h3 @click="deleteFaurn()" class="text-[9px] font-medium uppercase">SUPPRIMIER</h3>
                                 </div>
                                 <div>
                                   <p class="text-xs font-bold">{{getTotalProduct}},00 <span class="font-medium uppercase">MAD</span></p>
@@ -138,7 +138,6 @@
                                   <p class="text-xs font-bold">{{ getTotalPrice('calculatrice') }},00 <span class="font-medium uppercase">MAD</span></p>
                                 </div>
                               </div>
-                              
                             </div>
                             <!--Default Cartable -->
                             <div v-if="getFournitures('cartable')" class="w-full flex items-center justify-start">
