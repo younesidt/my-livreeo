@@ -1,5 +1,5 @@
 <template>
-    <div class="w-fit bg-white-color rounded-3xl px-5 py-3 space-y-2">
+    <div class="w-[90%] md:w-3/4 lg:w-fit bg-white-color rounded-3xl px-4 py-3 space-y-2 mt-4 xl:mt-0">
         <h3 class="text-dark-blue text-base font-medium">Saisir un code promo </h3>
         <hr style="color: #EDEDED;">
         <div class="flex items-center justify-between">

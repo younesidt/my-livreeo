@@ -1,5 +1,5 @@
 <template>
-    <div class="w-80 text-dark-blue bg-white-color rounded-3xl px-5 py-4">
+    <div class="w-[90%] md:w-3/4 lg:w-80 text-dark-blue bg-white-color rounded-3xl px-5 py-4">
         <h1 class="text-base font-bold leading-6 pb-5">Récapitulatif</h1>
         <div class="flex items-center justify-between pb-4">
             <div>
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="w-full flex flex-col items-center justify-center pt-6">
-            <button class="bg-dark-blue text-white-color rounded-full text-sm w-3/4 py-2 font-semibold hover:bg-[#004179e5] transition duration-200 ease-in"><router-link to="/">Valider mon panier</router-link></button>
+            <button class="bg-dark-blue text-white-color rounded-full text-sm w-3/4 py-2 font-semibold hover:bg-[#004179e5] transition duration-200 ease-in"><router-link to="/mode-livraison">Valider mon panier</router-link></button>
             <p class="font-semibold py-[2px]">où</p>
             <button class="bg-dark-blue text-white-color rounded-full text-[13px] w-3/4 py-2 font-light hover:bg-[#004179e5] transition duration-200 ease-in-out">Choisir un autre pack</button>
         </div>

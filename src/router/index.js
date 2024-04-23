@@ -15,7 +15,7 @@ import RouterPolicy from '../views/about-views/RouterPolicyView.vue'
 import Livreson from '../views/about-views/LivresonModalitiView.vue'
 import StatutCommande from '../views/StatutCommande.vue'
 import Bascket from '../views/BasketView.vue'
-import ModeLivreson from '../views/selectLevrisonView.vue'
+import ModeLivraison from '../views/ModeLivraison.vue'
 import Fourniture from '../views/FournitureView.vue'
 import Adress from '../views/UserInfo/AdressView.vue'
 import UserInfo from '../views/UserInfo/userInformation.vue'
@@ -53,9 +53,9 @@ const router = createRouter({
             component: Fourniture
           },
           {
-            path: '/mode-livreson',
-            name: ' modeLivreson',
-            component:  ModeLivreson
+            path: '/mode-livraison',
+            name: 'ModeLivraison',
+            component:  ModeLivraison
           },
           {
             path: '/user-address',
