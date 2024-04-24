@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto max-w-7xl">
         <!--First section-->
-        <div class="flex flex-col-reverse lg:flex-row items-center gap-12 mt-10 lg:mt-28">
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-12 mt-10 lg:mt-16">
             <div class="flex flex-1 flex-col items-start text-dark-blue px-6">
                 <h1 class="text-xl lg:text-3xl font-bold pb-6 lg:pb-10">Suivi Des Commandes</h1>
                 <h4 class="text-sm lg:text-base font-bold pb-6">Vous avez passé une commande auprès de Livréeo ? Merci !</h4>

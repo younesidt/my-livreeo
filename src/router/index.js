@@ -17,7 +17,7 @@ import StatutCommande from '../views/StatutCommande.vue'
 import Bascket from '../views/BasketView.vue'
 import ModeLivraison from '../views/ModeLivraison.vue'
 import Fourniture from '../views/FournitureView.vue'
-import Adress from '../views/UserInfo/AdressView.vue'
+import Addresse from '../views/UserInfo/AddresseView.vue'
 import UserInfo from '../views/UserInfo/userInformation.vue'
 import paymentMethod from '../views/UserInfo/paymentMethod.vue'
 import cartInfo from '../views/UserInfo/cartInfoView.vue'
@@ -58,9 +58,9 @@ const router = createRouter({
             component:  ModeLivraison
           },
           {
-            path: '/user-address',
-            name: 'user-addres',
-            component:  Adress
+            path: '/adresse-de-livraison',
+            name: 'Addresse',
+            component:  Addresse
           },
           {
             path: '/user-info',
