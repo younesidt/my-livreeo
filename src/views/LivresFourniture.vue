@@ -25,11 +25,7 @@
             <SmallCard :cart="cartLivre" name="Manuels" image="../../livreeo/src/assets/manuels.svg"/>
             <SmallCard :cart="cartFourn" name="Fournitures" image="../../livreeo/src/assets/fourniture.svg"/>
             <SmallCard :cart="cartPlast" id="secondbtn" name="Plastification" image="../../livreeo/src/assets/plastification.svg"/>
-            <img src="../assets/manuels.svg" class="hidden" alt="manuels">
-            <img src="../assets/fourniture.svg" class="hidden" alt="fourniture">
-            <img src="../assets/plastification.svg" class="hidden" alt="plastification">
-            <img src="../assets/latin.png" class="hidden" alt="latin">
-            <img src="../assets/livre.svg" class="hidden" alt="livre">
+            
         </div>
         <div class="w-full flex flex-col items-center justify-center space-y-10">
             <LivresCard 
